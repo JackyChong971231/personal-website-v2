@@ -1,4 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
+import "bootstrap/dist/js/bootstrap.bundle.min";
+import propic from './images/ProPic.jpg';
 
 export function NavBar2() {
     return (
@@ -76,8 +78,8 @@ export function NavBar() {
                 <button
                 class="navbar-toggler"
                 type="button"
-                data-mdb-toggle="collapse"
-                data-mdb-target="#navbarSupportedContent"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent"
                 aria-expanded="false"
                 aria-label="Toggle navigation"
@@ -119,6 +121,9 @@ export function NavBar() {
                     <i class="fas fa-shopping-cart"></i>
                 </a>
 
+
+
+
                 {/* <!-- Notifications --> */}
                 <div class="dropdown">
                     <a
@@ -126,7 +131,7 @@ export function NavBar() {
                     href="#"
                     id="navbarDropdownMenuLink"
                     role="button"
-                    data-mdb-toggle="dropdown"
+                    data-bs-toggle="dropdown"
                     aria-expanded="false"
                     >
                     <i class="fas fa-bell"></i>
@@ -147,39 +152,41 @@ export function NavBar() {
                     </li>
                     </ul>
                 </div>
+
                 {/* <!-- Avatar --> */}
                 <div class="dropdown">
                     <a
                     class="dropdown-toggle d-flex align-items-center hidden-arrow"
                     href="#"
-                    id="navbarDropdownMenuAvatar"
                     role="button"
-                    data-mdb-toggle="dropdown"
+                    id="navbarDropdownMenuAvatar"
+                    data-bs-toggle="dropdown"
                     aria-expanded="false"
                     >
-                    <img
-                        src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-                        class="rounded-circle"
-                        height="25"
-                        alt="Black and White Portrait of a Man"
-                        loading="lazy"
-                    />
+                        <img
+                            src={propic}
+                            class="rounded-circle"
+                            height="25"
+                            alt="Black and White Portrait of a Man"
+                            loading="lazy"
+                        />
                     </a>
                     <ul
-                    class="dropdown-menu dropdown-menu-end"
-                    aria-labelledby="navbarDropdownMenuAvatar"
+                        class="dropdown-menu dropdown-menu-end"
+                        aria-labelledby="navbarDropdownMenuAvatar"
                     >
-                    <li>
-                        <a class="dropdown-item" href="#">My profile</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">Settings</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">Logout</a>
-                    </li>
+                        <li><a class="dropdown-item" href="#">My profile</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Logout</a></li>
                     </ul>
                 </div>
+                
+                <a
+                class="btn btn-dark "
+                href="https://github.com/JackyChong971231"
+                role="button">
+                    <i class="fa fa-github"></i>
+                </a>
                 </div>
                 {/* <!-- Right elements --> */}
             </div>
