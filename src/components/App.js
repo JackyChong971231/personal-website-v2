@@ -3,6 +3,10 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import {NavBar} from './NavBar';
 
+import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 function App() {
   return (
     <div className="App">
@@ -22,6 +26,13 @@ function App() {
         >
           Learn React
         </a>
+        <a
+        class="btn btn-bright mx-3"
+        href="https://github.com/JackyChong971231"
+        role="button">
+            <FontAwesomeIcon icon={faGithub} />
+        </a>
+      
       </header>
     </div>
   );

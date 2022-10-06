@@ -2,6 +2,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import propic from './images/ProPic.jpg';
 
+import React, { useState, useEffect } from 'react';
+
+import { faBars, faBell, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 export function NavBar2() {
     return (
         <>
@@ -68,6 +74,8 @@ export function NavBar2() {
 }
 
 export function NavBar() {
+    const [clicked, setClicked] = useState(false);;
+
     return (
         <>
             {/* <!-- Navbar --> */}
@@ -83,8 +91,9 @@ export function NavBar() {
                 aria-controls="navbarSupportedContent"
                 aria-expanded="false"
                 aria-label="Toggle navigation"
+                onClick={() => {setClicked(!clicked);}}
                 >
-                <i class="fas fa-bars"></i>
+                <FontAwesomeIcon icon={clicked? faXmark: faBars}/>
                 </button>
 
                 {/* <!-- Collapsible wrapper --> */}
@@ -134,7 +143,7 @@ export function NavBar() {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                     >
-                    <i class="fas fa-bell"></i>
+                    <FontAwesomeIcon icon={faBell} />
                     <span class="badge rounded-pill badge-notification bg-danger">1</span>
                     </a>
                     <ul
@@ -182,10 +191,10 @@ export function NavBar() {
                 </div>
                 
                 <a
-                class="btn btn-dark "
+                class="btn btn-dark mx-3"
                 href="https://github.com/JackyChong971231"
                 role="button">
-                    <i class="fa fa-github"></i>
+                    <FontAwesomeIcon icon={faGithub} />
                 </a>
                 </div>
                 {/* <!-- Right elements --> */}
