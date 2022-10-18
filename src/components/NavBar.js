@@ -84,7 +84,7 @@ export function NavBar() {
             <div class="container-fluid">
                 {/* <!-- Toggle button --> */}
                 <button
-                class="navbar-toggler"
+                class="navbar-toggler shadow-none border-0"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent"

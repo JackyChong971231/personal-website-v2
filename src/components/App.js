@@ -2,6 +2,7 @@ import logo from './images/logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import {NavBar} from './NavBar';
+import { HomePage } from './HomePage';
 
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
@@ -12,6 +13,7 @@ function App() {
     <div className="App">
 
       <NavBar/>
+      <HomePage/>
 
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
