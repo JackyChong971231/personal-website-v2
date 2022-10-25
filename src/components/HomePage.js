@@ -1,6 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import ProPic_Landscape from './images/ProPic_Landscape.jpg';
+import "./HomePage.css";
+import ProPic_Landscape from './images/ProPic_Landscape_3.jpg';
+import LinkedInProPic from './images/ProPic.jpg';
 
 import React, { useState, useEffect } from 'react';
 
@@ -11,7 +13,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export function HomePage() {
     return (
         <>
-            <img class="container-fluid" src={ProPic_Landscape}></img>
+          <div class='Cover'>
+            <img class="CoverProPic" src={ProPic_Landscape}></img>
+            <div class="Greeting">
+              <h1>Hello</h1>
+              <h3>My name is Jacky</h3>
+            </div>
+          </div>
         </>
     );
 }

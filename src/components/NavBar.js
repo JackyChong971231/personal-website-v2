@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.css';
+import './NavBar.css'
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import propic from './images/ProPic.jpg';
 
@@ -14,7 +15,8 @@ export function NavBar() {
     return (
         <>
           {/* <!-- Navbar --> */}
-          <nav className="navbar" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+          <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+          {/* <nav class="navbar"> */}
             {/* <!-- Container wrapper --> */}
             <div class="container-fluid">
                 {/* <!-- Toggle button --> */}

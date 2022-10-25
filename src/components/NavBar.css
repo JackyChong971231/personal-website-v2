@@ -1,3 +1,7 @@
 .navbar {
-    transition: 0.5s; /* Transition effect when sliding down (and up) */
-  }
+  position: sticky;
+  background-color: rgb(255,255,255, 0.6);
+  backdrop-filter: blur(10px);
+  transition: 0.2s;
+}
+

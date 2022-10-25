@@ -16,27 +16,21 @@ function App() {
     const onScroll = e => {
       if (prevScrollpos > window.pageYOffset) {
         document.getElementsByClassName("navbar")[0].style.top = "0";
-      } else {
+      } else if (window.pageYOffset - window.screen.height > 50) {
         document.getElementsByClassName("navbar")[0].style.top = "-60px";
       }
       setPrevScrollpos(window.pageYOffset);
     }
     window.addEventListener("scroll", onScroll)
 
-    // if (prevScrollpos > window.pageYOffset) {
-    //   document.getElementById("navbar").style.top = "0";
-    // } else {
-    //   document.getElementById("navbar").style.top = "-50px";
-    // }
-    // setPrevScrollpos(window.pageYOffset);
 
   })
 
   return (
     <div className="App">
 
-      <NavBar/>
       <HomePage/>
+      <NavBar/>
 
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
