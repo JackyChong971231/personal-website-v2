@@ -8,6 +8,7 @@ import React, { useState, useEffect } from 'react';
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { AboutMe } from './sections/AboutMe';
 
 function App() {
   const [prevScrollpos, setPrevScrollpos] = useState(0);
@@ -29,8 +30,9 @@ function App() {
   return (
     <div className="App">
 
-      <HomePage/>
       <NavBar/>
+      <HomePage/>
+      <AboutMe/>
 
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
