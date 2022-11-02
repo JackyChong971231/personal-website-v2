@@ -1,6 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './NavBar.css'
 import "bootstrap/dist/js/bootstrap.bundle.min";
+
+import myLogo from './images/myLogo.png'
 import propic from './images/ProPic.jpg';
 
 import React, { useState, useEffect } from 'react';
@@ -29,7 +31,7 @@ export function NavBar() {
                     aria-label="Toggle navigation"
                     onClick={() => {setClicked(!clicked);}}
                     >
-                    <FontAwesomeIcon icon={clicked? faXmark: faBars}/>
+                        <FontAwesomeIcon icon={clicked? faXmark: faBars}/>
                     </button>
 
                     {/* <!-- Collapsible wrapper --> */}
@@ -37,22 +39,28 @@ export function NavBar() {
                         {/* <!-- Navbar brand --> */}
                         <a class="navbar-brand mt-2 mt-lg-0" href="#">
                             <img
-                            src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
+                            src={myLogo}
                             height="15"
                             alt="MDB Logo"
                             loading="lazy"
                             />
                         </a>
                         {/* <!-- Left links --> */}
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                            <a class="nav-link" href="#">Dashboard</a>
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-start">
+                            <li class="nav-item"
+                            >
+                            <a class="nav-link"
+                            onClick={() => {setClicked(!clicked);}}
+                            href="#AboutMe" >About Me</a>
                             </li>
                             <li class="nav-item">
-                            <a class="nav-link" href="#">Team</a>
+                            <a class="nav-link" href="#bodybody">Working Experience</a>
                             </li>
                             <li class="nav-item">
                             <a class="nav-link" href="#">Projects</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="#">Skills</a>
                             </li>
                         </ul>
                         {/* <!-- Left links --> */}
