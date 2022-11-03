@@ -47,19 +47,18 @@ export function NavBar() {
                         </a>
                         {/* <!-- Left links --> */}
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-start">
-                            <li class="nav-item"
-                            >
+                            <li class="nav-item mx-3">
                             <a class="nav-link"
                             onClick={() => {setClicked(!clicked);}}
                             href="#AboutMe" >About Me</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item mx-3">
                             <a class="nav-link" href="#bodybody">Working Experience</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item mx-3">
                             <a class="nav-link" href="#">Projects</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item mx-3">
                             <a class="nav-link" href="#">Skills</a>
                             </li>
                         </ul>

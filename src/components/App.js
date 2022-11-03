@@ -15,7 +15,6 @@ function App() {
 
   useEffect(() => {
     const onScroll = e => {
-      console.log(document.getElementsByClassName("navbar")[0].style);
       if (prevScrollpos > window.pageYOffset) {
         document.getElementsByClassName("navbar")[0].style.top = "0";
       } else if (window.pageYOffset - window.screen.height > 50) {
@@ -29,35 +28,11 @@ function App() {
   })
 
   return (
-    <div className="App">
+    <div class="App pb-5">
 
       <HomePage/>
       <NavBar/>
       <section id="AboutMe"><AboutMe/></section>
-
-      <section id="bodybody">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          <a
-          class="btn btn-bright mx-3"
-          href="https://github.com/JackyChong971231"
-          role="button">
-              <FontAwesomeIcon icon={faGithub} />
-          </a>
-        
-        </header>
-      </section>
     </div>
   );
 }
