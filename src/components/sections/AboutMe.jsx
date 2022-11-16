@@ -8,8 +8,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './AboutMe.css';
 
 export function AboutMe() {
-    const [imageIndexPrevious, setImageIndexPrevious] = useState(0);
+    const [imageIndexIncrement, setImageIndexIncrement] = useState(1);
     const [imageIndexCurrent, setImageIndexCurrent] = useState(1);
+    // const [imagesSlideShow, setImagesSlideShow] = userState([]);
     const [timeoutTimer, setTimeoutTimer] = useState(0);
 
     const AboutMeObject = {
@@ -24,21 +25,22 @@ export function AboutMe() {
     }
 
     function importAll(r) {
-        let images = {};
-        r.keys().forEach((item, index) => { images[item.replace('./', '')] = r(item); });
+        let images = [];
+        r.keys().forEach((item, index) => { images[index] = <img class="AboutMeImages mx-3" src={r(item)} />; });
         return images
     }
 
     // Note from the docs -> Warning: The arguments passed to require.context must be literals!
-    const images = importAll(require.context("../images/AboutMe", false, /\.(png|jpe?g|svg)$/));
-    
+    var images = importAll(require.context("../images/AboutMe", false, /\.(png|jpe?g|svg)$/));
+    const imagesAmount = Object.keys(images).length;
 
     useEffect(() => {
         setTimeoutTimer(setTimeout(() => {
-            const tempCurrent = imageIndexCurrent;
-            setImageIndexCurrent(imageIndexCurrent + imageIndexCurrent-imageIndexPrevious);
-            setImageIndexPrevious(tempCurrent);
-            console.log(tempCurrent, imageIndexCurrent)
+            let setTo = imageIndexCurrent + imageIndexIncrement
+            if (setTo >= imagesAmount) {setTo = 0}
+            else if (setTo < 0 ) {setTo = imagesAmount -1}
+            setImageIndexCurrent(setTo);
+            console.log(images[0].style)
         },2000));
         return () => {
             clearTimeout(timeoutTimer);
@@ -99,19 +101,17 @@ export function AboutMe() {
                 <p>{imageIndexCurrent}</p>
                 <button onClick={() => {
                     clearTimeout(timeoutTimer);
-                    setImageIndexPrevious(imageIndexCurrent);
-                    setImageIndexCurrent(imageIndexCurrent-1)}
+                    setImageIndexIncrement(-1);
+                    setImageIndexCurrent((imageIndexCurrent-1 < 0)? imagesAmount-1: imageIndexCurrent-1)}
                 }>previous</button>
                 <button onClick={() => {
                     clearTimeout(timeoutTimer);
-                    setImageIndexPrevious(imageIndexCurrent);
-                    setImageIndexCurrent(imageIndexCurrent+1)
+                    setImageIndexIncrement(1);
+                    setImageIndexCurrent((imageIndexCurrent+1 >= imagesAmount)? 0: imageIndexCurrent+1)
                 }
                 }>next</button>
                 <div class="ImagesSlideShow">
-                    {Object.keys(images).map((image) => (
-                    <img class="AboutMeImages mx-3" src={images[image]} />
-                    ))}
+                    {images}
                 </div>
                 {/* <div id="carouselExampleIndicators" class="row container carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
