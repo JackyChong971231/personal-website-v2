@@ -8,6 +8,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './AboutMe.css';
 
 export function AboutMe() {
+    const [imageIndexPrevious, setImageIndexPrevious] = useState(0);
+    const [imageIndexCurrent, setImageIndexCurrent] = useState(1);
+    const [timeoutTimer, setTimeoutTimer] = useState(0);
 
     const AboutMeObject = {
         Birthday: '31 Dec 1997',
@@ -28,10 +31,21 @@ export function AboutMe() {
 
     // Note from the docs -> Warning: The arguments passed to require.context must be literals!
     const images = importAll(require.context("../images/AboutMe", false, /\.(png|jpe?g|svg)$/));
-    let imagesIndicator = [];
-    for(let i=0; i<images.length;i++) {
-        imagesIndicator.push(<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>)
-    }
+    
+
+    useEffect(() => {
+        setTimeoutTimer(setTimeout(() => {
+            const tempCurrent = imageIndexCurrent;
+            setImageIndexCurrent(imageIndexCurrent + imageIndexCurrent-imageIndexPrevious);
+            setImageIndexPrevious(tempCurrent);
+            console.log(tempCurrent, imageIndexCurrent)
+        },2000));
+        return () => {
+            clearTimeout(timeoutTimer);
+        }
+    }, [imageIndexCurrent])
+
+    
 
     return (
         <>
@@ -82,12 +96,24 @@ export function AboutMe() {
             </div>
             <div class="container mt-5">
                 <h1 class="row text-start">Some photos about me</h1>
-                {/* <div class="ImagesSlideShow">
+                <p>{imageIndexCurrent}</p>
+                <button onClick={() => {
+                    clearTimeout(timeoutTimer);
+                    setImageIndexPrevious(imageIndexCurrent);
+                    setImageIndexCurrent(imageIndexCurrent-1)}
+                }>previous</button>
+                <button onClick={() => {
+                    clearTimeout(timeoutTimer);
+                    setImageIndexPrevious(imageIndexCurrent);
+                    setImageIndexCurrent(imageIndexCurrent+1)
+                }
+                }>next</button>
+                <div class="ImagesSlideShow">
                     {Object.keys(images).map((image) => (
-                    <img class="mx-3" src={images[image]} />
+                    <img class="AboutMeImages mx-3" src={images[image]} />
                     ))}
-                </div> */}
-                <div id="carouselExampleIndicators" class="row container carousel slide" data-bs-ride="carousel">
+                </div>
+                {/* <div id="carouselExampleIndicators" class="row container carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         {Object.keys(images).map((image, index) => (
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={index.toString()} class={index==0? "active": null} aria-current={index==0? "true": null} aria-label={"Slide "+ (index+1).toString()}></button>
@@ -108,7 +134,7 @@ export function AboutMe() {
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
-                </div>
+                </div> */}
             </div>
         </>
     )
