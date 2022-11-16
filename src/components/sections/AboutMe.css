@@ -4,31 +4,17 @@
     display: inline-flex;
     overflow-x: scroll;
     overflow-y: hidden;
-    animation: primary 10s linear infinite;
+
 }
 
 .ImagesSlideShow::-webkit-scrollbar { 
     display: none;  /* Safari and Chrome */
 }
 
-.ImagesSlideShow > img {
+.AboutMeImages {
     position: relative;
     width: 400px;
     height: 100%;
     object-fit: cover;
     /* animation: primary 10s linear infinite; */
 }
-
-@keyframes primary {
-    from {
-        left: 0%;
-    }
-    to {
-        left: -100%;
-    }
-}
-
-/* .carousel-item > img {
-    height: 300px;
-    object-fit: cover;
-} */

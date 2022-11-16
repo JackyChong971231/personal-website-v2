@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import propic from '../images/ProPic.jpg';
 
 // import { f } from "@fortawesome/free-solid-svg-icons";
@@ -26,11 +26,12 @@ export function AboutMe() {
 
     function importAll(r) {
         let images = [];
-        r.keys().forEach((item, index) => { images[index] = <img class="AboutMeImages mx-3" src={r(item)} />; });
+        r.keys().forEach((item, index) => { images[index] = <img ref={imagesRef[index]} class="AboutMeImages" src={r(item)} />; });
         return images
     }
 
     // Note from the docs -> Warning: The arguments passed to require.context must be literals!
+    const imagesRef = Array(8).fill(useRef(null));
     var images = importAll(require.context("../images/AboutMe", false, /\.(png|jpe?g|svg)$/));
     const imagesAmount = Object.keys(images).length;
 
@@ -40,7 +41,8 @@ export function AboutMe() {
             if (setTo >= imagesAmount) {setTo = 0}
             else if (setTo < 0 ) {setTo = imagesAmount -1}
             setImageIndexCurrent(setTo);
-            console.log(images[0].style)
+            // images.unshift(images.pop());
+            // images.shift();
         },2000));
         return () => {
             clearTimeout(timeoutTimer);
