@@ -9,6 +9,7 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AboutMe } from './sections/AboutMe';
+import { Skills } from './sections/Skills';
 
 function App() {
   const [prevScrollpos, setPrevScrollpos] = useState(0);
@@ -33,6 +34,7 @@ function App() {
       <HomePage/>
       <NavBar/>
       <section id="AboutMe"><AboutMe/></section>
+      <section id="Skills"><Skills/></section>
     </div>
   );
 }

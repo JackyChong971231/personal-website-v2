@@ -7,47 +7,89 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import './AboutMe.css';
 
+function spliceIntoChunks(arr, chunkSize) {
+    const res = [];
+    while (arr.length > 0) {
+        const chunk = arr.splice(0, chunkSize);
+        res.push(chunk);
+    }
+    return res;
+}
+
 export function AboutMe() {
-    const [imageIndexIncrement, setImageIndexIncrement] = useState(1);
-    const [imageIndexCurrent, setImageIndexCurrent] = useState(1);
-    const [timeoutTimer, setTimeoutTimer] = useState(0);
+    const [imagesComponent, setImagesComponent] = useState([]);
 
     const AboutMeObject = {
         Birthday: '31 Dec 1997',
         Age: '24 Years Old',
         Phone: '+852 9239 1019'
-    }
 
+    }
     const ContactPoint = {
         Instagram:  {icon: faInstagram, url: "https://www.instagram.com/cggyee"},
         LinkedIn:   {icon: faLinkedin,  url: "https://www.linkedin.com/in/jacky-chong-kin-ye"}
     }
 
     function importAll(r) {
-        let images = [];
-        r.keys().forEach((item, index) => { images[index] = <img key={index.toString(10)} ref={el => imagesRef.current[index.toString(10)] = el} class="AboutMeImages" src={r(item)} />; });
-        return images
+        const imagesChunkedArray = spliceIntoChunks(r.keys(), 3)
+        let imagesContainer = [];
+        imagesChunkedArray.forEach((chunk) => {
+            const tempChunkImages = chunk.map((image, index) => 
+                <div class={(index==0)? "col-md-4": "col-md-4 d-none d-md-block"}>
+                    <div class="card">
+                        <img
+                            src={r(image)}
+                            class="card-img-top"
+                            alt="Waterfall"
+                        />
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">
+                            Some quick example text to build on the card title and make up the bulk
+                            of the card's content.
+                            </p>
+                            <a href="#!" class="btn btn-primary">Button</a>
+                        </div>
+                    </div>
+                </div>
+            )
+            imagesContainer.push(
+                <div class={(imagesContainer.length==0)? "carousel-item active": "carousel-item"}>
+                    <div class="container">
+                        <div class="row">
+                            {tempChunkImages}
+                        </div>
+                    </div>
+                </div>
+            )
+        });
+        r.keys().forEach((item, index) => {
+            console.log(item);
+        })
+        return imagesContainer
+        // <img key={index.toString(10)} ref={el => imagesRef.current[index.toString(10)] = el} class="AboutMeImages" src={r(item)} />; 
     }
 
-    // Note from the docs -> Warning: The arguments passed to require.context must be literals!
-    const imagesRef = useRef([]);
-    var images = importAll(require.context("../images/AboutMe", false, /\.(png|jpe?g|svg)$/));
-    const imagesAmount = Object.keys(images).length;
-
     useEffect(() => {
-        setTimeoutTimer(setTimeout(() => {
-            let setTo = imageIndexCurrent + imageIndexIncrement
-            if (setTo >= imagesAmount) {setTo = 0}
-            else if (setTo < 0 ) {setTo = imagesAmount -1}
-            setImageIndexCurrent(setTo);
-            // images.unshift(images.pop());
-            // images.shift();
-            imagesRef.current[setTo.toString(10)].style.display = "none"
-        },2000));
-        return () => {
-            clearTimeout(timeoutTimer);
-        }
-    }, [imageIndexCurrent])
+        // Note from the docs -> Warning: The arguments passed to require.context must be literals!
+        
+        setImagesComponent(importAll(require.context("../images/AboutMe", false, /\.(png|jpe?g|svg)$/)));
+    },[])
+
+    // useEffect(() => {
+    //     setTimeoutTimer(setTimeout(() => {
+    //         let setTo = imageIndexCurrent + imageIndexIncrement
+    //         if (setTo >= imagesAmount) {setTo = 0}
+    //         else if (setTo < 0 ) {setTo = imagesAmount -1}
+    //         setImageIndexCurrent(setTo);
+    //         // images.unshift(images.pop());
+    //         // images.shift();
+    //         imagesRef.current[setTo.toString(10)].style.display = "none"
+    //     },2000));
+    //     return () => {
+    //         clearTimeout(timeoutTimer);
+    //     }
+    // }, [imageIndexCurrent])
 
     
 
@@ -100,43 +142,45 @@ export function AboutMe() {
             </div>
             <div class="container mt-5">
                 <h1 class="row text-start">Some photos about me</h1>
-                <p>{imageIndexCurrent}</p>
+                {/* <p>{imageIndexCurrent}</p>
                 <button onClick={() => {
                     clearTimeout(timeoutTimer);
                     setImageIndexIncrement(-1);
-                    setImageIndexCurrent((imageIndexCurrent-1 < 0)? imagesAmount-1: imageIndexCurrent-1)}
+                    setImageIndexCurrent((imageIndexCurrent-1 < 0)? Object.keys(images).length-1: imageIndexCurrent-1)}
                 }>previous</button>
                 <button onClick={() => {
                     clearTimeout(timeoutTimer);
                     setImageIndexIncrement(1);
-                    setImageIndexCurrent((imageIndexCurrent+1 >= imagesAmount)? 0: imageIndexCurrent+1)
+                    setImageIndexCurrent((imageIndexCurrent+1 >= Object.keys(images).length)? 0: imageIndexCurrent+1)
                 }
                 }>next</button>
                 <div class="ImagesSlideShow">
                     {images}
-                </div>
-                {/* <div id="carouselExampleIndicators" class="row container carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        {Object.keys(images).map((image, index) => (
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={index.toString()} class={index==0? "active": null} aria-current={index==0? "true": null} aria-label={"Slide "+ (index+1).toString()}></button>
-                        ))}
-                    </div>
-                    <div class="carousel-inner">
-                        {Object.keys(images).map((image, index) => (
-                        <div class={index==0 ? "carousel-item active": "carousel-item"} data-bs-interval="2000">
-                            <img style={{width: 100}} src={images[image]} class="d-block w-100" alt="..."/>
-                        </div>
-                        ))}
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </div> */}
+                {/* <!-- Carousel wrapper --> */}
+                <div
+                id="carouselMultiItemExample"
+                class="carousel slide carousel-dark"
+                data-bs-ride="carousel"
+                >
+                {/* <!-- Controls --> */}
+                <div class="d-flex justify-content-center mb-4">
+                    <button class="btn btn-light mx-2" type="button" data-bs-target="#carouselMultiItemExample" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="false"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <button class="btn btn-light mx-2" type="button" data-bs-target="#carouselMultiItemExample" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="false"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
-                </div> */}
+                </div>
+                {/* <!-- Inner --> */}
+                <div class="carousel-inner py-4">
+                    {imagesComponent}
+                </div>
+                {/* <!-- Inner --> */}
+                </div>
+                {/* <!-- Carousel wrapper --> */}
             </div>
         </>
     )
