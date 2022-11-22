@@ -104,7 +104,7 @@ export function AboutMe() {
                 </div>
                 <div class="row my-3">
                     <div class="col-sm-5">  {/*d-flex align-items-center*/}
-                        <img class="img-thumbnail" src={propic}></img>
+                        <img class="img-thumbnail rounded-circle p-3" src={propic}></img>
                     </div>
                     <div class="col-sm-7">
                         <div class="row my-3 my-sm-0">
