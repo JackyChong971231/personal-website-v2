@@ -27,12 +27,14 @@ export function Skills() {
                     <h4 class="text-end pt-2 px-4 pb-4" >Steve Jobs</h4>
                 </div>
                 <div class="row skills in no-gutters">
-                    <h1 class="text-start px-5 py-3">Skills</h1>
-                    <div class="container">
-                        <button class="btn btn-primary col-6 col-sm-3">Soft Skill</button>
-                        <button class="btn btn-primary col-6 col-sm-3">Hard Skill</button>
-                        <button class="btn btn-primary col-6 col-sm-3">Programming Skill</button>
-                        <button class="btn btn-primary col-6 col-sm-3"></button>
+                    <h1 class="text-start px-5 py-3">Expertise</h1>
+                    <div class="container px-5">
+                        <div class="row">
+                            <div class="col-6 col-md-3 px-2"><div class="rounded border border-light">Project Management</div></div>
+                            <div class="col-6 col-md-3 px-2"><div class="rounded border border-light">Embedded System Design</div></div>
+                            <div class="col-6 col-md-3 px-2"><div class="rounded border border-light">System Analysis & Solution Design</div></div>
+                            <div class="col-6 col-md-3 px-2"><div class="rounded border border-light">System Developer</div></div>
+                        </div>
                     </div>
                     <h1 class="text-start px-5 py-3">Education</h1>
                     <div class="container px-5">
