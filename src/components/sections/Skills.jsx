@@ -5,19 +5,38 @@ import propic from '../images/ProPic.jpg';
 import { faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import hkust from '../images/Skills/HKUST.jpeg'
+import projectManagement from '../images/Skills/projectManagement.png'
+import firmware from '../images/Skills/cpu.png'
+import solutionDesign from '../images/Skills/innovation.png'
+import systemDeveloper from '../images/Skills/systemDeveloper.png'
 
 import './Skills.css';
 
-function spliceIntoChunks(arr, chunkSize) {
-    const res = [];
-    while (arr.length > 0) {
-        const chunk = arr.splice(0, chunkSize);
-        res.push(chunk);
-    }
-    return res;
-}
 
 export function Skills() {
+    const [expertiseComponent, setExpertiseComponent] = useState([]);
+
+    const expertise = {
+        'Project Management': projectManagement,
+        'Embedded System Design': firmware,
+        'System Analysis & Solution Design': solutionDesign,
+        'System Developer': systemDeveloper
+    }
+
+    useEffect(() => {
+        let tempExpertiseComponent = [];
+        for (var key in expertise) {
+            tempExpertiseComponent.push(
+                <div class="col-6 col-md-3 px-2"><div class="ratio ratio-4x3 rounded border border-light">
+                    <img class="expertiseIcon position-relative" src={expertise[key]}></img>
+                    <p class="position-relative">{key}</p>
+                </div></div>
+            )
+        }
+
+
+        setExpertiseComponent(tempExpertiseComponent);
+    },[])
 
     return (
         <>
@@ -30,10 +49,7 @@ export function Skills() {
                     <h1 class="text-start px-5 py-3">Expertise</h1>
                     <div class="container px-5">
                         <div class="row">
-                            <div class="col-6 col-md-3 px-2"><div class="rounded border border-light">Project Management</div></div>
-                            <div class="col-6 col-md-3 px-2"><div class="rounded border border-light">Embedded System Design</div></div>
-                            <div class="col-6 col-md-3 px-2"><div class="rounded border border-light">System Analysis & Solution Design</div></div>
-                            <div class="col-6 col-md-3 px-2"><div class="rounded border border-light">System Developer</div></div>
+                            {expertiseComponent}
                         </div>
                     </div>
                     <h1 class="text-start px-5 py-3">Education</h1>
