@@ -27,10 +27,12 @@ export function Skills() {
         let tempExpertiseComponent = [];
         for (var key in expertise) {
             tempExpertiseComponent.push(
-                <div class="col-6 col-md-3 px-2"><div class="ratio ratio-4x3 rounded border border-light">
-                    <img class="expertiseIcon position-relative" src={expertise[key]}></img>
-                    <p class="position-relative">{key}</p>
-                </div></div>
+                <div class="col-6 col-sm-3 col-lg-2 p-2">
+                        <div class="border border-white rounded p-2 pb-0 h-100">
+                            <img class="expertiseIcon p-3" src={expertise[key]}></img>
+                            <p class="">{key}</p>
+                        </div>
+                </div>
             )
         }
 
@@ -46,14 +48,18 @@ export function Skills() {
                     <h4 class="text-end pt-2 px-4 pb-4" >Steve Jobs</h4>
                 </div>
                 <div class="row skills in no-gutters">
-                    <h1 class="text-start px-5 py-3">Expertise</h1>
-                    <div class="container px-5">
-                        <div class="row">
+                    <h1 class="text-start px-4 py-4">Expertise</h1>
+                    <div class="container px-4">
+                        <div class="row justify-content-center">
                             {expertiseComponent}
+                            <div class="col-12 col-lg-8  mt-4">
+                                <h4>Description</h4>
+                                <p>While it may not be obvious to everyone, there are a number of reasons creating random paragraphs can be useful. A few examples of how some people use this generator are listed in the following paragraphs. </p>
+                            </div>
                         </div>
                     </div>
-                    <h1 class="text-start px-5 py-3">Education</h1>
-                    <div class="container px-5">
+                    <h1 class="text-start px-4 py-4">Education</h1>
+                    <div class="container px-4">
                         <div class="row">
                             <div class="hkustImage col-12 col-md-5">
                                 <img src={hkust}></img>
@@ -65,6 +71,9 @@ export function Skills() {
                             </div>
                         </div>
                     </div>
+
+
+                    
                 </div>
             </div>
         </>
