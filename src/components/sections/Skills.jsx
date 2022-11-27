@@ -9,12 +9,16 @@ import projectManagement from '../images/Skills/projectManagement.png'
 import firmware from '../images/Skills/cpu.png'
 import solutionDesign from '../images/Skills/innovation.png'
 import systemDeveloper from '../images/Skills/systemDeveloper.png'
+import graduation from '../images/Skills/graduation.png'
 
 import './Skills.css';
 
 
 export function Skills() {
     const [expertiseComponent, setExpertiseComponent] = useState([]);
+    const [workingExperienceComponent, setWorkingExperienceComponent] = useState([]);
+    const [languagesComponent, setLanguagesComponent] = useState([]);
+    const [professionalsComponent, setProfessionalsComponent] = useState([]);
 
     const expertise = {
         'Project Management': projectManagement,
@@ -23,21 +27,124 @@ export function Skills() {
         'System Developer': systemDeveloper
     }
 
+    const workingExperience = {
+        'The Hongkong Electric Co., Ltd.': {
+            'Total Duration': 'Jul 2019 - Aug 2019',
+            'Positions': [
+                {
+                    'Title': 'Vacation Trainee (Projects Division)',
+                    'Duration': 'Jul 2019 - Aug 2019',
+                    'Description': '• Participated in studying the concepts behind some design schematics and operation theories\n\
+                    \to Control System, Generation Plant Power Supply Distribution, Transmission Substations Design and Network etc\n\
+                    • Assisted in a project - Studying and verifying the cybersecurity measures done on the newly built HKE Lamma Unit 10\n\
+                    \to NERC-CIP Standard Comparison'
+                }
+            ]
+        },
+        'Cloud Light Technology Limited': {
+            'Total Duration': 'June 2020 - June 2022',
+            'Positions': [
+                {
+                    'Title': 'Optical Product Engineer',
+                    'Duration': 'June 2020 - Jul 2021',
+                    'Description': '\
+                    • Developed Python based testing programs and software for products/components evaluation and demo\n\
+                    \to GUI (mainly Tkinter and Kivy) for different types of projects and automation programmes for firmware verification\n\
+                    • Performed different types of tests and failure and data analysis for design and yield improvement\n\
+                    • Worked with hardware and firmware team to verify new design and characterize new products in Alpha/ Beta stage\n\
+                    • Modified and probed the circuit boards to perform different studies and tests regarding the optical transceivers\n\
+                    • Offered debugging sessions and application supports for different suppliers and customers'
+                },
+                {
+                    'Title': 'Firmware Design Engineer',
+                    'Duration': 'Jul 2021 - June 2022',
+                    'Description': '\
+                    • Designed, developed and tested software, embedded firmware and bootloaders for 400G/ 800G optical transceivers in C/C++\n\
+                    \to PMIC, design and develop drivers for I2C, SRAM, SDRAM, ADCs, Flash, GPIOs, ISR and peripheral ICs like TIA, CDRs\n\
+                    • Responsible for developing and maintaining the proprietary Firmware Upload Software (PyQt5 GUI)\n\
+                    • Managed and developed flexible firmware architecture to best facilitate firmware modularization\n\
+                    • Worked closely with testing team, hardware team and chip vendors to validate hardware assisting technical leads and fellows with architecture discussions and investigating design tradeoffs'
+                }
+            ]
+        },
+        'PrimeCredit Limited': {
+            'Total Duration': 'Jun 2022 - Present',
+            'Positions': [
+                {
+                    'Title': 'Software Engineer – FinTech Innovation',
+                    'Duration': 'Jun 2022 - Present',
+                    'Description': '\
+                    • Participating in complete software development life cycle from analysis, design, building, testing, deployment, production support and continuous enhancement of FinTech solutions and relevant documentation\n\
+                    • Conducting research and implementing Proof-of-Concept for FinTech solutions\n\
+                    • Working closely with development team and business partners to build secure, scalable and efficient financial applications\n\
+                    • Troubleshooting technical issues with offsite team/vendor and performing program tuning for performance enhancement/assurance'
+                }
+            ]
+        },
+
+    }
+
     useEffect(() => {
         let tempExpertiseComponent = [];
         for (var key in expertise) {
             tempExpertiseComponent.push(
-                <div class="col-6 col-sm-3 col-lg-2 p-2">
-                        <div class="border border-white rounded p-2 pb-0 h-100">
+                <div class="col-6 col-md-3 col-xl-2 p-3">
+                        <div class="border rounded p-2 pb-0 h-100" style={{borderColor: "rgb(217, 194, 137)"}}>
                             <img class="expertiseIcon p-3" src={expertise[key]}></img>
                             <p class="">{key}</p>
                         </div>
                 </div>
             )
         }
-
-
         setExpertiseComponent(tempExpertiseComponent);
+
+        let tempWorkingExperienceComponent = [];
+        for (var company in workingExperience) {
+            const jobsInCompany = workingExperience[company]['Positions']
+            if (jobsInCompany.length > 1) {tempWorkingExperienceComponent.push(
+                <li class="timeline-item mb-5 text-start">
+                <span class="timeline-icon" style={{width: "31px", height: "31px", left: "-48px"}}>
+                    <i class="fas fa-rocket text-primary fa-sm fa-fw"></i>
+                </span>
+                <h5 class="fw-bold">{company}</h5>
+                <p class=" mb-2 fw-bold">{workingExperience[company]['Total Duration']}</p>
+            </li>
+            )}
+
+            workingExperience[company]['Positions'].forEach(position => {
+                const dotStyle = (jobsInCompany.length < 2)? {width: "31px", height: "31px", left: "-48px"}: {width: "15px", height: "15px", left: "-40px"}
+                tempWorkingExperienceComponent.push(
+                    <li class="timeline-item mb-5 text-start">
+                    <span class="timeline-icon" style={dotStyle}>
+                        <i class="fas fa-rocket text-primary fa-sm fa-fw w-25"></i>
+                    </span>
+                    {(jobsInCompany.length < 2)? <h5 class="fw-bold">{company}</h5>: null}
+                    <p class=" mb-2 fw-bold">{position['Title']}</p>
+                    <p class=" mb-2 fw-bold">{position['Duration']}</p>
+                    <p class="">
+                        {position['Description']}
+                    </p>
+                </li>
+                )
+            })
+        }
+        setWorkingExperienceComponent(tempWorkingExperienceComponent);
+
+        let tempLanguage = [];
+        ['Python','C','Java','HTML + CSS','JavaScript','SQL'].forEach(Language => {
+            tempLanguage.push(
+                <p class="text-start ps-3 mb-1">- {Language}</p>
+            )
+        })
+        setLanguagesComponent(tempLanguage)
+
+        let tempProfessionals = [];
+        ['Blockchain','WhatsApp','Deep Learning'].forEach(Language => {
+            tempProfessionals.push(
+                <p class="text-start ps-3 mb-1">- {Language}</p>
+            )
+        })
+        setProfessionalsComponent(tempProfessionals)
     },[])
 
     return (
@@ -48,32 +155,56 @@ export function Skills() {
                     <h4 class="text-end pt-2 px-4 pb-4" >Steve Jobs</h4>
                 </div>
                 <div class="row skills in no-gutters">
-                    <h1 class="text-start px-4 py-4">Expertise</h1>
-                    <div class="container px-4">
-                        <div class="row justify-content-center">
-                            {expertiseComponent}
-                            <div class="col-12 col-lg-8  mt-4">
-                                <h4>Description</h4>
-                                <p>While it may not be obvious to everyone, there are a number of reasons creating random paragraphs can be useful. A few examples of how some people use this generator are listed in the following paragraphs. </p>
+                    <div>
+                        <div class="container px-4">
+                            <div class="row">
+                                <div class="graduationImage px-3 col-12 col-md-6">
+                                    <h1 class="text-start py-4">Education</h1>
+                                    <img src={graduation}></img>
+                                    <h5>Bachelor of Engineering in Electronic Engineering</h5>
+                                    <p>The Hong Kong University of Science and Technology</p>
+                                    <p>Sep 2016 - Nov 2020</p>
+                                </div>
+                                <div class="mySkills px-3 text-start col-12 col-md-6">
+                                    <h1 class="text-start pt-4">My Skill</h1>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h4>Professionals</h4>
+                                            {professionalsComponent}
+                                        </div>
+                                        <div class="col-6">
+                                            <h4>Languages</h4>
+                                            {languagesComponent}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container px-4">
+                            <div class="row justify-content-center">
+                                <h1 class="text-start col-12 py-4">Expertise</h1>
+                                {expertiseComponent}
+                                <div class="ExpertiseDescription col-12 col-lg-8 mt-4">
+                                    <p><small>Project Management</small></p>
+                                    <h2>Description</h2>
+                                    <p>While it may not be obvious to everyone, there are a number of reasons creating random paragraphs can be useful. A few examples of how some people use this generator are listed in the following paragraphs. </p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <h1 class="text-start px-4 py-4">Education</h1>
-                    <div class="container px-4">
-                        <div class="row">
-                            <div class="hkustImage col-12 col-md-5">
-                                <img src={hkust}></img>
-                            </div>
-                            <div class="text-start col-12 col-md-7">
-                                <h5>Bachelor of Engineering in Electronic Engineering</h5>
-                                <p>The Hong Kong University of Science and Technology</p>
-                                <p>Sep 2016 - Nov 2020</p>
-                            </div>
-                        </div>
+                </div>
+                <div class="row skills out working no-gutters">
+                    <div>
+                        <h1 class="text-start px-4 py-4">Working Experience</h1>
+                        {/* <!-- Section: Timeline --> */}
+                        <section class="px-4">
+                            <ul class="timeline-with-icons">
+                                {workingExperienceComponent}
+                            </ul>
+                        </section>
+                        {/* <!-- Section: Timeline --> */}
                     </div>
 
-
-                    
                 </div>
             </div>
         </>

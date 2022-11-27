@@ -36,20 +36,20 @@ export function AboutMe() {
         imagesChunkedArray.forEach((chunk) => {
             const tempChunkImages = chunk.map((image, index) => 
                 <div class={(index==0)? "col-md-4": "col-md-4 d-none d-md-block"}>
-                    <div class="card">
+                    <div class="card ratio ratio-4x3">
                         <img
                             src={r(image)}
                             class="card-img-top"
                             alt="Waterfall"
                         />
-                        <div class="card-body">
+                        {/* <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">
                             Some quick example text to build on the card title and make up the bulk
                             of the card's content.
                             </p>
                             <a href="#!" class="btn btn-primary">Button</a>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             )
@@ -71,27 +71,8 @@ export function AboutMe() {
     }
 
     useEffect(() => {
-        // Note from the docs -> Warning: The arguments passed to require.context must be literals!
-        
         setImagesComponent(importAll(require.context("../images/AboutMe", false, /\.(png|jpe?g|svg)$/)));
     },[])
-
-    // useEffect(() => {
-    //     setTimeoutTimer(setTimeout(() => {
-    //         let setTo = imageIndexCurrent + imageIndexIncrement
-    //         if (setTo >= imagesAmount) {setTo = 0}
-    //         else if (setTo < 0 ) {setTo = imagesAmount -1}
-    //         setImageIndexCurrent(setTo);
-    //         // images.unshift(images.pop());
-    //         // images.shift();
-    //         imagesRef.current[setTo.toString(10)].style.display = "none"
-    //     },2000));
-    //     return () => {
-    //         clearTimeout(timeoutTimer);
-    //     }
-    // }, [imageIndexCurrent])
-
-    
 
     return (
         <>
@@ -103,10 +84,10 @@ export function AboutMe() {
                     </div>
                 </div>
                 <div class="row my-3">
-                    <div class="col-sm-5">  {/*d-flex align-items-center*/}
-                        <img class="img-thumbnail rounded-circle p-3" src={propic}></img>
+                    <div class="col-sm-5 col-md-4">  {/*d-flex align-items-center*/}
+                        <img class="img-thumbnail rounded-circle w-75" src={propic}></img>
                     </div>
-                    <div class="col-sm-7">
+                    <div class="col-sm-7 col-md-8">
                         <div class="row my-3 my-sm-0">
                             <div class="d-flex align-items-center">
                                 {Object.keys(ContactPoint).map((eachApp)=>(
@@ -142,21 +123,6 @@ export function AboutMe() {
             </div>
             <div class="container mt-5">
                 <h1 class="row text-start">Some photos about me</h1>
-                {/* <p>{imageIndexCurrent}</p>
-                <button onClick={() => {
-                    clearTimeout(timeoutTimer);
-                    setImageIndexIncrement(-1);
-                    setImageIndexCurrent((imageIndexCurrent-1 < 0)? Object.keys(images).length-1: imageIndexCurrent-1)}
-                }>previous</button>
-                <button onClick={() => {
-                    clearTimeout(timeoutTimer);
-                    setImageIndexIncrement(1);
-                    setImageIndexCurrent((imageIndexCurrent+1 >= Object.keys(images).length)? 0: imageIndexCurrent+1)
-                }
-                }>next</button>
-                <div class="ImagesSlideShow">
-                    {images}
-                </div> */}
                 {/* <!-- Carousel wrapper --> */}
                 <div
                 id="carouselMultiItemExample"
