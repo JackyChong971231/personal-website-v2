@@ -18,3 +18,7 @@
     object-fit: cover;
     /* animation: primary 10s linear infinite; */
 }
+
+.aboutMeShortBio {
+    color: var(--darkGold);
+}

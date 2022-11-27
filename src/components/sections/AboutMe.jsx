@@ -80,7 +80,7 @@ export function AboutMe() {
                 <div class="row">
                     <div class="col-sm-12">
                         <h1 class="text-sm-start fw-bold">About Me</h1>
-                        <p class="text-sm-start">A Software Engineer based in Hong Kong</p>
+                        <p class="aboutMeShortBio text-sm-start">A Software Engineer based in Hong Kong</p>
                     </div>
                 </div>
                 <div class="row my-3">

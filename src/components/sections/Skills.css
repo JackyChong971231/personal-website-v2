@@ -61,7 +61,7 @@
 }
 
 .mySkills > div>div>h4 {
-    color: rgb(217, 194, 137);
+    color: var(--gold);
     padding-block: -20%;
 }
 
@@ -82,7 +82,7 @@
 }
 
 .ExpertiseDescription > p{
-    color: rgb(217, 194, 137);
+    color: var(--gold);
 }
 
 .timeline-with-icons {
