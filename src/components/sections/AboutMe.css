@@ -22,3 +22,7 @@
 .aboutMeShortBio {
     color: var(--darkGold);
 }
+
+.card-img-top{
+    object-fit: fill;
+}

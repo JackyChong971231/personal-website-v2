@@ -67,7 +67,6 @@ export function AboutMe() {
             console.log(item);
         })
         return imagesContainer
-        // <img key={index.toString(10)} ref={el => imagesRef.current[index.toString(10)] = el} class="AboutMeImages" src={r(item)} />; 
     }
 
     useEffect(() => {
@@ -84,8 +83,8 @@ export function AboutMe() {
                     </div>
                 </div>
                 <div class="row my-3">
-                    <div class="col-sm-5 col-md-4">  {/*d-flex align-items-center*/}
-                        <img class="img-thumbnail rounded-circle w-75" src={propic}></img>
+                    <div class="col-sm-5 col-md-4 d-flex align-items-center">  {/*d-flex align-items-center*/}
+                        <img class="img-thumbnail rounded-circle w-100 t-50" src={propic}></img>
                     </div>
                     <div class="col-sm-7 col-md-8">
                         <div class="row my-3 my-sm-0">

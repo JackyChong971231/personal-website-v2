@@ -7,15 +7,34 @@
     width: 100%;
     height: 100vh;
     object-fit: cover;
-    filter: brightness(50%)
+    filter: brightness(40%)
 }
 
 .Greeting {
     position: absolute;
-    top: 50%;
-    width: 50%;
+    top: 30%;
     padding-inline: 10%;
-    left: 0;
+    left: 0px;
     color: white;
-    text-shadow: 5px 5px 8px #000000;
+    
+    font-family: 'Times New Roman';
+    /* border: solid; */
+}
+
+.Greeting > h1 {
+    text-shadow: 5px 5px 15px #000000;
+}
+
+.Greeting > h1 > span{
+    color: rgb(255, 196, 0);
+    font-weight: bold;
+}
+
+.Greeting > p {
+    width: 58%;
+    font-size: small;
+}
+
+.LearnMore {
+    background-color: rgb(255, 196, 0);
 }

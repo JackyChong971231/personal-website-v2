@@ -10,6 +10,7 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AboutMe } from './sections/AboutMe';
 import { Skills } from './sections/Skills';
+import { ContactMe } from './sections/ContactMe';
 
 function App() {
   const [prevScrollpos, setPrevScrollpos] = useState(0);
@@ -29,12 +30,13 @@ function App() {
   })
 
   return (
-    <div class="App pb-5">
+    <div class="App">
 
       <HomePage/>
-      <NavBar/>
+      <section id="NavBar"><NavBar/></section>
       <section id="AboutMe"><AboutMe/></section>
       <section id="Skills"><Skills/></section>
+      <section id="ContactMe"><ContactMe/></section>
     </div>
   );
 }

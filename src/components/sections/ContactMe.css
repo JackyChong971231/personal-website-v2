@@ -1,0 +1,32 @@
+.contactMeForm > button {
+    background-color: var(--darkGold);
+    border: 0;
+} 
+
+.ContactMeContainer {
+    position: relative;
+}
+
+.ContactMeContainer::before {
+    position: absolute;
+    display: block;
+    content: "";
+    background-image: url('../images/ContactMe/ContactMeBackground2.jpg');
+    background-size: cover;
+    
+    background-position: 38%;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.5;
+}
+
+.ContactMeContainer > div {
+    position: relative;
+}
+
+.ContactMeBottomContainer {
+    background-color: rgb(37, 37, 37);
+    height: 150px;
+}
