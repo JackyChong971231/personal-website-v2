@@ -1,13 +1,15 @@
 import logo from './images/logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import {NavBar} from './NavBar';
-import { HomePage } from './HomePage';
+
 import React, { useState, useEffect } from 'react';
 
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { NavBar } from './NavBar';
+import { Cover } from './Cover';
 import { AboutMe } from './sections/AboutMe';
 import { Skills } from './sections/Skills';
 import { ContactMe } from './sections/ContactMe';
@@ -32,7 +34,7 @@ function App() {
   return (
     <div class="App">
 
-      <HomePage/>
+      <Cover/>
       <section id="NavBar"><NavBar/></section>
       <section id="AboutMe"><AboutMe/></section>
       <section id="Skills"><Skills/></section>

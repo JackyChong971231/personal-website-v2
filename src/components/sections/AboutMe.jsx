@@ -19,12 +19,17 @@ function spliceIntoChunks(arr, chunkSize) {
 export function AboutMe() {
     const [imagesComponent, setImagesComponent] = useState([]);
 
-    const AboutMeObject = {
-        Birthday: '31 Dec 1997',
-        Age: '24 Years Old',
-        Phone: '+852 9239 1019'
-
+    const AboutMeContent = {
+        'Title': 'Software Engineer',
+        'Workplace': 'Hong Kong',
+        'Bio': 'My passion for coding can be traced back to my university days. With no prior programming knowledge, I researched and taught myself Python and C to build the Auto-Following Car and sEMG Deep Learning Motion Tracking Device. The accomplishment of writing programs from scratch made me ',
+        'AboutMeObject': {
+            Birthday: '31 Dec 1997',
+            Age: '24 Years Old',
+            Phone: '+852 9239 1019'
+        }
     }
+
     const ContactPoint = {
         Instagram:  {icon: faInstagram, url: "https://www.instagram.com/cggyee"},
         LinkedIn:   {icon: faLinkedin,  url: "https://www.linkedin.com/in/jacky-chong-kin-ye"}
@@ -78,8 +83,8 @@ export function AboutMe() {
             <div class="container my-3">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h1 class="text-sm-start fw-bold">About Me</h1>
-                        <p class="aboutMeShortBio text-sm-start">A Software Engineer based in Hong Kong</p>
+                        <h1 class="text-sm-start fw-bold">About <span style={{color: 'var(--gold)'}}>Me</span></h1>
+                        <p class="aboutMeShortBio text-sm-start">A {AboutMeContent.Title} based in {AboutMeContent.Workplace}</p>
                     </div>
                 </div>
                 <div class="row my-3">
@@ -104,15 +109,15 @@ export function AboutMe() {
                         <div class="row">
                             <div class="text-start pt-3">
                                 <h3>I'M Jacky Chong</h3>
-                                <p>Madison Blackstone is a director of brand marketing, with experience managing global teams and multimillion-dollar campaigns. Her background in brand strategy, visual design, and account management informs her mindful but competitive approach.</p>
+                                <p>{AboutMeContent.Bio}</p>
                             </div>
                         </div>
                         <div class="row border-2 border-top pt-2">
-                            {Object.keys(AboutMeObject).map((fieldName)=>(
+                            {Object.keys(AboutMeContent.AboutMeObject).map((fieldName)=>(
                                 <div class="col-12 col-md-6">
                                     <div class="row text-start my-1">
                                         <div class="col-4 fw-bold">{fieldName}</div>
-                                        <div class="col-8">{AboutMeObject[fieldName]}</div>
+                                        <div class="col-8">{AboutMeContent.AboutMeObject[fieldName]}</div>
                                     </div>
                                 </div>
                             ))}
