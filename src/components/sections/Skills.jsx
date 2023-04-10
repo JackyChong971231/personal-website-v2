@@ -34,11 +34,11 @@ export function Skills() {
                 {
                     'Title': 'Software Engineer – FinTech Innovation',
                     'Duration': 'Jun 2022 - Present',
-                    'Description': '\
-                    • Participating in complete software development life cycle from analysis, design, building, testing, deployment, production support and continuous enhancement of FinTech solutions and relevant documentation\n\
-                    • Conducting research and implementing Proof-of-Concept for FinTech solutions\n\
-                    • Working closely with development team and business partners to build secure, scalable and efficient financial applications\n\
-                    • Troubleshooting technical issues with offsite team/vendor and performing program tuning for performance enhancement/assurance'
+                    'Description': [
+                    <li>Participating in complete software development life cycle from analysis, design, building, testing, deployment, production support and continuous enhancement of FinTech solutions and relevant documentation</li>,
+                    <li>Conducting research and implementing Proof-of-Concept for FinTech solutions</li>,
+                    <li>Working closely with development team and business partners to build secure, scalable and efficient financial applications</li>,
+                    <li>Troubleshooting technical issues with offsite team/vendor and performing program tuning for performance enhancement/assurance</li>]
                 }
             ]
         },
@@ -48,23 +48,23 @@ export function Skills() {
                 {
                     'Title': 'Firmware Design Engineer',
                     'Duration': 'Jul 2021 - June 2022',
-                    'Description': '\
-                    • Designed, developed and tested software, embedded firmware and bootloaders for 400G/ 800G optical transceivers in C/C++\n\
-                    \to PMIC, design and develop drivers for I2C, SRAM, SDRAM, ADCs, Flash, GPIOs, ISR and peripheral ICs like TIA, CDRs\n\
-                    • Responsible for developing and maintaining the proprietary Firmware Upload Software (PyQt5 GUI)\n\
-                    • Managed and developed flexible firmware architecture to best facilitate firmware modularization\n\
-                    • Worked closely with testing team, hardware team and chip vendors to validate hardware assisting technical leads and fellows with architecture discussions and investigating design tradeoffs'
+                    'Description': [
+                    <li>Designed, developed and tested software, embedded firmware and bootloaders for 400G/ 800G optical transceivers in C/C++</li>,
+                    <li>PMIC, design and develop drivers for I2C, SRAM, SDRAM, ADCs, Flash, GPIOs, ISR and peripheral ICs like TIA, CDRs</li>,
+                    <li>Responsible for developing and maintaining the proprietary Firmware Upload Software (PyQt5 GUI)</li>,
+                    <li>Managed and developed flexible firmware architecture to best facilitate firmware modularization</li>,
+                    <li>Worked closely with testing team, hardware team and chip vendors to validate hardware assisting technical leads and fellows with architecture discussions and investigating design tradeoffs</li>]
                 },
                 {
                     'Title': 'Optical Product Engineer',
                     'Duration': 'June 2020 - Jul 2021',
-                    'Description': '\
-                    • Developed Python based testing programs and software for products/components evaluation and demo\n\
-                    \to GUI (mainly Tkinter and Kivy) for different types of projects and automation programmes for firmware verification\n\
-                    • Performed different types of tests and failure and data analysis for design and yield improvement\n\
-                    • Worked with hardware and firmware team to verify new design and characterize new products in Alpha/ Beta stage\n\
-                    • Modified and probed the circuit boards to perform different studies and tests regarding the optical transceivers\n\
-                    • Offered debugging sessions and application supports for different suppliers and customers'
+                    'Description': [
+                    <li>Developed Python based testing programs and software for products/components evaluation and demo</li>,
+                    <li>GUI (mainly Tkinter and Kivy) for different types of projects and automation programmes for firmware verification</li>,
+                    <li>Performed different types of tests and failure and data analysis for design and yield improvement</li>,
+                    <li>Worked with hardware and firmware team to verify new design and characterize new products in Alpha/ Beta stage</li>,
+                    <li>Modified and probed the circuit boards to perform different studies and tests regarding the optical transceivers</li>,
+                    <li>Offered debugging sessions and application supports for different suppliers and customers</li>]
                 }
             ]
         },
@@ -74,10 +74,11 @@ export function Skills() {
                 {
                     'Title': 'Vacation Trainee (Projects Division)',
                     'Duration': 'Jul 2019 - Aug 2019',
-                    'Description': '• Participated in studying the concepts behind some design schematics and operation theories\n\
-                    \to Control System, Generation Plant Power Supply Distribution, Transmission Substations Design and Network etc\n\
-                    • Assisted in a project - Studying and verifying the cybersecurity measures done on the newly built HKE Lamma Unit 10\n\
-                    \to NERC-CIP Standard Comparison'
+                    'Description': [
+                    <li>Participated in studying the concepts behind some design schematics and operation theories</li>,
+                    <li>Control System, Generation Plant Power Supply Distribution, Transmission Substations Design and Network etc</li>,
+                    <li>Assisted in a project - Studying and verifying the cybersecurity measures done on the newly built HKE Lamma Unit 10</li>,
+                    <li>NERC-CIP Standard Comparison</li>]
                 }
             ]
         }
@@ -120,9 +121,9 @@ export function Skills() {
                     {(jobsInCompany.length < 2)? <h5 class="fw-bold" style={{fontWeight: 'bold'}}>{company}</h5>: null}
                     <p class=" mb-2 fw-bold" style={{color: 'var(--gold)'}}>{position['Title']}</p>
                     <p class=" mb-2 fw-bold">{position['Duration']}</p>
-                    <p class="" style={{color: 'lightgray'}}>
+                    <ul class="" style={{color: 'lightgray', listStylePosition: 'outside'}}>
                         {position['Description']}
-                    </p>
+                    </ul>
                 </li>
                 )
             })
@@ -194,9 +195,9 @@ export function Skills() {
                         </div>
                     </div>
                 </div>
-                <div class="row skills out working no-gutters">
-                    <div>
-                    <p class="text-start px-4 pt-4 mb-0" style={{color: 'var(--gold)'}}>All Companies</p>
+                <div class="row skills out working no-gutters justify-content-center">
+                    <div class="col-xl-8 col-md-10 col-12">
+                        <p class="text-start px-4 pt-4 mb-0" style={{color: 'var(--gold)'}}>All Companies</p>
                         <h1 class="text-start px-4 pb-4" style={{ fontFamily: 'Times New Roman', fontWeight: 'bold' }}>Working Experience</h1>
                         {/* <!-- Section: Timeline --> */}
                         <section class="px-4">
