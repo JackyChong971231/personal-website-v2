@@ -20,13 +20,15 @@ export function AboutMe() {
     const [imagesComponent, setImagesComponent] = useState([]);
 
     const AboutMeContent = {
-        'Title': 'Software Engineer',
-        'Workplace': 'Hong Kong',
-        'Bio': 'My passion for coding can be traced back to my university days. With no prior programming knowledge, I researched and taught myself Python and C to build the Auto-Following Car and sEMG Deep Learning Motion Tracking Device. The accomplishment of writing programs from scratch made me ',
-        'AboutMeObject': {
+        Title: 'Software Engineer',
+        Workplace: 'Hong Kong',
+        Bio: 'As a member of the FinTech Innovation Team within a Financial Institution, my area of expertise lies in implementing the Software Development Life Cycle to develop secure, scalable, and efficient financial applications. Through my experience and training, I have developed a deep understanding of the complexities of financial technology and the importance of adhering to industry standards. By leveraging cutting-edge tools and techniques, I am able to deliver high-quality solutions that meet the needs of both my clients and stakeholders.',
+        Passion: 'To me, coding is like teaching a computer to think like me, so it can do things the way I want them done. What I love most about coding is the sense of accomplishment I feel when I build something from scratch, and then see it come to life and make a positive impact. I take pride in my work and always strive to write high quality code that performs optimally. Its also a constant learning process, which keeps me motivated and engaged. I find great satisfaction in staying up-to-date with the latest trends and technologies, and I enjoy the challenge of improving the system with these concepts to solve real-world problems.',
+        AboutMeObject: {
             Birthday: '31 Dec 1997',
             Age: '24 Years Old',
-            Phone: '+852 9239 1019'
+            Phone: '+852 9239 1019',
+            Email: 'chongkinye@gmail.com'
         }
     }
 
@@ -108,8 +110,9 @@ export function AboutMe() {
                         </div>
                         <div class="row">
                             <div class="text-start pt-3">
-                                <h3>I'M Jacky Chong</h3>
+                                <h3>I'm a passionate Software Engineer</h3>
                                 <p>{AboutMeContent.Bio}</p>
+                                <p>{AboutMeContent.Passion}</p>
                             </div>
                         </div>
                         <div class="row border-2 border-top pt-2">

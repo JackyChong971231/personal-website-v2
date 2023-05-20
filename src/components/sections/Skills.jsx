@@ -37,7 +37,7 @@ export function Skills() {
                     'Description': [
                     <li>Participating in complete software development life cycle from analysis, design, building, testing, deployment, production support and continuous enhancement of FinTech solutions and relevant documentation</li>,
                     <li>Conducting research and implementing Proof-of-Concept for FinTech solutions</li>,
-                    <li>Working closely with development team and business partners to build secure, scalable and efficient financial applications</li>,
+                    <li>Working closely with business partners to build secure, scalable and efficient financial applications</li>,
                     <li>Troubleshooting technical issues with offsite team/vendor and performing program tuning for performance enhancement/assurance</li>]
                 }
             ]
@@ -133,15 +133,15 @@ export function Skills() {
         let tempLanguage = [];
         ['Python','C','Java','HTML + CSS','JavaScript','SQL'].forEach(Language => {
             tempLanguage.push(
-                <p class="text-start ps-3 mb-1">- {Language}</p>
+                <li class="text-start ps-1 mb-1">{Language}</li>
             )
         })
         setLanguagesComponent(tempLanguage)
 
         let tempProfessionals = [];
-        ['Blockchain','WhatsApp','Deep Learning'].forEach(Language => {
+        ['Blockchain','WhatsApp Business API','Deep Learning'].forEach(Language => {
             tempProfessionals.push(
-                <p class="text-start ps-3 mb-1">- {Language}</p>
+                <li class="text-start ps-1 mb-1">{Language}</li>
             )
         })
         setProfessionalsComponent(tempProfessionals)
@@ -172,11 +172,11 @@ export function Skills() {
                                     <div class="row">
                                         <div class="col-6">
                                             <h4>Professionals</h4>
-                                            {professionalsComponent}
+                                            <ul class="" style={{listStylePosition: 'outside'}}>{professionalsComponent}</ul>
                                         </div>
                                         <div class="col-6">
                                             <h4>Languages</h4>
-                                            {languagesComponent}
+                                            <ul class="" style={{listStylePosition: 'outside'}}>{languagesComponent}</ul>
                                         </div>
                                     </div>
                                 </div>

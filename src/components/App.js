@@ -35,7 +35,7 @@ function App() {
     <div class="App">
 
       <Cover/>
-      <section id="NavBar"><NavBar/></section>
+      <NavBar/>
       <section id="AboutMe"><AboutMe/></section>
       <section id="Skills"><Skills/></section>
       <section id="ContactMe"><ContactMe/></section>
