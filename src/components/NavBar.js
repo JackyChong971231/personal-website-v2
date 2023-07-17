@@ -17,7 +17,7 @@ export function NavBar() {
     return (
         <>
             {/* <!-- Navbar --> */}
-            <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+            <nav id="NavBar" className="navbar navbar-expand-lg navbar-light fixed-top">
                 {/* <!-- Container wrapper --> */}
                 <div class="container-fluid">
                     {/* <!-- Toggle button --> */}

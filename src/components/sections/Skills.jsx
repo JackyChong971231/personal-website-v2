@@ -79,35 +79,20 @@ const workingExperience = {
                 'Description': [
                 <li>Participated in studying the concepts behind some design schematics and operation theories</li>,
                 <li>Control System, Generation Plant Power Supply Distribution, Transmission Substations Design and Network etc</li>,
-                <li>Assisted in a project - Studying and verifying the cybersecurity measures done on the newly built HKE Lamma Unit 10</li>,
-                <li>NERC-CIP Standard Comparison</li>]
+                <li>Studied and verified the cybersecurity measures done on the newly built HKE Lamma Unit 10</li>,
+                <li style={{paddingLeft: '10%'}}>NERC-CIP Standard Comparison</li>]
             }
         ]
     }
 }
 
 export function Skills() {
-    const [expertiseComponent, setExpertiseComponent] = useState([]);
     const [workingExperienceComponent, setWorkingExperienceComponent] = useState([]);
     const [languagesComponent, setLanguagesComponent] = useState([]);
     const [professionalsComponent, setProfessionalsComponent] = useState([]);
     const [selectedExpertise, setSelectedExpertise] = useState('Project Management');
 
     useEffect(() => {
-        let tempExpertiseComponent = [];
-        for (let key in expertise) {
-            tempExpertiseComponent.push(
-                <div class="col-6 col-md-3 col-xl-2 p-3">
-                        <div class={(key===selectedExpertise) ? 
-                            "border border-warning rounded p-2 pb-0 h-100" :
-                            "border rounded p-2 pb-0 h-100"} onClick={() => setSelectedExpertise(key)}>
-                            <img class="expertiseIcon p-3" src={expertise[key]['logo']}></img>
-                            <p class="">{key}</p>
-                        </div>
-                </div>
-            )
-        }
-        setExpertiseComponent(tempExpertiseComponent);
 
         let tempWorkingExperienceComponent = [];
         for (var company in workingExperience) {
