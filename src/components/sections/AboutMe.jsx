@@ -25,10 +25,10 @@ export function AboutMe() {
         Bio: 'As a member of the FinTech Innovation Team within a Financial Institution, my area of expertise lies in implementing the Software Development Life Cycle to develop secure, scalable, and efficient financial applications. Through my experience and training, I have developed a deep understanding of the complexities of financial technology and the importance of adhering to industry standards. By leveraging cutting-edge tools and techniques, I am able to deliver high-quality solutions that meet the needs of both my clients and stakeholders.',
         Passion: 'To me, coding is like teaching a computer to think like me, so it can do things the way I want them done. What I love most about coding is the sense of accomplishment I feel when I build something from scratch, and then see it come to life and make a positive impact. I take pride in my work and always strive to write high quality code that performs optimally. Its also a constant learning process, which keeps me motivated and engaged. I find great satisfaction in staying up-to-date with the latest trends and technologies, and I enjoy the challenge of improving the system with these concepts to solve real-world problems.',
         AboutMeObject: {
-            Birthday: '31 Dec 1997',
-            Age: '24 Years Old',
-            Phone: '+852 9239 1019',
-            Email: 'chongkinye@gmail.com'
+            Birthday: <div class="col-8">31 Dec 1997</div>,
+            Age: <div class="col-8">24 Years Old</div>,
+            Phone: <a href="tel:+1-437-660-0469" class="col-8">1-437-660-0469</a>,
+            Email: <a href="mailto:kinyechong@outlook.com" class="col-8">kinyechong@outlook.com</a>
         }
     }
 
@@ -120,7 +120,7 @@ export function AboutMe() {
                                 <div class="col-12 col-md-6">
                                     <div class="row text-start my-1">
                                         <div class="col-4 fw-bold">{fieldName}</div>
-                                        <div class="col-8">{AboutMeContent.AboutMeObject[fieldName]}</div>
+                                        {AboutMeContent.AboutMeObject[fieldName]}
                                     </div>
                                 </div>
                             ))}
