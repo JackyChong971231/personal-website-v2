@@ -1,10 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
-import propic from '../images/ProPic.jpg';
+import React, { useState, useEffect } from 'react';
 
 // import { f } from "@fortawesome/free-solid-svg-icons";
-import { faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import hkust from '../images/Skills/HKUST.jpeg'
+
 import projectManagement from '../images/Skills/projectManagement.png'
 import firmware from '../images/Skills/cpu.png'
 import solutionDesign from '../images/Skills/innovation.png'
@@ -13,84 +10,98 @@ import graduation from '../images/Skills/graduation.png'
 
 import './Skills.css';
 
+const expertise = {
+    'Project Management': {
+        logo: projectManagement,
+        achievements: 'Managed 3 projects at the same time'
+    },
+    'Embedded System Design': {
+        logo: firmware,
+        achievements: 'Embeddedsdfasdfasdfasdf'
+    },
+    'System Analysis & Solution Design': {
+        logo: solutionDesign,
+        achievements: 'Analysisasdfasdfasdfasdfasdf'
+    },
+    'System Developer': {
+        logo: systemDeveloper,
+        achievements: 'Developerasdfasdfasdfasdfasdfasdfasdf'
+    }
+}
+
+const workingExperience = {
+    'PrimeCredit Limited': {
+        'Total Duration': 'Jun 2022 - Apr 2023',
+        'Positions': [
+            {
+                'Title': 'Software Engineer – FinTech Innovation',
+                'Duration': 'Jun 2022 - Apr 2023',
+                'Description': [
+                <li>Developed Proof of Concept program presented to business users the potential of <mark class='gold'>Hyperledger Fabric Blockchain</mark> in streamlining Loan Application Process</li>,
+                <li>Diagnosed and resolved technical issues, added new features, and performed upgrades and deployments for the <mark class='gold'>backend server - Django</mark> for <mark class='gold'>WhatsApp Business API</mark></li>,
+                <li>Kickstarted the migration from On Premises to Cloud API for <mark class='gold'>WhatsApp Business API</mark></li>,
+                <li style={{paddingLeft: '10%'}}>Guided vendors and business users to define the project scope and outline project requirements</li>,
+                <li style={{paddingLeft: '10%'}}>Conducted contract and risk assessments with project stakeholders in compliance with the company’s regulation</li>,
+                <li>Revamped functions within a <mark class='gold'>Java based Customer Data Platform Spring Boot</mark></li>]
+            }
+        ]
+    },
+    'Cloud Light Technology Limited': {
+        'Total Duration': 'June 2020 - June 2022',
+        'Positions': [
+            {
+                'Title': 'Firmware Design Engineer',
+                'Duration': 'Jul 2021 - June 2022',
+                'Description': [
+                <li>Designed, developed and <mark class='gold'>tested software, embedded firmware and bootloaders</mark> for <mark class='gold'>400G & 800G optical transceivers in C/C++</mark></li>,
+                <li style={{paddingLeft: '10%'}}>PMIC, design and develop drivers for I2C, SRAM, SDRAM, ADCs, Flash, GPIOs, ISR and peripheral ICs like TIA, CDRs</li>,
+                <li>Developed and maintained the proprietary <mark class='gold'>Firmware Upload Software - PyQt5 GUI</mark></li>,
+                <li>Managed and developed flexible firmware architecture to best facilitate firmware modularization</li>,
+                <li>Worked closely with testing team, hardware team and chip vendors to validate hardware assisting technical leads and fellows with architecture discussions and investigating design tradeoffs</li>]
+            },
+            {
+                'Title': 'Optical Product Engineer',
+                'Duration': 'June 2020 - Jul 2021',
+                'Description': [
+                <li>Developed <mark class='gold'>Python based Hardware Diagnostic UI and testing software</mark> for products/components evaluation and demo</li>,
+                <li style={{paddingLeft: '10%'}}><mark class='gold'>GUI (mainly PyQt5 and Tkinter)</mark> for different types of projects and automation programmes for firmware verification</li>,
+                <li>Performed different types of <mark class='gold'>PCB Flying Probe tests and failure and data analysis</mark> for design and yield improvement</li>,
+                <li>Worked with PCB and Firmware Design Engineers to to ensure designs are optimized for production and are compatible with other elements of the design</li>]
+            }
+        ]
+    },
+    'The Hongkong Electric Co., Ltd.': {
+        'Total Duration': 'Jul 2019 - Aug 2019',
+        'Positions': [
+            {
+                'Title': 'Vacation Trainee (Projects Division)',
+                'Duration': 'Jul 2019 - Aug 2019',
+                'Description': [
+                <li>Participated in studying the concepts behind some design schematics and operation theories</li>,
+                <li>Control System, Generation Plant Power Supply Distribution, Transmission Substations Design and Network etc</li>,
+                <li>Assisted in a project - Studying and verifying the cybersecurity measures done on the newly built HKE Lamma Unit 10</li>,
+                <li>NERC-CIP Standard Comparison</li>]
+            }
+        ]
+    }
+}
 
 export function Skills() {
     const [expertiseComponent, setExpertiseComponent] = useState([]);
     const [workingExperienceComponent, setWorkingExperienceComponent] = useState([]);
     const [languagesComponent, setLanguagesComponent] = useState([]);
     const [professionalsComponent, setProfessionalsComponent] = useState([]);
-
-    const expertise = {
-        'Project Management': projectManagement,
-        'Embedded System Design': firmware,
-        'System Analysis & Solution Design': solutionDesign,
-        'System Developer': systemDeveloper
-    }
-
-    const workingExperience = {
-        'PrimeCredit Limited': {
-            'Total Duration': 'Jun 2022 - Present',
-            'Positions': [
-                {
-                    'Title': 'Software Engineer – FinTech Innovation',
-                    'Duration': 'Jun 2022 - Present',
-                    'Description': [
-                    <li>Participating in complete software development life cycle from analysis, design, building, testing, deployment, production support and continuous enhancement of FinTech solutions and relevant documentation</li>,
-                    <li>Conducting research and implementing Proof-of-Concept for FinTech solutions</li>,
-                    <li>Working closely with business partners to build secure, scalable and efficient financial applications</li>,
-                    <li>Troubleshooting technical issues with offsite team/vendor and performing program tuning for performance enhancement/assurance</li>]
-                }
-            ]
-        },
-        'Cloud Light Technology Limited': {
-            'Total Duration': 'June 2020 - June 2022',
-            'Positions': [
-                {
-                    'Title': 'Firmware Design Engineer',
-                    'Duration': 'Jul 2021 - June 2022',
-                    'Description': [
-                    <li>Designed, developed and tested software, embedded firmware and bootloaders for 400G/ 800G optical transceivers in C/C++</li>,
-                    <li>PMIC, design and develop drivers for I2C, SRAM, SDRAM, ADCs, Flash, GPIOs, ISR and peripheral ICs like TIA, CDRs</li>,
-                    <li>Responsible for developing and maintaining the proprietary Firmware Upload Software (PyQt5 GUI)</li>,
-                    <li>Managed and developed flexible firmware architecture to best facilitate firmware modularization</li>,
-                    <li>Worked closely with testing team, hardware team and chip vendors to validate hardware assisting technical leads and fellows with architecture discussions and investigating design tradeoffs</li>]
-                },
-                {
-                    'Title': 'Optical Product Engineer',
-                    'Duration': 'June 2020 - Jul 2021',
-                    'Description': [
-                    <li>Developed Python based testing programs and software for products/components evaluation and demo</li>,
-                    <li>GUI (mainly Tkinter and Kivy) for different types of projects and automation programmes for firmware verification</li>,
-                    <li>Performed different types of tests and failure and data analysis for design and yield improvement</li>,
-                    <li>Worked with hardware and firmware team to verify new design and characterize new products in Alpha/ Beta stage</li>,
-                    <li>Modified and probed the circuit boards to perform different studies and tests regarding the optical transceivers</li>,
-                    <li>Offered debugging sessions and application supports for different suppliers and customers</li>]
-                }
-            ]
-        },
-        'The Hongkong Electric Co., Ltd.': {
-            'Total Duration': 'Jul 2019 - Aug 2019',
-            'Positions': [
-                {
-                    'Title': 'Vacation Trainee (Projects Division)',
-                    'Duration': 'Jul 2019 - Aug 2019',
-                    'Description': [
-                    <li>Participated in studying the concepts behind some design schematics and operation theories</li>,
-                    <li>Control System, Generation Plant Power Supply Distribution, Transmission Substations Design and Network etc</li>,
-                    <li>Assisted in a project - Studying and verifying the cybersecurity measures done on the newly built HKE Lamma Unit 10</li>,
-                    <li>NERC-CIP Standard Comparison</li>]
-                }
-            ]
-        }
-    }
+    const [selectedExpertise, setSelectedExpertise] = useState('Project Management');
 
     useEffect(() => {
         let tempExpertiseComponent = [];
-        for (var key in expertise) {
+        for (let key in expertise) {
             tempExpertiseComponent.push(
                 <div class="col-6 col-md-3 col-xl-2 p-3">
-                        <div class="border rounded p-2 pb-0 h-100" style={{borderColor: "rgb(217, 194, 137)"}}>
-                            <img class="expertiseIcon p-3" src={expertise[key]}></img>
+                        <div class={(key===selectedExpertise) ? 
+                            "border border-warning rounded p-2 pb-0 h-100" :
+                            "border rounded p-2 pb-0 h-100"} onClick={() => setSelectedExpertise(key)}>
+                            <img class="expertiseIcon p-3" src={expertise[key]['logo']}></img>
                             <p class="">{key}</p>
                         </div>
                 </div>
@@ -121,7 +132,7 @@ export function Skills() {
                     {(jobsInCompany.length < 2)? <h5 class="fw-bold" style={{fontWeight: 'bold'}}>{company}</h5>: null}
                     <p class=" mb-2 fw-bold" style={{color: 'var(--gold)'}}>{position['Title']}</p>
                     <p class=" mb-2 fw-bold">{position['Duration']}</p>
-                    <ul class="" style={{color: 'lightgray', listStylePosition: 'outside'}}>
+                    <ul class="" style={{color: 'lightgray', listStylePosition: 'inside'}}>
                         {position['Description']}
                     </ul>
                 </li>
@@ -185,11 +196,21 @@ export function Skills() {
                         <div class="container px-4">
                             <div class="row justify-content-center">
                                 <h1 class="text-start col-12 py-4" style={{ fontFamily: 'Times New Roman', fontWeight: 'bold' }}>Expertise</h1>
-                                {expertiseComponent}
+                                {Object.keys(expertise).map((eachExpertise, index) => (
+                                    <div class="col-6 col-md-3 col-xl-2 p-3">
+                                        <div key={index} class={(eachExpertise===selectedExpertise) ? 
+                                            "border border-warning rounded p-2 pb-0 h-100" :
+                                            "border rounded p-2 pb-0 h-100"
+                                            } style={{transition: '0.5s'}} onClick={() => setSelectedExpertise(eachExpertise)}>
+                                            <img class="expertiseIcon p-3" src={expertise[eachExpertise]['logo']}></img>
+                                            <p class="">{eachExpertise}</p>
+                                        </div>
+                                    </div>
+                                ))}
                                 <div class="ExpertiseDescription col-12 col-lg-8 mt-4">
-                                    <p><small>Project Management</small></p>
-                                    <h2>Description</h2>
-                                    <p>While it may not be obvious to everyone, there are a number of reasons creating random paragraphs can be useful. A few examples of how some people use this generator are listed in the following paragraphs. </p>
+                                    <p><large>{selectedExpertise}</large></p>
+                                    <h2>Achievements</h2>
+                                    <p>{expertise[selectedExpertise]['achievements']}</p>
                                 </div>
                             </div>
                         </div>

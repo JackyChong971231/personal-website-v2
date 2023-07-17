@@ -112,3 +112,13 @@
     align-items: center;
     justify-content: center;
 }
+
+mark.gold {
+    color: var(--darkGold);
+    background: transparent;
+}
+
+mark.white {
+    color: var(--white);
+    background: transparent;
+}

@@ -27,7 +27,7 @@ export function AboutMe() {
         AboutMeObject: {
             Birthday: <div class="col-8">31 Dec 1997</div>,
             Age: <div class="col-8">24 Years Old</div>,
-            Phone: <a href="tel:+1-437-660-0469" class="col-8">1-437-660-0469</a>,
+            Phone: <a href="tel:+1-437-660-0469" class="col-8">+1 (437) 660-0469</a>,
             Email: <a href="mailto:kinyechong@outlook.com" class="col-8">kinyechong@outlook.com</a>
         }
     }
@@ -42,7 +42,7 @@ export function AboutMe() {
         let imagesContainer = [];
         imagesChunkedArray.forEach((chunk) => {
             const tempChunkImages = chunk.map((image, index) => 
-                <div class={(index==0)? "col-md-4": "col-md-4 d-none d-md-block"}>
+                <div class={(index===0)? "col-md-4": "col-md-4 d-none d-md-block"}>
                     <div class="card ratio ratio-4x3">
                         <img
                             src={r(image)}
@@ -61,7 +61,7 @@ export function AboutMe() {
                 </div>
             )
             imagesContainer.push(
-                <div class={(imagesContainer.length==0)? "carousel-item active": "carousel-item"}>
+                <div class={(imagesContainer.length===0)? "carousel-item active": "carousel-item"}>
                     <div class="container">
                         <div class="row">
                             {tempChunkImages}
