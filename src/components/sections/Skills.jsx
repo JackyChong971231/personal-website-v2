@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 // import { f } from "@fortawesome/free-solid-svg-icons";
 
@@ -11,21 +11,33 @@ import graduation from '../images/Skills/graduation.png'
 import './Skills.css';
 
 const expertise = {
-    'Project Management': {
+    'Software Project Management': {
         logo: projectManagement,
-        achievements: 'Managed 3 projects at the same time'
+        achievements: [
+            'Defined project scope, objectives, and approach for a blockchain project in close collaboration with business users and vendors',
+            'Led cloud migration for WhatsApp Business API, conducting security risk assessments and managing contract follow-up with compliance teams and suppliers',
+            'Introduced OCR technology to enhance the customer journey, following a successful tender evaluation process'
+        ]
     },
     'Embedded System Design': {
         logo: firmware,
-        achievements: 'Embeddedsdfasdfasdfasdf'
+        achievements: [
+            'Developed embedded firmware, and bootloaders for high-speed optical transceivers (400 Gbps/800 Gbps) using C/C++',
+            'Designed and maintained a Python PyQt 5 GUI-based proprietary Firmware Upload Software'
+        ]
     },
     'System Analysis & Solution Design': {
         logo: solutionDesign,
-        achievements: 'Analysisasdfasdfasdfasdfasdf'
+        achievements: [
+            'Communicated with vendors, developed a Proof of Concept program, and presented to the business users and finance team how Hyperledger Fabric Blockchain can be used to streamline the Loan Application Process while maintaining the beauty of the existing workflow'
+        ]
     },
-    'System Developer': {
+    'Developer': {
         logo: systemDeveloper,
-        achievements: 'Developerasdfasdfasdfasdfasdfasdfasdf'
+        achievements: [
+            'Designed and developed a Python PyQt 5 GUI-based Hardware Diagnostic UI to facilitate efficient collaboration among PCB Design Engineer, Firmware Design Engineer, and Test Engineer in optical transceiver manufacturing',
+            'Maintained Django Backend Server to handle thousands of messages from 40 WhatsApp Numbers on a daily basis'
+        ]
     }
 }
 
@@ -90,7 +102,9 @@ export function Skills() {
     const [workingExperienceComponent, setWorkingExperienceComponent] = useState([]);
     const [languagesComponent, setLanguagesComponent] = useState([]);
     const [professionalsComponent, setProfessionalsComponent] = useState([]);
-    const [selectedExpertise, setSelectedExpertise] = useState('Project Management');
+    const [selectedExpertise, setSelectedExpertise] = useState('Software Project Management');
+    const [minimumHeight, setMinimumHeight] = useState('0px')
+    const ref = useRef(null)
 
     useEffect(() => {
 
@@ -127,7 +141,7 @@ export function Skills() {
         setWorkingExperienceComponent(tempWorkingExperienceComponent);
 
         let tempLanguage = [];
-        ['Python','C','Java','HTML + CSS','JavaScript','SQL'].forEach(Language => {
+        ['Python','React Native','HTML + CSS','JavaScript','SQL','Java','C'].forEach(Language => {
             tempLanguage.push(
                 <li class="text-start ps-1 mb-1">{Language}</li>
             )
@@ -135,12 +149,14 @@ export function Skills() {
         setLanguagesComponent(tempLanguage)
 
         let tempProfessionals = [];
-        ['Blockchain','WhatsApp Business API','Deep Learning'].forEach(Language => {
+        ['Blockchain','WhatsApp Business API','Backend Server','Deep Learning'].forEach(Professional => {
             tempProfessionals.push(
-                <li class="text-start ps-1 mb-1">{Language}</li>
+                <li class="text-start ps-1 mb-1">{Professional}</li>
             )
         })
-        setProfessionalsComponent(tempProfessionals)
+        setProfessionalsComponent(tempProfessionals);
+
+        setMinimumHeight(ref.current.clientHeight.toString()+'px');
     },[])
 
     return (
@@ -186,16 +202,23 @@ export function Skills() {
                                         <div key={index} class={(eachExpertise===selectedExpertise) ? 
                                             "border border-warning rounded p-2 pb-0 h-100" :
                                             "border rounded p-2 pb-0 h-100"
-                                            } style={{transition: '0.5s'}} onClick={() => setSelectedExpertise(eachExpertise)}>
+                                            } style={{transition: '0.5s'}} onMouseOver={() => setSelectedExpertise(eachExpertise)} onClick={() => setSelectedExpertise(eachExpertise)}>
                                             <img class="expertiseIcon p-3" src={expertise[eachExpertise]['logo']}></img>
                                             <p class="">{eachExpertise}</p>
                                         </div>
                                     </div>
                                 ))}
-                                <div class="ExpertiseDescription col-12 col-lg-8 mt-4">
+                                <div class="ExpertiseDescription col-12 col-lg-8 mt-4 ">
                                     <p><large>{selectedExpertise}</large></p>
                                     <h2>Achievements</h2>
-                                    <p>{expertise[selectedExpertise]['achievements']}</p>
+                                    <div class="expertiseDescriptionContainer pb-1" ref={ref} style={{ minHeight: minimumHeight }}>
+                                        {expertise[selectedExpertise]['achievements'].map((eachAchievement, index) => (
+                                                    <div className='row'>
+                                                        <p className='col-1'>&#10070;</p>
+                                                        <p className='col-11' align="justify" key={index}><small>{eachAchievement}</small></p>
+                                                    </div>
+                                                ))}
+                                    </div>
                                 </div>
                             </div>
                         </div>
