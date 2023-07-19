@@ -17,7 +17,7 @@ export function AboutMe() {
         Passion: 'To me, coding is like teaching a computer to think like me, so it can do things the way I want them done. What I love most about coding is the sense of accomplishment I feel when I build something from scratch, and then see it come to life and make a positive impact. I take pride in my work and always strive to write high quality code that performs optimally. Its also a constant learning process, which keeps me motivated and engaged. I find great satisfaction in staying up-to-date with the latest trends and technologies, and I enjoy the challenge of improving the system with these concepts to solve real-world problems.',
         AboutMeObject: {
             Birthday: <div class="col-8">31 Dec 1997</div>,
-            Age: <div class="col-8">24 Years Old</div>,
+            Age: <div class="col-8">25 Years Old</div>,
             Phone: <a href="tel:+1-437-660-0469" class="col-8">+1 (437) 660-0469</a>,
             Email: <a href="mailto:kinyechong@outlook.com" class="col-8">kinyechong@outlook.com</a>
         }

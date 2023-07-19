@@ -35,6 +35,7 @@ function App() {
     <div class="App">
 
       <Cover/>
+      <div id="JustAboveNarbar"></div>
       <NavBar/>
       <section id="AboutMe"><AboutMe/></section>
       <section id="Skills"><Skills/></section>

@@ -169,7 +169,7 @@ export function Skills() {
                 <div class="row skills in no-gutters">
                     <div>
                         <div class="container px-4">
-                            <div class="row">
+                            <div id="skillsSection" class="row">
                                 <div class="graduationImage px-3 col-12 col-md-6">
                                     <p class="text-start pt-4 mb-0" style={{color: 'var(--gold)'}}>Qualitifaction</p>
                                     <h1 class="text-start pb-4" style={{ fontFamily: 'Times New Roman', fontWeight: 'bold' }}>Education</h1>
@@ -224,7 +224,7 @@ export function Skills() {
                         </div>
                     </div>
                 </div>
-                <div class="row skills out working no-gutters justify-content-center">
+                <div id="workingExperience" class="row skills out working no-gutters justify-content-center">
                     <div class="col-xl-8 col-md-10 col-12">
                         <p class="text-start px-4 pt-4 mb-0" style={{color: 'var(--gold)'}}>All Companies</p>
                         <h1 class="text-start px-4 pb-4" style={{ fontFamily: 'Times New Roman', fontWeight: 'bold' }}>Working Experience</h1>
