@@ -2,7 +2,7 @@ import logo from './images/logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
@@ -16,15 +16,21 @@ import { ContactMe } from './sections/ContactMe';
 
 function App() {
   const [prevScrollpos, setPrevScrollpos] = useState(0);
+  const [navbarInUsed, setNavbarInUsed] = useState(false);
+  const navbarInUsedRef = useRef(navbarInUsed);
 
   useEffect(() => {
+    navbarInUsedRef.current = navbarInUsed;
+
     const onScroll = e => {
-      if (prevScrollpos > window.pageYOffset) {
-        document.getElementsByClassName("navbar")[0].style.top = "0";
-      } else if (window.pageYOffset - window.screen.height > 50) {
-        document.getElementsByClassName("navbar")[0].style.top = "-60px";
+      if(!navbarInUsedRef.current) {
+        if (prevScrollpos > window.pageYOffset) {
+          document.getElementsByClassName("navbar")[0].style.top = "0";
+        } else if (window.pageYOffset - window.screen.height > 50) {
+          document.getElementsByClassName("navbar")[0].style.top = "-60px";
+        }
+        setPrevScrollpos(window.pageYOffset);
       }
-      setPrevScrollpos(window.pageYOffset);
     }
     window.addEventListener("scroll", onScroll)
 
@@ -36,7 +42,7 @@ function App() {
 
       <Cover/>
       <div id="JustAboveNarbar"></div>
-      <NavBar/>
+      <NavBar navbarInUsed={navbarInUsed} setNavbarInUsed={setNavbarInUsed}/>
       <section id="AboutMe"><AboutMe/></section>
       <section id="Skills"><Skills/></section>
       <section id="ContactMe"><ContactMe/></section>

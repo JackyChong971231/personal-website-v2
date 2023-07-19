@@ -11,19 +11,29 @@ import { faBars, faBell, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export function NavBar() {
+export function NavBar({navbarInUsed, setNavbarInUsed}) {
     const [clicked, setClicked] = useState(false);
+    const [docsDropDownMenuInUsed, setDocsDropDownMenuInUsed] = useState(false);
     const ref = useRef(null)
 
     function navbarItemOnClickHandler(href) {
         window.location.href=href;
         setClicked(false);
-      }
+        setAndUpdateNavbarStatus(false, false);
+    }
+
+    function setAndUpdateNavbarStatus(navbarToStatus, docsDropDownToStatus) {
+        navbarToStatus = (navbarToStatus===null)? clicked : navbarToStatus
+        docsDropDownToStatus = (docsDropDownToStatus===null)? docsDropDownMenuInUsed : docsDropDownToStatus
+        setNavbarInUsed(navbarToStatus || docsDropDownToStatus);
+        setClicked(navbarToStatus);
+        setDocsDropDownMenuInUsed(docsDropDownToStatus);
+    }
 
     return (
         <>
             {/* <!-- Navbar --> */}
-            <nav id="NavBar" className="navbar navbar-expand-sm navbar-light fixed-top">
+            <nav id="NavBar" className="navbar navbar-expand-md navbar-light fixed-top">
                 {/* <!-- Container wrapper --> */}
                 <div class="container-fluid">
                     {/* <!-- Toggle button --> */}
@@ -34,7 +44,7 @@ export function NavBar() {
                     aria-controls="navbarSupportedContent"
                     aria-expanded="false"
                     aria-label="Toggle navigation"
-                    onClick={() => {setClicked(!clicked);}}
+                    onClick={() => setAndUpdateNavbarStatus(!clicked, null)}
                     >
                         <FontAwesomeIcon icon={clicked? faXmark: faBars}/>
                     </button>
@@ -83,7 +93,7 @@ export function NavBar() {
 
 
                         {/* <!-- Notifications --> */}
-                        {/* <div class="dropdown">
+                        <div class="dropdown">
                             <a
                             class="text-reset me-3 dropdown-toggle hidden-arrow"
                             href="#"
@@ -91,25 +101,29 @@ export function NavBar() {
                             role="button"
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
+                            onClick={() => setAndUpdateNavbarStatus(null, !docsDropDownMenuInUsed)}
+                            onBlur={() => setAndUpdateNavbarStatus(null, false)}
                             >
-                            <FontAwesomeIcon icon={faBell} />
-                            <span class="badge rounded-pill badge-notification bg-danger">1</span>
+                            Docs
+                            {/* <span class="badge rounded-pill badge-notification bg-danger">1</span> */}
                             </a>
                             <ul
-                            class="dropdown-menu dropdown-menu-end"
+                            class={(clicked)? "dropdown-menu dropdown-menu-right": "dropdown-menu dropdown-menu-end"}
                             aria-labelledby="navbarDropdownMenuLink"
                             >
                             <li>
-                                <a class="dropdown-item" href="#">Some news</a>
+                                <a class="dropdown-item" href="#">Resume</a>
+                            </li>
+                            <li><hr class="dropdown-divider"/></li>
+                            <h6 class="dropdown-header">Supervisor's Reference Letter <br/>from:</h6>
+                            <li>
+                                <a class="dropdown-item" href="#"><small>PrimeCredit Limited</small></a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">Another news</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                <a class="dropdown-item" href="#"><small>Cloud Light Technology Limited</small></a>
                             </li>
                             </ul>
-                        </div> */}
+                        </div>
 
                         {/* <!-- Avatar --> */}
                         {/* <div class="dropdown">

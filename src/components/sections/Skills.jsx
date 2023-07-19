@@ -107,6 +107,9 @@ export function Skills() {
     const ref = useRef(null)
 
     useEffect(() => {
+        function handleResize() {
+            setMinimumHeight(ref.current.clientHeight.toString()+'px');
+        }
 
         let tempWorkingExperienceComponent = [];
         for (var company in workingExperience) {
@@ -157,6 +160,7 @@ export function Skills() {
         setProfessionalsComponent(tempProfessionals);
 
         setMinimumHeight(ref.current.clientHeight.toString()+'px');
+        window.addEventListener('resize', handleResize)
     },[])
 
     return (

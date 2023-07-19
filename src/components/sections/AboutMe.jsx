@@ -38,7 +38,7 @@ export function AboutMe() {
                     </div>
                 </div>
                 <div class="row my-3">
-                    <div class="col-md-4 d-flex align-items-center">  {/*d-flex align-items-center*/}
+                    <div class="col-md-4 pt-md-4 mx-auto">  {/*d-flex align-items-center*/}
                         <img class="img-thumbnail rounded-circle w-100 t-50" src={propic}></img>
                     </div>
                     <div class="col-md-8">
