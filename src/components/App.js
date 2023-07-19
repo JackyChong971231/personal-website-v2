@@ -27,7 +27,7 @@ function App() {
         if (prevScrollpos > window.pageYOffset) {
           document.getElementsByClassName("navbar")[0].style.top = "0";
         } else if (window.pageYOffset - window.screen.height > 50) {
-          document.getElementsByClassName("navbar")[0].style.top = "-60px";
+          document.getElementsByClassName("navbar")[0].style.top = "-70px";
         }
         setPrevScrollpos(window.pageYOffset);
       }

@@ -200,6 +200,11 @@ export function Skills() {
                         </div>
                         <div class="container px-4">
                             <div class="row justify-content-center">
+                                <h1 class="text-start col-12 py-4" style={{ fontFamily: 'Times New Roman', fontWeight: 'bold' }}>Projects</h1>
+                            </div>
+                        </div>
+                        <div class="container px-4">
+                            <div class="row justify-content-center">
                                 <h1 class="text-start col-12 py-4" style={{ fontFamily: 'Times New Roman', fontWeight: 'bold' }}>Expertise</h1>
                                 {Object.keys(expertise).map((eachExpertise, index) => (
                                     <div class="col-6 col-md-3 col-xl-2 p-3">

@@ -28,6 +28,9 @@ export function NavBar({navbarInUsed, setNavbarInUsed}) {
         setNavbarInUsed(navbarToStatus || docsDropDownToStatus);
         setClicked(navbarToStatus);
         setDocsDropDownMenuInUsed(docsDropDownToStatus);
+        setTimeout(() => {
+            document.getElementsByClassName("navbar")[0].style.top = "-70px"
+        },1000)
     }
 
     return (
@@ -54,25 +57,25 @@ export function NavBar({navbarInUsed, setNavbarInUsed}) {
                         {/* <!-- Left links --> */}
                         <ul class="nav navbar-nav me-auto mb-2 mb-lg-0 text-start">
                             <li class="nav-item mx-3">
-                                <a class="nav-link"
+                                <a class="nav-link" style={{cursor: "pointer"}}
                                 data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
                                 onClick={() => navbarItemOnClickHandler("#JustAboveNarbar")}
                                 >About Me</a>
                             </li>
                             <li class="nav-item mx-3">
-                                <a class="nav-link"
+                                <a class="nav-link" style={{cursor: "pointer"}}
                                 data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
                                 onClick={() => navbarItemOnClickHandler("#workingExperience")}
                                 >Working Experience</a>
                             </li>
                             <li class="nav-item mx-3">
-                                <a class="nav-link" href="#"
+                                <a class="nav-link" style={{cursor: "pointer"}}
                                 data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
                                 onClick={() => navbarItemOnClickHandler("#JustAboveNarbar")}
                                 >Projects</a>
                             </li>
                             <li class="nav-item mx-3">
-                                <a class="nav-link"
+                                <a class="nav-link" style={{cursor: "pointer"}}
                                 data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
                                 onClick={() => navbarItemOnClickHandler("#skillsSection")}
                                 >Skills</a>
