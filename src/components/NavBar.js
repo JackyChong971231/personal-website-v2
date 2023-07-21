@@ -5,6 +5,10 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import myLogo from './images/myLogo.png'
 import propic from './images/ProPic.jpg';
 
+import resume from './docs/resume.pdf';
+import HKEReferenceLetter from './docs/HKEReferenceLetter.pdf';
+import PCLReferenceLetter from './docs/PCLReferenceLetter.pdf';
+
 import React, { useState, useEffect, useRef } from 'react';
 
 import { faBars, faBell, faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -29,7 +33,9 @@ export function NavBar({navbarInUsed, setNavbarInUsed}) {
         setClicked(navbarToStatus);
         setDocsDropDownMenuInUsed(docsDropDownToStatus);
         setTimeout(() => {
-            document.getElementsByClassName("navbar")[0].style.top = "-70px"
+            if (!docsDropDownToStatus) {
+                document.getElementsByClassName("navbar")[0].style.top = "-70px"
+            }
         },1000)
     }
 
@@ -68,12 +74,12 @@ export function NavBar({navbarInUsed, setNavbarInUsed}) {
                                 onClick={() => navbarItemOnClickHandler("#workingExperience")}
                                 >Working Experience</a>
                             </li>
-                            <li class="nav-item mx-3">
+                            {/* <li class="nav-item mx-3">
                                 <a class="nav-link" style={{cursor: "pointer"}}
                                 data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
                                 onClick={() => navbarItemOnClickHandler("#JustAboveNarbar")}
                                 >Projects</a>
-                            </li>
+                            </li> */}
                             <li class="nav-item mx-3">
                                 <a class="nav-link" style={{cursor: "pointer"}}
                                 data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
@@ -115,15 +121,15 @@ export function NavBar({navbarInUsed, setNavbarInUsed}) {
                             aria-labelledby="navbarDropdownMenuLink"
                             >
                             <li>
-                                <a class="dropdown-item" href="#">Resume</a>
+                                <a class="dropdown-item" href={resume} target="_blank">Resume</a>
                             </li>
                             <li><hr class="dropdown-divider"/></li>
                             <h6 class="dropdown-header">Supervisor's Reference Letter <br/>from:</h6>
                             <li>
-                                <a class="dropdown-item" href="#"><small>PrimeCredit Limited</small></a>
+                                <a class="dropdown-item" href={PCLReferenceLetter} target="_blank"><small>PrimeCredit Limited</small></a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#"><small>Cloud Light Technology Limited</small></a>
+                                <a class="dropdown-item" href={HKEReferenceLetter} target="_blank"Z><small>The Hongkong Electric Co., Ltd</small></a>
                             </li>
                             </ul>
                         </div>

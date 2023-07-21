@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import propic from '../images/ProPic.jpg';
+import resume from '../docs/resume.pdf';
 
 // import { f } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons"
@@ -53,7 +54,7 @@ export function AboutMe() {
                                         <FontAwesomeIcon icon={ContactPoint[eachApp].icon} />
                                     </a>
                                 ))}
-                                <a class="btn btn-dark mx-1"> Download CV</a>
+                                <a class="btn btn-dark mx-1" href={resume} target="_blank"> Download resume</a>
                             </div>
                         </div>
                         <div class="row">

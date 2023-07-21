@@ -54,7 +54,7 @@ const workingExperience = {
                 <li>Kickstarted the migration from On Premises to Cloud API for <mark class='gold'>WhatsApp Business API</mark></li>,
                 <li style={{paddingLeft: '10%'}}>Guided vendors and business users to define the project scope and outline project requirements</li>,
                 <li style={{paddingLeft: '10%'}}>Conducted contract and risk assessments with project stakeholders in compliance with the company’s regulation</li>,
-                <li>Revamped functions within a <mark class='gold'>Java based Customer Data Platform Spring Boot</mark></li>]
+                <li>Revamped functions within a <mark class='gold'>Java-based Customer Data Platform - Spring Boot</mark></li>]
             }
         ]
     },
@@ -65,7 +65,7 @@ const workingExperience = {
                 'Title': 'Firmware Design Engineer',
                 'Duration': 'Jul 2021 - June 2022',
                 'Description': [
-                <li>Designed, developed and <mark class='gold'>tested software, embedded firmware and bootloaders</mark> for <mark class='gold'>400G & 800G optical transceivers in C/C++</mark></li>,
+                <li>Designed, developed and tested <mark class='gold'>software, embedded firmware and bootloaders</mark> for <mark class='gold'>400G & 800G optical transceivers in C/C++</mark></li>,
                 <li style={{paddingLeft: '10%'}}>PMIC, design and develop drivers for I2C, SRAM, SDRAM, ADCs, Flash, GPIOs, ISR and peripheral ICs like TIA, CDRs</li>,
                 <li>Developed and maintained the proprietary <mark class='gold'>Firmware Upload Software - PyQt5 GUI</mark></li>,
                 <li>Managed and developed flexible firmware architecture to best facilitate firmware modularization</li>,
@@ -78,7 +78,7 @@ const workingExperience = {
                 <li>Developed <mark class='gold'>Python based Hardware Diagnostic UI and testing software</mark> for products/components evaluation and demo</li>,
                 <li style={{paddingLeft: '10%'}}><mark class='gold'>GUI (mainly PyQt5 and Tkinter)</mark> for different types of projects and automation programmes for firmware verification</li>,
                 <li>Performed different types of <mark class='gold'>PCB Flying Probe tests and failure and data analysis</mark> for design and yield improvement</li>,
-                <li>Worked with PCB and Firmware Design Engineers to to ensure designs are optimized for production and are compatible with other elements of the design</li>]
+                <li>Worked with PCB and Firmware Design Engineers to ensure designs are optimized for production and are compatible with other elements of the design</li>]
             }
         ]
     },
