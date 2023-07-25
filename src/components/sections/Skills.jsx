@@ -200,7 +200,7 @@ export function Skills() {
                         </div>
                         <div class="container px-4">
                             <div class="row justify-content-center">
-                                <h1 class="text-start col-12 py-4" style={{ fontFamily: 'Times New Roman', fontWeight: 'bold' }}>Projects</h1>
+                                {/* <h1 class="text-start col-12 py-4" style={{ fontFamily: 'Times New Roman', fontWeight: 'bold' }}>Projects</h1> */}
                             </div>
                         </div>
                         <div class="container px-4">
