@@ -86,6 +86,12 @@ export function NavBar({navbarInUsed, setNavbarInUsed}) {
                                 onClick={() => navbarItemOnClickHandler("#skillsSection")}
                                 >Skills</a>
                             </li>
+                            <li class="nav-item mx-3">
+                                <a class="nav-link" style={{cursor: "pointer"}}
+                                data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
+                                onClick={() => navbarItemOnClickHandler("#projectsSection")}
+                                >Projects</a>
+                            </li>
                         </ul>
                         {/* <!-- Left links --> */}
                     </div>

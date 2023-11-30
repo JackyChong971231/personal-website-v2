@@ -1,0 +1,44 @@
+.project__header {
+    text-align: left;
+}
+
+.all-projects__container {
+    display: flex;
+    overflow-x: scroll;
+}
+
+.all-projects__container:first-child {
+    padding-left: 2rem;
+}
+
+.all-projects__container:last-child {
+    padding-right: 2rem;
+}
+
+.each-project__container {
+    border-radius: 1.5rem;
+    box-shadow: 0px 0px 20px 5px rgb(233, 233, 233);
+}
+
+.each-project__header {
+    display: flex;
+}
+
+.each-project__header > h5 {
+    font-weight: 650;
+
+}
+
+.each-project__image {
+    object-fit: cover;
+    width: 17rem;
+    border-radius: 1rem;
+}
+
+.each-project__description {
+    text-align: left;
+}
+
+.each-project__language {
+    text-align: left;
+}

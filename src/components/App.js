@@ -13,6 +13,7 @@ import { Cover } from './Cover';
 import { AboutMe } from './sections/AboutMe';
 import { Skills } from './sections/Skills';
 import { ContactMe } from './sections/ContactMe';
+import { Projects } from './sections/Projects';
 
 function App() {
   const [prevScrollpos, setPrevScrollpos] = useState(0);
@@ -44,6 +45,7 @@ function App() {
       <div id="JustAboveNarbar"></div>
       <NavBar navbarInUsed={navbarInUsed} setNavbarInUsed={setNavbarInUsed}/>
       <section id="AboutMe"><AboutMe/></section>
+      <section id="Projects"><Projects/></section>
       <section id="Skills"><Skills/></section>
       <section id="ContactMe"><ContactMe/></section>
     </div>
