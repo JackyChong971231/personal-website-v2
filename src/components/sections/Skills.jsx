@@ -166,7 +166,7 @@ export function Skills() {
     return (
         <>
             <div class="container-fluid">
-                <div class="row skills out no-gutters mt-3">
+                <div class="row skills out no-gutters pt-3">
                     <h4 class="px-4 pt-4" >“You can't connect the dots looking forward; you can only connect them looking backwards"</h4>
                     <h4 class="text-end pt-2 px-4 pb-4" >Steve Jobs</h4>
                 </div>
@@ -233,7 +233,7 @@ export function Skills() {
                         </div>
                     </div>
                 </div>
-                <div id="workingExperience" class="row skills out working no-gutters justify-content-center">
+                <div id="workingExperience" class="row working out working no-gutters justify-content-center">
                     <div class="col-xl-8 col-md-10 col-12">
                         <p class="text-start px-4 pt-4 mb-0" style={{color: 'var(--gold)'}}>All Companies</p>
                         <h1 class="text-start px-4 pb-4" style={{ fontFamily: 'Times New Roman', fontWeight: 'bold' }}>Working Experience</h1>

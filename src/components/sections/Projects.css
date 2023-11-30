@@ -1,5 +1,14 @@
+#projectsSection {
+    background-color: rgb(83, 83, 83);
+    color: white;
+}
+
 .project__header {
     text-align: left;
+}
+
+.project__header > h2 {
+    color: var(--gold);
 }
 
 .all-projects__container {
@@ -8,25 +17,32 @@
 }
 
 .all-projects__container:first-child {
-    padding-left: 2rem;
+    padding-left: 1rem;
 }
 
 .all-projects__container:last-child {
-    padding-right: 2rem;
+    padding-right: 1rem;
 }
 
 .each-project__container {
+    background-color: white;
+    color: black;
     border-radius: 1.5rem;
-    box-shadow: 0px 0px 20px 5px rgb(233, 233, 233);
+    box-shadow: 0px 0px 15px 3px rgb(69, 69, 69);
 }
 
 .each-project__header {
-    display: flex;
+    text-align: left;
 }
 
 .each-project__header > h5 {
     font-weight: 650;
+    color: var(--darkGold);
+    text-decoration: underline;
+}
 
+.each-project__header > a {
+    font-size: 0.85rem;
 }
 
 .each-project__image {

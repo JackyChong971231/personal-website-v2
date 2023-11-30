@@ -1,4 +1,4 @@
-.row.skills.out {
+.row.working.out {
     position: relative;
     background-color: rgb(49, 49, 49);
     color: white;
@@ -24,8 +24,8 @@
 }
 
 .row.skills.out {
-    background-color: rgb(49, 49, 49);
-    color: white;
+    background-color: rgb(233, 233, 233);
+    color: black;
     font-family: 'Times New Roman', Times, serif;
 }
 
