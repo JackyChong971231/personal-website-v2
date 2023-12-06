@@ -42,47 +42,63 @@ const expertise = {
 }
 
 const workingExperience = {
+    'Best Buy Canada': {
+        'Location': 'Toronto, Canada',
+        'Total Duration': 'Sep 2023 - Present',
+        'Positions': [
+            {
+                'Title': 'Computing Solutions Advisor',
+                'Duration': 'Sep 2023 - Present',
+                'Description': [
+                <li>Provided personalized computing advice and driving sales with proven customer satisfaction</li>,
+                <li>Demonstrated in-depth product knowledge for effective upselling and cross-selling of computing devices and accessories</li>]
+            }
+        ]
+    },
     'PrimeCredit Limited': {
+        'Location': 'Hong Kong',
         'Total Duration': 'Jun 2022 - Apr 2023',
         'Positions': [
             {
                 'Title': 'Software Engineer – FinTech Innovation',
                 'Duration': 'Jun 2022 - Apr 2023',
                 'Description': [
-                <li>Developed Proof of Concept program presented to business users the potential of <mark class='gold'>Hyperledger Fabric Blockchain</mark> in streamlining Loan Application Process</li>,
-                <li>Diagnosed and resolved technical issues, added new features, and performed upgrades and deployments for the <mark class='gold'>backend server - Django</mark> for <mark class='gold'>WhatsApp Business API</mark></li>,
+                <li>Kickstarted a blockchain project by developing and presenting a Proof-of-Concept program to highlight its efficiency and cost-saving potential in streamlining loan application process across 3 famous financial institution</li>,
+                <li>Maintained and improved Django based Backend Server for WhatsApp Business API (WABA) by adding user-requested functions, diagnosing cross-server technical issues, and resolving bugs from WABA version incompatibility and Meta errors</li>,
                 <li>Kickstarted the migration from On Premises to Cloud API for <mark class='gold'>WhatsApp Business API</mark></li>,
                 <li style={{paddingLeft: '10%'}}>Guided vendors and business users to define the project scope and outline project requirements</li>,
-                <li style={{paddingLeft: '10%'}}>Conducted contract and risk assessments with project stakeholders in compliance with the company’s regulation</li>,
-                <li>Revamped functions within a <mark class='gold'>Java-based Customer Data Platform - Spring Boot</mark></li>]
+                <li style={{paddingLeft: '10%'}}>Conducted contract and risk assessments with project stakeholders in compliance with the company regulation</li>,
+                <li>Enhanced functionalities within a Java-based Customer Data Platform using Spring Boot, contributing to system refinement</li>]
             }
         ]
     },
     'Cloud Light Technology Limited': {
+        'Location': 'Hong Kong',
         'Total Duration': 'June 2020 - June 2022',
         'Positions': [
             {
                 'Title': 'Firmware Design Engineer',
                 'Duration': 'Jul 2021 - June 2022',
                 'Description': [
-                <li>Designed, developed and tested <mark class='gold'>software, embedded firmware and bootloaders</mark> for <mark class='gold'>400G & 800G optical transceivers in C/C++</mark></li>,
+                <li>Designed, developed and tested <mark class='gold'>C/C++ software, embedded firmware and bootloaders</mark> for cutting-edge <mark class='gold'>400G & 800G optical transceivers</mark></li>,
                 <li style={{paddingLeft: '10%'}}>PMIC, design and develop drivers for I2C, SRAM, SDRAM, ADCs, Flash, GPIOs, ISR and peripheral ICs like TIA, CDRs</li>,
-                <li>Developed and maintained the proprietary <mark class='gold'>Firmware Upload Software - PyQt5 GUI</mark></li>,
+                <li>Developed and upheld the proprietary <mark class='gold'>Firmware Upload Software - PyQt5 GUI</mark></li>,
                 <li>Managed and developed flexible firmware architecture to best facilitate firmware modularization</li>,
-                <li>Worked closely with testing team, hardware team and chip vendors to validate hardware assisting technical leads and fellows with architecture discussions and investigating design tradeoffs</li>]
+                <li>Collaborated with cross-functional teams, including testing, hardware, and chip vendors, to validate hardware and support technical leads in architecture discussions and design tradeoffs</li>]
             },
             {
                 'Title': 'Optical Product Engineer',
                 'Duration': 'June 2020 - Jul 2021',
                 'Description': [
-                <li>Developed <mark class='gold'>Python based Hardware Diagnostic UI and testing software</mark> for products/components evaluation and demo</li>,
+                <li>Developed a <mark class='gold'>Python based Hardware Diagnostic UI and testing software</mark> for automated firmware verification, comprehensive product/component evaluation, and engaging demonstrations</li>,
                 <li style={{paddingLeft: '10%'}}><mark class='gold'>GUI (mainly PyQt5 and Tkinter)</mark> for different types of projects and automation programmes for firmware verification</li>,
-                <li>Performed different types of <mark class='gold'>PCB Flying Probe tests and failure and data analysis</mark> for design and yield improvement</li>,
-                <li>Worked with PCB and Firmware Design Engineers to ensure designs are optimized for production and are compatible with other elements of the design</li>]
+                <li>Conducted diverse  <mark class='gold'>PCB Flying Probe tests and failure and data analysis</mark> to enhance design and yield efficiency</li>,
+                <li>Collaborated closely with PCB and Firmware Design Engineers to optimize designs for production and ensure compatibility with other circuit elements, contributing to seamless integration.</li>]
             }
         ]
     },
     'The Hongkong Electric Co., Ltd.': {
+        'Location': 'Hong Kong',
         'Total Duration': 'Jul 2019 - Aug 2019',
         'Positions': [
             {
@@ -120,6 +136,7 @@ export function Skills() {
                     <i class="fas fa-rocket text-primary fa-sm fa-fw"></i>
                 </span>
                 <h5 class="fw-bold">{company}</h5>
+                <p class="fw-bold mb-1" style={{fontWeight: 'bold'}}>{workingExperience[company]['Location']}</p>
                 <p class="fw-bold" style={{fontWeight: 'bold'}}>{workingExperience[company]['Total Duration']}</p>
             </li>
             )}
@@ -132,6 +149,7 @@ export function Skills() {
                         <i class="fas fa-rocket text-primary fa-sm fa-fw w-25"></i>
                     </span>
                     {(jobsInCompany.length < 2)? <h5 class="fw-bold" style={{fontWeight: 'bold'}}>{company}</h5>: null}
+                    <p class="fw-bold mb-1" style={{fontWeight: 'bold'}}>{workingExperience[company]['Location']}</p>
                     <p class=" mb-2 fw-bold" style={{color: 'var(--gold)'}}>{position['Title']}</p>
                     <p class=" mb-2 fw-bold">{position['Duration']}</p>
                     <ul class="" style={{color: 'lightgray', listStylePosition: 'inside'}}>

@@ -26,8 +26,8 @@ export function Projects () {
     return (
         <div id='projectsSection' className='py-4'>
             <div className='project__header px-4 py-1'>
-                <h2><b>Projects</b></h2>
-                <p>below are my projects</p>
+                <h2><b>My projects</b></h2>
+                {/* <p>below are my projects</p> */}
             </div>
             <div className='project__content'>
                 <div className='all-projects__container py-4'>
