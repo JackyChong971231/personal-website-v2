@@ -5,14 +5,41 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ContactMeBackground from '../images/ContactMe/ContactMeBackground.jpg'
 
 import './ContactMe.css';
+import axios from "axios";
 
 
 export function ContactMe() {
+    // const [fromIp, setFromIp] = useState();
 
+    // const recordUserData = (timeStart, timeEnd, ipAddr) => {
+    //     localStorage.removeItem("testing")
+    //     localStorage.setItem("testing", JSON.stringify({
+    //         "Time_Start": timeStart,
+    //         "Time_End" : timeEnd,
+    //         "ip": ipAddr
+    //     }))
+    // }
 
-    useEffect(() => {
+    // const getFromIp = async () => {
+    //     const res = await axios.get("https://api.ipify.org/?format=json");
+    //     setFromIp(res.data.ip);
+    // }
 
-    },[])
+    // useEffect(() => {
+    //     getFromIp();
+    //     const timeStart = Date.now();
+    //     const handleBeforeUnload = async (event) => {
+    //         event.preventDefault();
+    //         event.returnValue = '';
+    //         const timeEnd = Date.now();
+    //         recordUserData(timeStart, timeEnd, fromIp);
+    //     };
+
+    //     window.addEventListener('beforeunload', handleBeforeUnload);
+    //     return () => {
+    //         window.removeEventListener('beforeunload', handleBeforeUnload);
+    //     };
+    // }, [])
 
     return (
         <>
