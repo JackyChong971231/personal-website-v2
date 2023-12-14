@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ContactMeBackground from '../images/ContactMe/ContactMeBackground.jpg'
 
 import './ContactMe.css';
-import axios from "axios";
+// import axios from "axios";
 
 
 export function ContactMe() {
