@@ -50,8 +50,10 @@ const workingExperience = {
                 'Title': 'Computing Solutions Advisor',
                 'Duration': 'Sep 2023 - Present',
                 'Description': [
-                <li>Provided personalized computing advice and driving sales with proven customer satisfaction</li>,
-                <li>Demonstrated in-depth product knowledge for effective upselling and cross-selling of computing devices and accessories</li>]
+                // <li>Provided personalized computing advice and driving sales with proven customer satisfaction</li>,
+                <li>Offered <mark class='gold'>personalized guidance</mark>, explaining features, specifications, and benefits to customers, empowering them to maximize the potential of their computing devices</li>,
+                <li>Demonstrated in-depth product knowledge for effective <mark class='gold'>upselling and cross-selling</mark> of computing devices and accessories</li>,
+                ]
             }
         ]
     },
@@ -63,12 +65,10 @@ const workingExperience = {
                 'Title': 'Software Engineer – FinTech Innovation',
                 'Duration': 'Jun 2022 - Apr 2023',
                 'Description': [
-                <li>Kickstarted a blockchain project by developing and presenting a Proof-of-Concept program to highlight its efficiency and cost-saving potential in streamlining loan application process across 3 famous financial institution</li>,
-                <li>Maintained and improved Django based Backend Server for WhatsApp Business API (WABA) by adding user-requested functions, diagnosing cross-server technical issues, and resolving bugs from WABA version incompatibility and Meta errors</li>,
-                <li>Kickstarted the migration from On Premises to Cloud API for <mark class='gold'>WhatsApp Business API</mark></li>,
-                <li style={{paddingLeft: '10%'}}>Guided vendors and business users to define the project scope and outline project requirements</li>,
-                <li style={{paddingLeft: '10%'}}>Conducted contract and risk assessments with project stakeholders in compliance with the company regulation</li>,
-                <li>Enhanced functionalities within a Java-based Customer Data Platform using Spring Boot, contributing to system refinement</li>]
+                <li>Developed and presented a <mark class='gold'>Proof-of-Concept program</mark> to demonstrate the <mark class='gold'>blockchain</mark>'s potential in optimizing the Loan Application Process across 3 famous financial institution</li>,
+                <li>Managed the <mark class='gold'>WhatsApp Business API (WABA)</mark> and its <mark class='gold'>Django-based Backend Server</mark>, ensuring its consistent and optimal performance by adding user-requested functions, diagnosing cross-server technical issues, and resolving bugs from WABA version incompatibility and Meta errors</li>,
+                <li>Led <mark class='gold'>On-Premises to Cloud API migration</mark> for <mark class='gold'>WhatsApp Business API</mark> and its <mark class='gold'>backend server</mark>, guiding vendors and users in project scope, requirements, contracts, and risk assessments for compliance</li>,
+                <li>Enhanced functionalities within a <mark class='gold'>Java-based Customer Data Platform</mark> using <mark class='gold'>Spring Boot</mark>, contributing to system refinement</li>]
             }
         ]
     },
@@ -83,17 +83,16 @@ const workingExperience = {
                 <li>Designed, developed and tested <mark class='gold'>C/C++ software, embedded firmware and bootloaders</mark> for cutting-edge <mark class='gold'>400G & 800G optical transceivers</mark></li>,
                 <li style={{paddingLeft: '10%'}}>PMIC, design and develop drivers for I2C, SRAM, SDRAM, ADCs, Flash, GPIOs, ISR and peripheral ICs like TIA, CDRs</li>,
                 <li>Developed and upheld the proprietary <mark class='gold'>Firmware Upload Software - PyQt5 GUI</mark></li>,
-                <li>Managed and developed flexible firmware architecture to best facilitate firmware modularization</li>,
                 <li>Collaborated with cross-functional teams, including testing, hardware, and chip vendors, to validate hardware and support technical leads in architecture discussions and design tradeoffs</li>]
             },
             {
                 'Title': 'Optical Product Engineer',
                 'Duration': 'June 2020 - Jul 2021',
                 'Description': [
-                <li>Developed a <mark class='gold'>Python based Hardware Diagnostic UI and testing software</mark> for automated firmware verification, comprehensive product/component evaluation, and engaging demonstrations</li>,
+                <li>Developed a Python based <mark class='gold'>Hardware Diagnostic GUI (PyQt5)</mark> and testing software for automated firmware verification, products evaluation and demo</li>,
                 <li style={{paddingLeft: '10%'}}><mark class='gold'>GUI (mainly PyQt5 and Tkinter)</mark> for different types of projects and automation programmes for firmware verification</li>,
-                <li>Conducted diverse  <mark class='gold'>PCB Flying Probe tests and failure and data analysis</mark> to enhance design and yield efficiency</li>,
-                <li>Collaborated closely with PCB and Firmware Design Engineers to optimize designs for production and ensure compatibility with other circuit elements, contributing to seamless integration.</li>]
+                <li>Conducted diverse <mark class='gold'>PCB Flying Probe tests</mark> and failure and data analysis for design and yield improvement</li>,
+                <li>Collaborated with PCB and Firmware Design Engineers to optimize designs for production and ensure compatibility with chips & components</li>]
             }
         ]
     },
@@ -149,7 +148,7 @@ export function Skills() {
                         <i class="fas fa-rocket text-primary fa-sm fa-fw w-25"></i>
                     </span>
                     {(jobsInCompany.length < 2)? <h5 class="fw-bold" style={{fontWeight: 'bold'}}>{company}</h5>: null}
-                    <p class="fw-bold mb-1" style={{fontWeight: 'bold'}}>{workingExperience[company]['Location']}</p>
+                    {(jobsInCompany.length < 2)? <p class="fw-bold mb-1" style={{fontWeight: 'bold'}}><small>{workingExperience[company]['Location']}</small></p>: null}
                     <p class=" mb-2 fw-bold" style={{color: 'var(--gold)'}}>{position['Title']}</p>
                     <p class=" mb-2 fw-bold">{position['Duration']}</p>
                     <ul class="" style={{color: 'lightgray', listStylePosition: 'inside'}}>

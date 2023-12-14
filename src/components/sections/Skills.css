@@ -115,6 +115,7 @@
 
 mark.gold {
     color: var(--darkGold);
+    font-weight: 600;
     background: transparent;
 }
 

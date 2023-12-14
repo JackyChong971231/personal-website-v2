@@ -29,6 +29,7 @@
     color: black;
     border-radius: 1.5rem;
     box-shadow: 0px 0px 15px 3px rgb(69, 69, 69);
+    max-width: 25rem;
 }
 
 .each-project__header {
