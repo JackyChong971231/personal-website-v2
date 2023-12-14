@@ -13,7 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export function Cover() {
     const CoverContent = {
       'Title': 'Software Engineer',
-      'LittleBio': 'Being a part of the FinTech Innovation Team in a Financial Institution, my expertise is to adhere to the Software Development Life Cycle to build secure, scalable and efficient financial applications.'
+      'LittleBio': 'As a former member of the FinTech Innovation Team in a Financial Institution, my expertise is to adhere to the Software Development Life Cycle to build secure, scalable and efficient financial applications.'
     };
     return (
         <>
