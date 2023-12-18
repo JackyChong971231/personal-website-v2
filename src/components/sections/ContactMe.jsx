@@ -46,7 +46,7 @@ export function ContactMe() {
         const vistRecordRequest = {
             ipAddr: userIp,
             enterTime: startTime,
-            leaveTime: endTime
+            leaveTime: null
         }
         apiGateway(POST, endPoint + "/add", vistRecordRequest);
     }
@@ -58,17 +58,18 @@ export function ContactMe() {
     }
 
     useEffect(() => {
+        recordUserData();
 
-        const handleBeforeUnload = async (event) => {
-            event.preventDefault();
-            event.returnValue = '';
-            recordUserData();
-        };
+        // const handleBeforeUnload = async (event) => {
+        //     event.preventDefault();
+        //     event.returnValue = '';
+        //     recordUserData();
+        // };
 
-        window.addEventListener('beforeunload', handleBeforeUnload);
-        return () => {
-            window.removeEventListener('beforeunload', handleBeforeUnload);
-        };
+        // window.addEventListener('beforeunload', handleBeforeUnload);
+        // return () => {
+        //     window.removeEventListener('beforeunload', handleBeforeUnload);
+        // };
 
     }, [])
 
