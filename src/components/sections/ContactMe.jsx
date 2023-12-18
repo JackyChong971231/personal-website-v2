@@ -58,18 +58,18 @@ export function ContactMe() {
     }
 
     useEffect(() => {
-        recordUserData();
+        // recordUserData();
 
-        // const handleBeforeUnload = async (event) => {
-        //     event.preventDefault();
-        //     event.returnValue = '';
-        //     recordUserData();
-        // };
+        const handleBeforeUnload = async (event) => {
+            event.preventDefault();
+            event.returnValue = '';
+            recordUserData();
+        };
 
-        // window.addEventListener('beforeunload', handleBeforeUnload);
-        // return () => {
-        //     window.removeEventListener('beforeunload', handleBeforeUnload);
-        // };
+        window.addEventListener('beforeunload', handleBeforeUnload);
+        return () => {
+            window.removeEventListener('beforeunload', handleBeforeUnload);
+        };
 
     }, [])
 
