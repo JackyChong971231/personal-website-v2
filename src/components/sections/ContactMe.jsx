@@ -39,14 +39,42 @@ export function ContactMe() {
     const [fromIp, setFromIp] = useState();
     const [startTime, setStartTime] = useState(new Date().toISOString().slice(0, 19).replace("T", " "));
 
+
+    const getIpLocationInfo = async (ip) => {
+        const apiKey = '880c446f454e4f5eabda78d4ca25bef4';
+        const ipAddress = ip;
+        // const fields = 'country,city';
+
+        try {
+            const response = await fetch(`https://ipgeolocation.abstractapi.com/v1/?api_key=${apiKey}&ip_address=${ipAddress}`);
+            
+            if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            // console.log(data);
+            return data;
+            // Handle the data as needed
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            // Handle errors
+        }
+    }
+
+
     const recordUserData = async () => {
 
         const endTime = new Date().toISOString().slice(0, 19).replace("T", " ");
         const userIp = await getFromIp();
+        const ipInfo = await getIpLocationInfo(userIp);
         const vistRecordRequest = {
             ipAddr: userIp,
             enterTime: startTime,
-            leaveTime: endTime
+            leaveTime: endTime,
+            geolocation: ipInfo.city + ', ' + ipInfo.country + ', ' + ipInfo.postal_code,
+            connectionType: String(ipInfo.connection.connection_type),
+            organizationName: String(ipInfo.connection.organization_name)
         }
         apiGateway(POST, endPoint + "/add", vistRecordRequest);
     }
@@ -59,7 +87,6 @@ export function ContactMe() {
 
     useEffect(() => {
         recordUserData();
-
         // const handleBeforeUnload = async (event) => {
         //     event.preventDefault();
         //     event.returnValue = '';
