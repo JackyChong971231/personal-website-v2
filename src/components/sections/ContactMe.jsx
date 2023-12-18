@@ -46,7 +46,7 @@ export function ContactMe() {
         const vistRecordRequest = {
             ipAddr: userIp,
             enterTime: startTime,
-            leaveTime: null
+            leaveTime: endTime
         }
         apiGateway(POST, endPoint + "/add", vistRecordRequest);
     }
