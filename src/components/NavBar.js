@@ -45,7 +45,7 @@ export function NavBar({navbarInUsed, setNavbarInUsed, setPrevScrollpos}) {
     }
 
     useEffect(() => {
-        console.log(isExpended || isDocsExpended)
+        // console.log(isExpended || isDocsExpended)
         setNavbarInUsed((isExpended || isDocsExpended))
     }, [isExpended, isDocsExpended])
 
