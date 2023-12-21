@@ -18,32 +18,35 @@ import { Projects } from './sections/Projects';
 function App() {
   const [prevScrollpos, setPrevScrollpos] = useState(0);
   const [navbarInUsed, setNavbarInUsed] = useState(false);
-  const navbarInUsedRef = useRef(navbarInUsed);
 
   useEffect(() => {
-    navbarInUsedRef.current = navbarInUsed;
-
     const onScroll = e => {
-      if(!navbarInUsedRef.current) {
+      if(!navbarInUsed) {
         if (prevScrollpos > window.pageYOffset) {
           document.getElementsByClassName("navbar")[0].style.top = "0";
-        } else if (window.pageYOffset - window.screen.height > 50) {
-          document.getElementsByClassName("navbar")[0].style.top = "-70px";
+        } else {
+          if (document.getElementsByClassName("collapse")[0].style.height) { // this is double confirm check for NavBar cuz when navbar expanded, window pageyOffset is changed too
+            document.getElementsByClassName("navbar")[0].style.top = "0";
+          } else {
+            document.getElementsByClassName("navbar")[0].style.top = "-70px";
+          }
         }
         setPrevScrollpos(window.pageYOffset);
       }
     }
     window.addEventListener("scroll", onScroll)
-
-
-  })
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  // })
+  }, [window.pageYOffset, navbarInUsed])
 
   return (
     <div class="App">
 
       <Cover/>
       <div id="JustAboveNarbar"></div>
-      <NavBar navbarInUsed={navbarInUsed} setNavbarInUsed={setNavbarInUsed}/>
+      <NavBar navbarInUsed={navbarInUsed} setNavbarInUsed={setNavbarInUsed} setPrevScrollpos={setPrevScrollpos}/>
       <section id="AboutMe"><AboutMe/></section>
       <section id="Projects"><Projects/></section>
       <section id="Skills"><Skills/></section>

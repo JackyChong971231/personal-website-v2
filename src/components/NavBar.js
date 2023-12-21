@@ -15,34 +15,45 @@ import { faBars, faBell, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export function NavBar({navbarInUsed, setNavbarInUsed}) {
-    const [clicked, setClicked] = useState(false);
-    const [docsDropDownMenuInUsed, setDocsDropDownMenuInUsed] = useState(false);
-    const ref = useRef(null)
+export function NavBar({navbarInUsed, setNavbarInUsed, setPrevScrollpos}) {
+    const [isExpended, setIsExpended] = useState(false);
+    const [isDocsExpended, setIsDocsExpended] = useState(false);
 
     function navbarItemOnClickHandler(href) {
         window.location.href=href;
-        setClicked(false);
-        setAndUpdateNavbarStatus(false, false);
+        setIsExpended(false);
     }
 
-    function setAndUpdateNavbarStatus(navbarToStatus, docsDropDownToStatus) {
-        navbarToStatus = (navbarToStatus===null)? clicked : navbarToStatus
-        docsDropDownToStatus = (docsDropDownToStatus===null)? docsDropDownMenuInUsed : docsDropDownToStatus
-        setNavbarInUsed(navbarToStatus || docsDropDownToStatus);
-        setClicked(navbarToStatus);
-        setDocsDropDownMenuInUsed(docsDropDownToStatus);
-        setTimeout(() => {
-            if (!docsDropDownToStatus) {
-                document.getElementsByClassName("navbar")[0].style.top = "-70px"
-            }
-        },1000)
+    const topLeftNavBarOnClickHandler = () => {
+        setIsExpended(prevState => !prevState);
     }
+
+    const topLeftNavBarOnBlurHandler = () => {
+        if (isExpended) {
+            setIsExpended(false);
+        }
+    }
+
+    const docsOnClickHandler = () => {
+        setIsDocsExpended(prevState => !prevState);
+    }
+
+    const docsOnBlurHandler = () => {
+        if (isDocsExpended) {
+            setIsDocsExpended(false);
+        }
+    }
+
+    useEffect(() => {
+        console.log(isExpended || isDocsExpended)
+        setNavbarInUsed((isExpended || isDocsExpended))
+    }, [isExpended, isDocsExpended])
 
     return (
         <>
             {/* <!-- Navbar --> */}
-            <nav id="NavBar" className="navbar navbar-expand-md navbar-light fixed-top">
+            <nav id="NavBar" className="navbar navbar-expand-md navbar-light fixed-top"
+            style={{top: (isExpended || isDocsExpended)?"0":""}}>
                 {/* <!-- Container wrapper --> */}
                 <div class="container-fluid">
                     {/* <!-- Toggle button --> */}
@@ -53,13 +64,14 @@ export function NavBar({navbarInUsed, setNavbarInUsed}) {
                     aria-controls="navbarSupportedContent"
                     aria-expanded="false"
                     aria-label="Toggle navigation"
-                    onClick={() => setAndUpdateNavbarStatus(!clicked, null)}
+                    onClick={topLeftNavBarOnClickHandler}
+                    onBlur={topLeftNavBarOnBlurHandler}
                     >
-                        <FontAwesomeIcon icon={clicked? faXmark: faBars}/>
+                        <FontAwesomeIcon icon={isExpended? faXmark: faBars}/>
                     </button>
 
                     {/* <!-- Collapsible wrapper --> */}
-                    <div ref={ref} class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class={"collapse navbar-collapse " + (isExpended? "show": "")} id="navbarSupportedContent">
                         {/* <!-- Left links --> */}
                         <ul class="nav navbar-nav me-auto mb-2 mb-lg-0 text-start">
                             <li class="nav-item mx-3">
@@ -74,12 +86,6 @@ export function NavBar({navbarInUsed, setNavbarInUsed}) {
                                 onClick={() => navbarItemOnClickHandler("#workingExperience")}
                                 >Working Experience</a>
                             </li>
-                            {/* <li class="nav-item mx-3">
-                                <a class="nav-link" style={{cursor: "pointer"}}
-                                data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
-                                onClick={() => navbarItemOnClickHandler("#JustAboveNarbar")}
-                                >Projects</a>
-                            </li> */}
                             <li class="nav-item mx-3">
                                 <a class="nav-link" style={{cursor: "pointer"}}
                                 data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
@@ -116,14 +122,15 @@ export function NavBar({navbarInUsed, setNavbarInUsed}) {
                             role="button"
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
-                            onClick={() => setAndUpdateNavbarStatus(null, !docsDropDownMenuInUsed)}
-                            onBlur={() => setAndUpdateNavbarStatus(null, false)}
+                            onClick={docsOnClickHandler}
+                            onBlur={docsOnBlurHandler}
                             >
                             Docs
                             {/* <span class="badge rounded-pill badge-notification bg-danger">1</span> */}
                             </a>
                             <ul
-                            class={(clicked)? "dropdown-menu dropdown-menu-right": "dropdown-menu dropdown-menu-end"}
+                            // class={(clicked)? "dropdown-menu dropdown-menu-right": "dropdown-menu dropdown-menu-end"}
+                            className={'dropdown-menu dropdown-menu-end ' + ((isDocsExpended)? 'show': '')}
                             aria-labelledby="navbarDropdownMenuLink"
                             >
                             <li>
