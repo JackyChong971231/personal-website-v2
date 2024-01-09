@@ -3,17 +3,31 @@
     color: white;
 }
 
+#projectsSection > img {
+    position: absolute;
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(40%);
+    left: 0;
+}
+
 .project__header {
     text-align: left;
 }
 
-.project__header > h2 {
-    color: var(--gold);
+.project__header > h3 {
+    font-weight: 600;
 }
 
 .all-projects__container {
     display: flex;
     overflow-x: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.all-projects__container::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
 }
 
 .all-projects__container:first-child {
@@ -25,11 +39,18 @@
 }
 
 .each-project__container {
-    background-color: white;
+    background-color: rgb(225, 225, 225);
     color: black;
     border-radius: 1.5rem;
     box-shadow: 0px 0px 15px 3px rgb(69, 69, 69);
     max-width: 25rem;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.each-project__container:hover {
+    background-color: white;
+    box-shadow: 0px 0px 15px 3px var(--superDarkGold);
 }
 
 .each-project__header {

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 import ikeaCloneImg from '../../assets/images/screenshot-ikea-clone.png';
 import personalWebsiteImg from '../../assets/images/screenshot-personal-website.png';
+import vscodeBg from '../../assets/images/vscode.jpg';
 
 import './Projects.css';
 
@@ -26,11 +27,11 @@ export function Projects () {
     return (
         <div id='projectsSection' className='py-4'>
             <div className='project__header px-4 py-1'>
-                <h2><b>My projects</b></h2>
+                <h3>Here are my <mark class='gold'>programming</mark> side projects:</h3>
                 {/* <p>below are my projects</p> */}
             </div>
             <div className='project__content'>
-                <div className='all-projects__container py-4'>
+                <div className='all-projects__container py-5'>
                     {projectsData.map((eachProjectData, i) => (
                         <div className='each-project__container mx-3 mx-sm-4 px-3 py-2'>
                             <div className='each-project__header py-2'>

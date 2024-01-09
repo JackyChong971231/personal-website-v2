@@ -133,9 +133,14 @@ export function ContactMe() {
                         <button type="submit" class="btn btn-primary btn-block mb-4">Send message</button>
                     </form>
 
-                    <div class="ContactMeBottomContainer col-12">
-
-                    </div>
+                    <footer class="ContactMeBottomContainer col-12">
+                        <ul className='copyright px-0 mx-0'>
+                            <li>© Personal Website</li>
+                            <li>Design: Jacky Chong</li>
+                            <li>Coding: Jacky Chong</li>
+                        </ul>
+                        <p>All content on this site is personally written and curated.</p>
+                    </footer>
                 </div>
             </div>
 

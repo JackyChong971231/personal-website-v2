@@ -183,9 +183,10 @@ export function Skills() {
     return (
         <>
             <div class="container-fluid">
-                <div class="row skills out no-gutters pt-3">
-                    <h4 class="px-4 pt-4" >“You can't connect the dots looking forward; you can only connect them looking backwards"</h4>
-                    <h4 class="text-end pt-2 px-4 pb-4" >Steve Jobs</h4>
+                <div class="row skills out no-gutters py-3">
+                    <h5 class="px-4 pt-4" >“You can't connect the dots looking forward; you can only connect them looking backwards"</h5>
+                    <h5 class="text-end pt-2 px-4 pb-4" >Steve Jobs</h5>
+                    <p2><mark class="gold">This mindset is what keeps me hooked on learning</mark></p2>
                 </div>
                 <div class="row skills in no-gutters">
                     <div>

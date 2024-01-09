@@ -1,18 +1,26 @@
+.outerCover {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
 .Cover {
     width: 100%;
     height: 100vh;
+    overflow: hidden;
+    border: 1px solid black;
 }
 
 .CoverProPic {
     width: 100%;
     height: 100vh;
     object-fit: cover;
-    filter: brightness(40%)
+    filter: brightness(40%);
 }
 
 .Greeting {
     position: absolute;
-    top: 30%;
+    top: 25%;
     padding-inline: 10%;
     left: 0px;
     color: white;
@@ -32,7 +40,7 @@
 
 .Greeting > p {
     width: 58%;
-    font-size: small;
+    font-size: 1rem;
 }
 
 .LearnMore {

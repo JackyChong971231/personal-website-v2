@@ -113,13 +113,3 @@
     justify-content: center;
 }
 
-mark.gold {
-    color: var(--darkGold);
-    font-weight: 600;
-    background: transparent;
-}
-
-mark.white {
-    color: var(--white);
-    background: transparent;
-}

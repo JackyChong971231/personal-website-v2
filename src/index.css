@@ -15,5 +15,22 @@ code {
 :root {
   --gold: rgb(231, 177, 0);
   --darkGold: rgb(197, 151, 0);
+  --superDarkGold: rgb(133, 103, 2);
   --white: #ffffff;
+}
+
+mark.gold {
+  color: var(--darkGold);
+  font-weight: 600;
+  background: transparent;
+}
+
+mark.highlight {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+mark.white {
+  color: var(--white);
+  background: transparent;
 }

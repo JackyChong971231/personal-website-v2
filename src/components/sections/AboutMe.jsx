@@ -14,11 +14,11 @@ export function AboutMe() {
     const AboutMeContent = {
         Title: 'Software Engineer',
         Workplace: 'Canada',
-        Bio: 'Formerly contributing to the FinTech Innovation Team within a Financial Institution, my area of expertise lies in implementing the Software Development Life Cycle to develop secure, scalable, and efficient financial applications. Through my experience and training, I have developed a deep understanding of the complexities of financial technology and the importance of adhering to industry standards. By leveraging cutting-edge tools and techniques, I am able to deliver high-quality solutions that meet the needs of both my clients and stakeholders.',
-        Passion: 'To me, coding is like teaching a computer to think like me, so it can do things the way I want them done. What I love most about coding is the sense of accomplishment I feel when I build something from scratch, and then see it come to life and make a positive impact. I take pride in my work and always strive to write high quality code that performs optimally. Its also a constant learning process, which keeps me motivated and engaged. I find great satisfaction in staying up-to-date with the latest trends and technologies, and I enjoy the challenge of improving the system with these concepts to solve real-world problems.',
+        Bio: <p>Formerly contributing to the FinTech Innovation Team within a Financial Institution as a software engineer, my area of expertise lies in implementing the <mark class='gold'>Software Development Life Cycle</mark> to develop secure, scalable, and efficient applications. Through my experience and training, I have developed a deep understanding of the complexities of financial technology and the importance of adhering to industry standards. By leveraging cutting-edge tools and techniques, I am able to deliver high-quality solutions that meet the needs of both my clients and stakeholders.</p>,
+        Passion: <p><mark class='gold'>Coding, for me, is not just a job; it's a passion. Imagine teaching a computer to think like you do – that's the thrill I find in building applications from scratch.</mark> What sets me apart is not just my technical expertise but also my commitment to staying at the forefront of advancements. I take pride in crafting high-quality, optimal code that evolves with the industry. Join me in exploring the dynamic world of software development, where innovation meets impact.</p>,
         AboutMeObject: {
             Birthday: <div class="col-8">31 Dec 1997</div>,
-            Age: <div class="col-8">25 Years Old</div>,
+            Age: <div class="col-8">26 Years Old</div>,
             Phone: <a href="tel:+1-437-660-0469" class="col-8">+1 (437) 660-0469</a>,
             Email: <a href="mailto:kinyechong@outlook.com" class="col-8">kinyechong@outlook.com</a>
         }
@@ -42,7 +42,7 @@ export function AboutMe() {
                     <div class="col-md-4 pt-md-4 mx-auto">  {/*d-flex align-items-center*/}
                         <img class="img-thumbnail rounded-circle w-100 t-50" src={propic}></img>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-8 py-md-0 py-3">
                         <div class="row my-3 my-sm-0">
                             <div class="d-flex align-items-center">
                                 {Object.keys(ContactPoint).map((eachApp)=>(
@@ -60,8 +60,8 @@ export function AboutMe() {
                         <div class="row">
                             <div class="text-start pt-3">
                                 <h3>I'm a passionate Software Engineer</h3>
-                                <p>{AboutMeContent.Bio}</p>
-                                <p>{AboutMeContent.Passion}</p>
+                                {AboutMeContent.Bio}
+                                {AboutMeContent.Passion}
                             </div>
                         </div>
                         <div class="row border-2 border-top pt-2">
