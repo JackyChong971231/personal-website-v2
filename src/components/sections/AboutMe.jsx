@@ -5,9 +5,11 @@ import resume from '../docs/resume.pdf';
 // import { f } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import AboutMeBg from '../images/ProPic_Landscape_2.jpg'
 
 import './AboutMe.css';
 
+import gsap from 'gsap';
 
 export function AboutMe() {
 
@@ -29,9 +31,14 @@ export function AboutMe() {
         LinkedIn:   {icon: faLinkedin,  url: "https://www.linkedin.com/in/jacky-chong-kin-ye"}
     }
 
+    
+
+
     return (
         <>
-            <div class="container col-12 col-lg-8 mt-3 mb-5">
+            <div class="about-me__container container col-12 col-lg-8 pt-3 pb-5">
+            
+                <img class="AboutMeBg" src={AboutMeBg}></img>
                 <div class="row">
                     <div class="col-sm-12">
                         <h1 class="text-sm-start fw-bold">About <span style={{color: 'var(--gold)'}}>Me</span></h1>
@@ -39,8 +46,22 @@ export function AboutMe() {
                     </div>
                 </div>
                 <div class="row my-3">
-                    <div class="col-md-4 pt-md-4 mx-auto">  {/*d-flex align-items-center*/}
-                        <img class="img-thumbnail rounded-circle w-100 t-50" src={propic}></img>
+                    <div class="row col-md-4 pt-md-4 mx-auto py-2">  {/*d-flex align-items-center*/}
+                        <div className='col-md-12 col-6 px-4'>
+                            <img class="img-thumbnail rounded-circle t-50" src={propic}></img>
+                        </div>
+                        <div className='col-md-12 col-6 px-4 border-2 border-start h-100'>
+                            <div class="row pt-2">
+                                {Object.keys(AboutMeContent.AboutMeObject).map((fieldName)=>(
+                                    <div class="col-12 col-md-6">
+                                        <div class="row text-start my-1">
+                                            <div class="col-4 fw-bold">{fieldName}: </div>
+                                            {AboutMeContent.AboutMeObject[fieldName]}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-8 py-md-0 py-3">
                         <div class="row my-3 my-sm-0">
@@ -63,16 +84,6 @@ export function AboutMe() {
                                 {AboutMeContent.Bio}
                                 {AboutMeContent.Passion}
                             </div>
-                        </div>
-                        <div class="row border-2 border-top pt-2">
-                            {Object.keys(AboutMeContent.AboutMeObject).map((fieldName)=>(
-                                <div class="col-12 col-md-6">
-                                    <div class="row text-start my-1">
-                                        <div class="col-4 fw-bold">{fieldName}</div>
-                                        {AboutMeContent.AboutMeObject[fieldName]}
-                                    </div>
-                                </div>
-                            ))}
                         </div>
                     </div>
                 </div>

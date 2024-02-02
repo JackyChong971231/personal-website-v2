@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "./Cover.css";
 import ProPic_Landscape from './images/ProPic_Landscape_3.jpg';
+import ProPic_Landscape_Me from './images/ProPic_Landscape_3_me.png';
 import LinkedInProPic from './images/ProPic.jpg';
 
 import React, { useState, useEffect } from 'react';
@@ -25,12 +26,13 @@ export function Cover() {
     
           // Adjust the speed factor to control the parallax effect
           const greetingOffset = -scrollValue * 0.2;
-          const coverpropicOffset = -scrollValue * 0.3;
-          const coverOffset = -scrollValue * 0.4;
+          const coverpropicOffset = -scrollValue * 0.5;
+          const coverOffset = -scrollValue * 0.7;
     
           cover.style.transform = `translate3d(0, ${-coverOffset}px, 0)`;
           cover.querySelector('.Greeting').style.transform = `translate3d(0, ${greetingOffset}px, 0)`;
-          cover.querySelector('.CoverProPic').style.transform = `translate3d(0, ${coverpropicOffset}px, 0)`;
+          cover.querySelector('.CoverProPic--Bg').style.transform = `translate3d(0, ${coverpropicOffset}px, 0)`;
+          cover.querySelector('.CoverProPic--Me').style.transform = `translate3d(0, ${coverpropicOffset}px, 0)`;
         })
       };
   
@@ -45,7 +47,8 @@ export function Cover() {
         <>
           <div className='outerCover'>
             <div class='Cover'>
-              <img class="CoverProPic" src={ProPic_Landscape}></img>
+              <img class="CoverProPic CoverProPic--Me" src={ProPic_Landscape_Me}></img>
+              <img class="CoverProPic CoverProPic--Bg" src={ProPic_Landscape}></img>
               <div class="Greeting text-start">
                 <h1>I'm a <span>{CoverContent.Title}</span></h1>
                 <h1><big>Jacky Chong</big></h1>
