@@ -10,7 +10,18 @@ import graduation from '../images/Skills/graduation.png'
 
 import './Skills.css';
 
+import gsap from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 const expertise = {
+    'Developer': {
+        logo: systemDeveloper,
+        achievements: [
+            'Designed and developed a Python PyQt 5 GUI-based Hardware Diagnostic UI to facilitate efficient collaboration among PCB Design Engineer, Firmware Design Engineer, and Test Engineer in optical transceiver manufacturing',
+            'Maintained Django Backend Server to handle thousands of messages from 40 WhatsApp Numbers on a daily basis'
+        ]
+    },
     'Software Project Management': {
         logo: projectManagement,
         achievements: [
@@ -31,18 +42,12 @@ const expertise = {
         achievements: [
             'Communicated with vendors, developed a Proof of Concept program, and presented to the business users and finance team how Hyperledger Fabric Blockchain can be used to streamline the Loan Application Process while maintaining the beauty of the existing workflow'
         ]
-    },
-    'Developer': {
-        logo: systemDeveloper,
-        achievements: [
-            'Designed and developed a Python PyQt 5 GUI-based Hardware Diagnostic UI to facilitate efficient collaboration among PCB Design Engineer, Firmware Design Engineer, and Test Engineer in optical transceiver manufacturing',
-            'Maintained Django Backend Server to handle thousands of messages from 40 WhatsApp Numbers on a daily basis'
-        ]
     }
 }
 
 const workingExperience = {
     'Best Buy Canada': {
+        'CompanyDetail': 'Retail | Toronto, Canada | 53K employees',
         'Location': 'Toronto, Canada',
         'Total Duration': 'Sep 2023 - Present',
         'Positions': [
@@ -58,6 +63,7 @@ const workingExperience = {
         ]
     },
     'PrimeCredit Limited': {
+        'CompanyDetail': 'Financial Services | Hong Kong | 501-1K employees',
         'Location': 'Hong Kong',
         'Total Duration': 'Jun 2022 - Apr 2023',
         'Positions': [
@@ -73,6 +79,7 @@ const workingExperience = {
         ]
     },
     'Cloud Light Technology Limited': {
+        'CompanyDetail': 'Appliances, Electrical, and Electronics Manufacturing | Hong Kong | 530 employees',
         'Location': 'Hong Kong',
         'Total Duration': 'June 2020 - June 2022',
         'Positions': [
@@ -97,6 +104,7 @@ const workingExperience = {
         ]
     },
     'The Hongkong Electric Co., Ltd.': {
+        'CompanyDetail': 'Utilities | Hong Kong | 1K-5K employees',
         'Location': 'Hong Kong',
         'Total Duration': 'Jul 2019 - Aug 2019',
         'Positions': [
@@ -117,7 +125,7 @@ export function Skills() {
     const [workingExperienceComponent, setWorkingExperienceComponent] = useState([]);
     const [languagesComponent, setLanguagesComponent] = useState([]);
     const [professionalsComponent, setProfessionalsComponent] = useState([]);
-    const [selectedExpertise, setSelectedExpertise] = useState('Software Project Management');
+    const [selectedExpertise, setSelectedExpertise] = useState('Developer');
     const [minimumHeight, setMinimumHeight] = useState('0px')
     const ref = useRef(null)
 
@@ -135,7 +143,7 @@ export function Skills() {
                     <i class="fas fa-rocket text-primary fa-sm fa-fw"></i>
                 </span>
                 <h5 class="fw-bold">{company}</h5>
-                <p class="fw-bold mb-1" style={{fontWeight: 'bold'}}>{workingExperience[company]['Location']}</p>
+                <p class="mb-1"><small>{workingExperience[company]['CompanyDetail']}</small></p>
                 <p class="fw-bold" style={{fontWeight: 'bold'}}>{workingExperience[company]['Total Duration']}</p>
             </li>
             )}
@@ -148,7 +156,7 @@ export function Skills() {
                         <i class="fas fa-rocket text-primary fa-sm fa-fw w-25"></i>
                     </span>
                     {(jobsInCompany.length < 2)? <h5 class="fw-bold" style={{fontWeight: 'bold'}}>{company}</h5>: null}
-                    {(jobsInCompany.length < 2)? <p class="fw-bold mb-1" style={{fontWeight: 'bold'}}><small>{workingExperience[company]['Location']}</small></p>: null}
+                    {(jobsInCompany.length < 2)? <p class="mb-1"><small>{workingExperience[company]['CompanyDetail']}</small></p>: null}
                     <p class=" mb-2 fw-bold" style={{color: 'var(--gold)'}}>{position['Title']}</p>
                     <p class=" mb-2 fw-bold">{position['Duration']}</p>
                     <ul class="" style={{color: 'lightgray', listStylePosition: 'inside'}}>
@@ -178,6 +186,15 @@ export function Skills() {
 
         setMinimumHeight(ref.current.clientHeight.toString()+'px');
         window.addEventListener('resize', handleResize)
+
+        // gsap.timeline({scrollTrigger:{
+        //     trigger:'#workingExperience',
+        //     start: 'top 40%',
+        //     end: 'bottom 40%',
+        //     scrub: 1
+        // }})
+        //     .fromTo('.vscodeLeft', {y: -100}, {y: -300}, 0)
+        //     .fromTo('.vscodeRight', {y: -300}, {y: -100}, 0)
     },[])
 
     return (
@@ -197,8 +214,9 @@ export function Skills() {
                                     <h1 class="text-start pb-4" style={{ fontFamily: 'Times New Roman', fontWeight: 'bold' }}>Education</h1>
                                     <img src={graduation}></img>
                                     <h4 class="py-2">Bachelor of Engineering in Electronic Engineering</h4>
-                                    <p>The Hong Kong University of Science and Technology</p>
                                     <p>Sep 2016 - Nov 2020</p>
+                                    <p className='university__name'>The Hong Kong University of Science and Technology</p>
+                                    <a className='qs_ranking' href='https://www.topuniversities.com/university-subject-rankings/electrical-electronic-engineering/2020?page=1'><mark class='gold'>Ranked #22</mark> in QS World University Rankings for Electronic Engineering in 2020</a>
                                 </div>
                                 <div class="mySkills px-3 text-start col-12 col-md-6">
                                 <p class="text-start pt-4 mb-0" style={{color: 'var(--gold)'}}>Computing</p>
@@ -252,6 +270,7 @@ export function Skills() {
                     </div>
                 </div>
                 <div id="workingExperience" class="row working out working no-gutters justify-content-center">
+                    <p className='workingExp__header'>sdfasdfsdfasdfsadf</p>
                     <div class="col-xl-8 col-md-10 col-12">
                         <p class="text-start px-4 pt-4 mb-0" style={{color: 'var(--gold)'}}>All Companies</p>
                         <h1 class="text-start px-4 pb-4" style={{ fontFamily: 'Times New Roman', fontWeight: 'bold' }}>Working Experience</h1>

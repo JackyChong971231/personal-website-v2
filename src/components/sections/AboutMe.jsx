@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import propic from '../images/ProPic.jpg';
 import resume from '../docs/resume.pdf';
+import canadaFlag from '../../components/images/AboutMe/canada-flag.mp4';
 
 // import { f } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons"
@@ -77,7 +78,12 @@ export function AboutMe() {
                 <div class="row">
                     <div class="col-sm-12">
                         <h1 class="text-sm-start fw-bold">About <span style={{color: 'var(--gold)'}}>Me</span></h1>
-                        <p class="aboutMeShortBio text-sm-start">A {AboutMeContent.Title} based in {AboutMeContent.Workplace}</p>
+                        <div className='aboutMeShortBio__container'>
+                            <p class="aboutMeShortBio text-sm-start">A {AboutMeContent.Title} based in {AboutMeContent.Workplace}</p>
+                            <video className='canadaFlag' autoPlay muted loop>
+                                <source src={canadaFlag} type='video/mp4' />
+                            </video>
+                        </div>
                     </div>
                 </div>
                 <div class="row my-3">

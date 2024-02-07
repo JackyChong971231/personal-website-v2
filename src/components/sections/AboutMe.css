@@ -14,6 +14,25 @@
     }
 }
 
+.img-thumbnail {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+      box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+      transform: translatey(0px);
+    }
+    50% {
+      box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+      transform: translatey(-20px);
+    }
+    100% {
+      box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+      transform: translatey(0px);
+    }
+  }
+
 .AboutMeBg {
     position: absolute;
     width: 100%;
@@ -44,6 +63,14 @@
     height: 100%;
     object-fit: cover;
     /* animation: primary 10s linear infinite; */
+}
+
+.aboutMeShortBio__container {
+
+}
+
+.aboutMeShortBio__container > video {
+    width: 3rem;
 }
 
 .aboutMeShortBio {
