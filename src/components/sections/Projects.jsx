@@ -3,8 +3,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import ikeaCloneImg from '../../assets/images/screenshot-ikea-clone.png';
 import personalWebsiteImg from '../../assets/images/screenshot-personal-website.png';
 import vscodeBg from '../../assets/images/vscode.jpg';
+import vscodeLineRight from '../../assets/images/vscode1.png';
+import vscodeLineLeft from '../../assets/images/vscode2.png';
+
 
 import './Projects.css';
+
+import gsap from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const projectsData = [
     {
@@ -24,8 +31,25 @@ const projectsData = [
 ]
 
 export function Projects () {
+    useEffect(() => {
+        gsap.timeline({scrollTrigger:{
+            trigger:'#projectsSection',
+            start: 'top 40%',
+            end: 'bottom 40%',
+            scrub: 1
+        }})
+            .fromTo('.vscodeLeft', {y: -100}, {y: -300}, 0)
+            .fromTo('.vscodeRight', {y: -300}, {y: -100}, 0)
+    },[])
+
     return (
         <div id='projectsSection' className='py-4'>
+            <div className='project__bg'>
+                <img className='vscodeBg' src={vscodeBg}></img>
+                <div className='vscodeLeft__container pb-5 ps-3'><img className='vscodeLeft mt-3' src={vscodeLineLeft}></img></div>
+                <div className='vscodeRight__container pb-5 ps-3'><img className='vscodeRight mt-3' src={vscodeLineRight}></img></div>
+            </div>
+
             <div className='project__header px-4 py-1'>
                 <h3>Here are my <mark class='gold'>programming</mark> side projects:</h3>
                 {/* <p>below are my projects</p> */}

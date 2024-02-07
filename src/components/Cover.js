@@ -11,6 +11,10 @@ import { faBars, faBell, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import gsap from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 export function Cover() {
     const CoverContent = {
       'Title': 'Software Engineer',
@@ -19,35 +23,24 @@ export function Cover() {
     };
 
     useEffect(() => {
-      const handleScroll = () => {
-        requestAnimationFrame(() => {
-          const cover = document.querySelector('.Cover');
-          const scrollValue = window.scrollY;
-    
-          // Adjust the speed factor to control the parallax effect
-          const greetingOffset = -scrollValue * 0.2;
-          const coverpropicOffset = -scrollValue * 0.5;
-          const coverOffset = -scrollValue * 0.7;
-    
-          cover.style.transform = `translate3d(0, ${-coverOffset}px, 0)`;
-          cover.querySelector('.Greeting').style.transform = `translate3d(0, ${greetingOffset}px, 0)`;
-          cover.querySelector('.CoverProPic--Bg').style.transform = `translate3d(0, ${coverpropicOffset}px, 0)`;
-          cover.querySelector('.CoverProPic--Me').style.transform = `translate3d(0, ${coverpropicOffset}px, 0)`;
-        })
-      };
-  
-      window.addEventListener('scroll', handleScroll);
-  
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
+      gsap.timeline({scrollTrigger:{
+        trigger:'.outerCover',
+        start: 'top top',
+        end: 'bottom top',
+        ease: "none",
+        scrub: 1,
+        // markers: true
+    }})
+        .fromTo('.Greeting', {y: 0}, {y: 400}, 0)
+        .fromTo('.CoverProPic--Bg', {y: 0}, {y: 300}, 0)
+        .fromTo('.CoverProPic--Me', {y: 0}, {y: 300}, 0)
     }, []);
 
     return (
         <>
           <div className='outerCover'>
             <div class='Cover'>
-              <img class="CoverProPic CoverProPic--Me" src={ProPic_Landscape_Me}></img>
+              {/* <img class="CoverProPic CoverProPic--Me" src={ProPic_Landscape_Me}></img> */}
               <img class="CoverProPic CoverProPic--Bg" src={ProPic_Landscape}></img>
               <div class="Greeting text-start">
                 <h1>I'm a <span>{CoverContent.Title}</span></h1>

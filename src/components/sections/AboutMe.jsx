@@ -10,9 +10,11 @@ import AboutMeBg from '../images/ProPic_Landscape_2.jpg'
 import './AboutMe.css';
 
 import gsap from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 export function AboutMe() {
-
+    const bgImgRef = useRef(null);
     const AboutMeContent = {
         Title: 'Software Engineer',
         Workplace: 'Canada',
@@ -31,14 +33,47 @@ export function AboutMe() {
         LinkedIn:   {icon: faLinkedin,  url: "https://www.linkedin.com/in/jacky-chong-kin-ye"}
     }
 
-    
+    useEffect(() => {
+    //     gsap.to(".AboutMeBg", {
+    //         transform: 'translateX(-50%) translateY(0%)',
+    //         ease: "none",
+    //         scrollTrigger: {
+    //             trigger: ".",
+    //             start: "top bottom",
+    //             end: "bottom top",
+    //             scrub: true
+    //         }
+    // });
+    const el = bgImgRef.current;
+    gsap.timeline({scrollTrigger:{
+        trigger:'.about-me__container',
+        start: 'top 70%',
+        end: 'bottom 30%',
+        scrub: 1,
+    }})
+        .fromTo('.AboutMeBg', {y: 0}, {y: 100}, 0)
+    // gsap.fromTo(el, 
+    //     {opacity: 0},
+    //     {opacity: 100,
+    //     ease: "none",
+    //     duration: 100,
+    //     scrollTrigger: {
+    //       trigger: el,
+    //       start: "top 100%",
+    //       end: "bottom top",
+    //       scrub: true,
+    //       markers: true
+    //     }}
+    // );
+//   gsap.fromTo(el, { rotation: 0 }, { rotation: 180, duration: 3 });
+    },[])
 
 
     return (
         <>
             <div class="about-me__container container col-12 col-lg-8 pt-3 pb-5">
             
-                <img class="AboutMeBg" src={AboutMeBg}></img>
+                <img class="AboutMeBg" src={AboutMeBg} ref={bgImgRef}></img>
                 <div class="row">
                     <div class="col-sm-12">
                         <h1 class="text-sm-start fw-bold">About <span style={{color: 'var(--gold)'}}>Me</span></h1>
@@ -47,20 +82,8 @@ export function AboutMe() {
                 </div>
                 <div class="row my-3">
                     <div class="row col-md-4 pt-md-4 mx-auto py-2">  {/*d-flex align-items-center*/}
-                        <div className='col-md-12 col-6 px-4'>
+                        <div className='col-md-12 col-12 px-4'>
                             <img class="img-thumbnail rounded-circle t-50" src={propic}></img>
-                        </div>
-                        <div className='col-md-12 col-6 px-4 border-2 border-start h-100'>
-                            <div class="row pt-2">
-                                {Object.keys(AboutMeContent.AboutMeObject).map((fieldName)=>(
-                                    <div class="col-12 col-md-6">
-                                        <div class="row text-start my-1">
-                                            <div class="col-4 fw-bold">{fieldName}: </div>
-                                            {AboutMeContent.AboutMeObject[fieldName]}
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
                         </div>
                     </div>
                     <div class="col-md-8 py-md-0 py-3">
@@ -84,6 +107,18 @@ export function AboutMe() {
                                 {AboutMeContent.Bio}
                                 {AboutMeContent.Passion}
                             </div>
+                        </div>
+                    </div>
+                    <div className='col-12 px-4 border-2 border-top h-100'>
+                        <div class="row pt-2">
+                            {Object.keys(AboutMeContent.AboutMeObject).map((fieldName)=>(
+                                <div class="col-12 col-md-6">
+                                    <div class="row text-start my-1">
+                                        <div class="col-4 fw-bold">{fieldName}: </div>
+                                        {AboutMeContent.AboutMeObject[fieldName]}
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
