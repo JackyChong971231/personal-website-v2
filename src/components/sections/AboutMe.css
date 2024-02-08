@@ -18,6 +18,24 @@
     animation: float 6s ease-in-out infinite;
 }
 
+.about-me__container {
+    position: relative;
+}
+
+/* .about-me__container::before {
+    position: absolute;
+    display: block;
+    content: "";
+    background-image: url("../images/ProPic_Landscape_2.jpg");
+    background-size: cover;
+    background-position: 100%;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.5;
+} */
+
 @keyframes float {
     0% {
       box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
@@ -66,11 +84,30 @@
 }
 
 .aboutMeShortBio__container {
+    position: relative;
+    display: flex;
+    /* border: 1px solid black; */
+    line-height: 3rem;
+    justify-content: center;
+    align-items: center;
+}
 
+.aboutMeShortBio__container > p {
+    position: relative;
+    line-height: 3rem;
+    height: 3rem;
+    /* border: 1px solid black; */
+    padding-right: 0.25rem;
+    margin: 0;
 }
 
 .aboutMeShortBio__container > video {
-    width: 3rem;
+    position: relative;
+    width: 2rem;
+    /* border: 1px solid black; */
+    height: 3rem;
+    padding-left: 0.25rem;
+    margin-top: 0;
 }
 
 .aboutMeShortBio {

@@ -52,7 +52,7 @@ export function AboutMe() {
         end: 'bottom 30%',
         scrub: 1,
     }})
-        .fromTo('.AboutMeBg', {y: 0}, {y: 100}, 0)
+        .fromTo('.AboutMeBg', {y: -500, ease: 'none'}, {y: 500}, 0)
     // gsap.fromTo(el, 
     //     {opacity: 0},
     //     {opacity: 100,
