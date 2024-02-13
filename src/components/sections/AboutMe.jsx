@@ -20,8 +20,8 @@ const GET       = "GET";
 
 // const serverUrl = process.env.REACT_APP_SERVER_IP || 'http://137.184.166.60:8080';
 // const serverUrl = process.env.REACT_APP_SERVER_IP || 'http://localhost:8080';
-const serverUrl = 'http://localhost:8080'; // testing
-// const serverUrl = 'http://137.184.166.60:8080';
+// const serverUrl = 'http://localhost:8080'; // testing
+const serverUrl = 'http://137.184.166.60:8080';
 const endPoint = "/api/v1/personal-website/http-request"
 
 const apiGateway = async (method, endPoint, requestBody) => {
