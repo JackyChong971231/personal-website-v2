@@ -128,23 +128,23 @@ export function NavBar({navbarInUsed, setNavbarInUsed, setPrevScrollpos}) {
                             Docs
                             {/* <span class="badge rounded-pill badge-notification bg-danger">1</span> */}
                             </a>
-                            <ul
-                            // class={(clicked)? "dropdown-menu dropdown-menu-right": "dropdown-menu dropdown-menu-end"}
-                            className={'dropdown-menu dropdown-menu-end ' + ((isDocsExpended)? 'show': '')}
-                            aria-labelledby="navbarDropdownMenuLink"
-                            >
-                            <li>
-                                <a class="dropdown-item" href={resume} target="_blank">Resume</a>
-                            </li>
-                            <li><hr class="dropdown-divider"/></li>
-                            <h6 class="dropdown-header">Supervisor's Reference Letter <br/>from:</h6>
-                            <li>
-                                <a class="dropdown-item" href={PCLReferenceLetter} target="_blank"><small>PrimeCredit Limited</small></a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href={HKEReferenceLetter} target="_blank"Z><small>The Hongkong Electric Co., Ltd</small></a>
-                            </li>
-                            </ul>
+                                <ul
+                                // class={(clicked)? "dropdown-menu dropdown-menu-right": "dropdown-menu dropdown-menu-end"}
+                                className={'dropdown-menu '+((isExpended)? 'dropdown-menu-start ':'dropdown-menu-end ') + ((isDocsExpended)? 'show': '')}
+                                aria-labelledby="navbarDropdownMenuLink"
+                                >
+                                    <li>
+                                        <a class="dropdown-item" href={resume} target="_blank">Resume</a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"/></li>
+                                    <h6 class="dropdown-header">Supervisor's Reference Letter <br/>from:</h6>
+                                    <li>
+                                        <a class="dropdown-item" href={PCLReferenceLetter} target="_blank"><small>PrimeCredit Limited</small></a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href={HKEReferenceLetter} target="_blank"Z><small>The Hongkong Electric Co., Ltd</small></a>
+                                    </li>
+                                </ul>
                         </div>
 
                         {/* <!-- Avatar --> */}
