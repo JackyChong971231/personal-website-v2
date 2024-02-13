@@ -9,13 +9,46 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import AboutMeBg from '../images/ProPic_Landscape_2_downscale.jpg'
 
 import './AboutMe.css';
+import axios from "axios";
 
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
+const POST      = 'POST';
+const GET       = "GET";
+
+// const serverUrl = process.env.REACT_APP_SERVER_IP || 'http://137.184.166.60:8080';
+// const serverUrl = process.env.REACT_APP_SERVER_IP || 'http://localhost:8080';
+const serverUrl = 'http://localhost:8080'; // testing
+// const serverUrl = 'http://137.184.166.60:8080';
+const endPoint = "/api/v1/personal-website/http-request"
+
+const apiGateway = async (method, endPoint, requestBody) => {
+    // console.log(JSON.stringify(requestBody));
+    const response = await fetch(serverUrl + endPoint, {
+        method: method,
+        mode: 'cors',
+        credentials: 'include',
+        headers: { 
+            'Content-Type': 'application/json', 
+            'Connection': 'keep-alive', 
+            'Access-Control-Allow-Origin': "*",
+            'Origin': 'http://192.168.56.1:3000' // testing 
+            // 'Origin': 'http://137.184.166.60:5000' 
+        },
+        body: (method !== GET)? JSON.stringify(requestBody): null
+    })
+    const body = await response.json();
+    return body;
+}
+
 export function AboutMe() {
     const bgImgRef = useRef(null);
+    const [fromIp, setFromIp] = useState();
+    const [startTime, setStartTime] = useState(new Date().toISOString().slice(0, 19).replace("T", " "));
+    // const [visitRecordID, setVisitRecordID] = useState(); // for database
+    let visitRecordID = null; // for database
     const AboutMeContent = {
         Title: 'Software Engineer',
         Workplace: 'Canada',
@@ -34,41 +67,74 @@ export function AboutMe() {
         LinkedIn:   {icon: faLinkedin,  url: "https://www.linkedin.com/in/jacky-chong-kin-ye"}
     }
 
-    useEffect(() => {
-    //     gsap.to(".AboutMeBg", {
-    //         transform: 'translateX(-50%) translateY(0%)',
-    //         ease: "none",
-    //         scrollTrigger: {
-    //             trigger: ".",
-    //             start: "top bottom",
-    //             end: "bottom top",
-    //             scrub: true
-    //         }
-    // });
-    const el = bgImgRef.current;
-    gsap.timeline({scrollTrigger:{
-        trigger:'.about-me__container',
-        start: 'top 70%',
-        end: 'bottom 30%',
-        scrub: 1,
-    }})
-        .fromTo('.AboutMeBg', {y: -100, ease: 'none'}, {y: 0}, 0)
-    // gsap.fromTo(el, 
-    //     {opacity: 0},
-    //     {opacity: 100,
-    //     ease: "none",
-    //     duration: 100,
-    //     scrollTrigger: {
-    //       trigger: el,
-    //       start: "top 100%",
-    //       end: "bottom top",
-    //       scrub: true,
-    //       markers: true
-    //     }}
-    // );
-//   gsap.fromTo(el, { rotation: 0 }, { rotation: 180, duration: 3 });
-    },[])
+    const getIpLocationInfo = async (ip) => {
+        const apiKey = '880c446f454e4f5eabda78d4ca25bef4';
+        const ipAddress = ip;
+        // const fields = 'country,city';
 
+        try {
+            const response = await fetch(`https://ipgeolocation.abstractapi.com/v1/?api_key=${apiKey}&ip_address=${ipAddress}`);
+            
+            if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            // console.log(data);
+            return data;
+            // Handle the data as needed
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            // Handle errors
+        }
+    }
+
+
+    const recordUserData = async () => {
+        const userIp = await getFromIp();
+        const ipInfo = await getIpLocationInfo(userIp);
+        const vistRecordRequest = {
+            ipAddr: userIp,
+            enterTime: startTime,
+            geolocation: ipInfo.city + ', ' + ipInfo.country + ', ' + ipInfo.postal_code,
+            connectionType: String(ipInfo.connection.connection_type),
+            organizationName: String(ipInfo.connection.organization_name)
+        }
+        const response = await apiGateway(POST, endPoint + "/add", vistRecordRequest);
+        visitRecordID = response.data.personalWebsiteHttpRequestId;
+    }
+
+    const getFromIp = async () => {
+        const res = await axios.get("https://api.ipify.org/?format=json");
+        setFromIp(res.data.ip);
+        return res.data.ip;
+    }
+
+    const updateVisitRecord = async () => {
+        const endTime = new Date().toISOString().slice(0, 19).replace("T", " ");
+        const vistRecordUpdateRequest = {
+            personalWebsiteHttpRequestId: visitRecordID,
+            leaveTime: endTime
+        }
+        // console.log(vistRecordUpdateRequest);
+        const response = await apiGateway(POST, endPoint + "/update", vistRecordUpdateRequest);
+        // console.log(response);
+        // console.log('function called');
+    }
+
+
+    useEffect(() => {        
+        recordUserData(); // add a record in database
+
+        gsap.timeline({scrollTrigger:{
+            trigger:'.about-me__container',
+            start: 'top 70%',
+            end: 'bottom 30%',
+            onEnter: updateVisitRecord,
+            scrub: 1,
+        }})
+            .fromTo('.AboutMeBg', {y: -100, ease: 'none'}, {y: 0}, 0)
+    },[])
 
     return (
         <>
