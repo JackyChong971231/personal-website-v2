@@ -35,12 +35,14 @@ export function NavBar({navbarInUsed, setNavbarInUsed, setPrevScrollpos}) {
     }
 
     const docsOnClickHandler = () => {
-        setIsDocsExpended(prevState => !prevState);
+        setIsDocsExpended(true);
     }
 
     const docsOnBlurHandler = () => {
         if (isDocsExpended) {
-            setIsDocsExpended(false);
+            setTimeout(() => {
+                setIsDocsExpended(false);
+            }, 500)
         }
     }
 
@@ -114,7 +116,9 @@ export function NavBar({navbarInUsed, setNavbarInUsed, setPrevScrollpos}) {
 
 
                         {/* <!-- Notifications --> */}
-                        <div class="dropdown">
+                        <div class="dropdown"
+                        // onBlur={docsOnBlurHandler}
+                        >
                             <a
                             class="text-reset me-3 dropdown-toggle hidden-arrow"
                             href="#"
@@ -131,6 +135,7 @@ export function NavBar({navbarInUsed, setNavbarInUsed, setPrevScrollpos}) {
                                 <ul
                                 // class={(clicked)? "dropdown-menu dropdown-menu-right": "dropdown-menu dropdown-menu-end"}
                                 className={'dropdown-menu '+((isExpended)? 'dropdown-menu-start ':'dropdown-menu-end ') + ((isDocsExpended)? 'show': '')}
+                                // onBlur={docsOnBlurHandler}
                                 aria-labelledby="navbarDropdownMenuLink"
                                 >
                                     <li>
