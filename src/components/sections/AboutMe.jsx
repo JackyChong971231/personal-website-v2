@@ -6,7 +6,7 @@ import canadaFlag from '../../components/images/AboutMe/canada-flag.mp4';
 // import { f } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import AboutMeBg from '../images/ProPic_Landscape_2.jpg'
+import AboutMeBg from '../images/ProPic_Landscape_2_downscale.jpg'
 
 import './AboutMe.css';
 
@@ -52,7 +52,7 @@ export function AboutMe() {
         end: 'bottom 30%',
         scrub: 1,
     }})
-        .fromTo('.AboutMeBg', {y: -500, ease: 'none'}, {y: 500}, 0)
+        .fromTo('.AboutMeBg', {y: -100, ease: 'none'}, {y: 0}, 0)
     // gsap.fromTo(el, 
     //     {opacity: 0},
     //     {opacity: 100,

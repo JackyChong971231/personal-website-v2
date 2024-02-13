@@ -55,9 +55,72 @@
     position: relative;
 }
 
-.graduationImage > img {
-    width: 30%;
-    object-fit:fill;
+.graduation__content__card {
+    background-color: white;
+    color: black;
+    border-radius: 2rem;
+    padding: 0.5rem;
+}
+
+.grad__cert {
+    border-radius: 1.5rem;
+    margin: 0.2rem;
+}
+
+.grad__cert__middle {
+    border: 2px solid rgb(204,153,0);
+}
+
+.grad__cert__outermost, .grad__cert__innermost {
+    /* border-color: rgb(204,153,0); */
+    border: 1px solid rgb(0,51,102);
+}
+
+.uniLogo__container {
+    position: relative;
+    /* border: 1px solid white; */
+    display: inline-flex;
+}
+
+.uniLogo {
+    position: relative;
+    width: 100%;
+    height: 6rem;
+    object-fit: contain;
+    margin: 0rem;
+    margin-top: 1rem;
+}
+
+.university__name {
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: inline-block;
+    position: relative;
+    font-family: 'Merriweather', serif;
+    -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.7) 30%, #000 50%, rgba(0,0,0,.7) 70%);
+    -webkit-mask-size: 200%;
+    animation: shine 1.5s linear infinite;
+}
+
+.degree__name {
+    font-size: 1.2rem;
+    font-family: 'Merriweather', serif;
+}
+
+.qs_ranking {
+    font-size: 0.7rem;
+    padding: 0;
+    color: darkgray;
+    padding-bottom: 1.5rem;
+}
+    
+@keyframes shine {
+from { -webkit-mask-position: 150%; }
+to { -webkit-mask-position: -50%; }
 }
 
 .mySkills > div>div>h4 {
@@ -114,31 +177,29 @@
 }
 
 
-.university__name {
-    color: var(--gold);
-    font-weight: 700;
-    font-size: 1.1rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    display: inline-block;
-    position: relative;
-    font-family: 'Merriweather', serif;
-    -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.7) 30%, #000 50%, rgba(0,0,0,.7) 70%);
-    -webkit-mask-size: 200%;
-    animation: shine 1.5s linear infinite;
-}
-
-.qs_ranking {
-    font-size: 0.7rem;
-    color: lightgray;
-}
-    
-@keyframes shine {
-from { -webkit-mask-position: 150%; }
-to { -webkit-mask-position: -50%; }
-}
-
 .workingExp__header {
     position: fixed;
+}
+
+.company-detail {
+    font-size: 0.8rem;
+    color: lightgray;
+}
+
+.company-logo {
+    position: absolute;
+    z-index: 0;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    width: 31px;
+    height: 31px;
+    top: 50%;
+    left: 50%;
+    border-radius: 15px;
+}
+
+.job-description {
+    position: relative;
+    z-index: 10;
+
 }

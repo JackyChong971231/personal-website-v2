@@ -8,6 +8,10 @@ import solutionDesign from '../images/Skills/innovation.png'
 import systemDeveloper from '../images/Skills/systemDeveloper.png'
 import graduation from '../images/Skills/graduation.png'
 
+import ustLogo from '../images/Skills/ustFull_1.png';
+
+import bestbuyLogo from '../images/Skills/best_buy_canada_logo.jpg';
+
 import './Skills.css';
 
 import gsap from 'gsap';
@@ -139,30 +143,32 @@ export function Skills() {
             const jobsInCompany = workingExperience[company]['Positions']
             if (jobsInCompany.length > 1) {tempWorkingExperienceComponent.push(
                 <li class="timeline-item mb-2 text-start">
-                <span class="timeline-icon" style={{width: "31px", height: "31px", left: "-48px"}}>
-                    <i class="fas fa-rocket text-primary fa-sm fa-fw"></i>
-                </span>
-                <h5 class="fw-bold">{company}</h5>
-                <p class="mb-1"><small>{workingExperience[company]['CompanyDetail']}</small></p>
-                <p class="fw-bold" style={{fontWeight: 'bold'}}>{workingExperience[company]['Total Duration']}</p>
-            </li>
+                    <span class="timeline-icon" style={{width: "31px", height: "31px", left: "-48px"}}>
+                        <i class="fas fa-rocket text-primary fa-sm fa-fw"></i>
+                    </span>
+                    <h5 class="fw-bold">{company}</h5>
+                    <p class="company-detail mb-1">{workingExperience[company]['CompanyDetail']}</p>
+                    <p class="fw-bold" style={{fontWeight: 'bold'}}>{workingExperience[company]['Total Duration']}</p>
+                </li>
             )}
 
             workingExperience[company]['Positions'].forEach(position => {
                 const dotStyle = (jobsInCompany.length < 2)? {width: "31px", height: "31px", left: "-48px"}: {width: "15px", height: "15px", left: "-40px"}
                 tempWorkingExperienceComponent.push(
                     <li class="timeline-item mb-5 text-start">
-                    <span class="timeline-icon" style={dotStyle}>
-                        <i class="fas fa-rocket text-primary fa-sm fa-fw w-25"></i>
-                    </span>
-                    {(jobsInCompany.length < 2)? <h5 class="fw-bold" style={{fontWeight: 'bold'}}>{company}</h5>: null}
-                    {(jobsInCompany.length < 2)? <p class="mb-1"><small>{workingExperience[company]['CompanyDetail']}</small></p>: null}
-                    <p class=" mb-2 fw-bold" style={{color: 'var(--gold)'}}>{position['Title']}</p>
-                    <p class=" mb-2 fw-bold">{position['Duration']}</p>
-                    <ul class="" style={{color: 'lightgray', listStylePosition: 'inside'}}>
-                        {position['Description']}
-                    </ul>
-                </li>
+                        <span class="timeline-icon" style={dotStyle}>
+                            {/* <img className='company-logo' src={bestbuyLogo}/> */}
+                            <i class="fas fa-rocket text-primary fa-sm fa-fw w-25"></i>
+                        </span>
+                        {(jobsInCompany.length < 2)? <h5 class="fw-bold" style={{fontWeight: 'bold'}}>{company}</h5>: null}
+                        {(jobsInCompany.length < 2)? <p class="company-detail mb-1">{workingExperience[company]['CompanyDetail']}</p>: null}
+                        <p class=" mb-2 fw-bold" style={{color: 'var(--gold)'}}>{position['Title']}</p>
+                        <p class=" mb-2 fw-bold">{position['Duration']}</p>
+                        {/* <img className='company-logo' src={bestbuyLogo}></img> */}
+                        <ul class="job-description" style={{color: 'lightgray', listStylePosition: 'inside'}}>
+                            {position['Description']}
+                        </ul>
+                    </li>
                 )
             })
         }
@@ -188,13 +194,23 @@ export function Skills() {
         window.addEventListener('resize', handleResize)
 
         // gsap.timeline({scrollTrigger:{
-        //     trigger:'#workingExperience',
-        //     start: 'top 40%',
-        //     end: 'bottom 40%',
-        //     scrub: 1
+        //     trigger:'#skillsSection',
+        //     start: 'top 60%',
+        //     end: '20% 60%',
+        //     scrub: true,
+        //     markers: true
         // }})
-        //     .fromTo('.vscodeLeft', {y: -100}, {y: -300}, 0)
-        //     .fromTo('.vscodeRight', {y: -300}, {y: -100}, 0)
+        //     .fromTo('.uniLogo__hkustLogo', {width: '0%'}, {width: '100%'}, 0)
+        
+        gsap.timeline({scrollTrigger:{
+            trigger:'#skillsSection',
+            start: "top 50%"
+        }})
+            .fromTo('.uniLogo__gradHat', {width: '100%', duration: 4}, {width: '0%'}, 0)
+            .fromTo('.uniLogo__hkustLogo', {width: '0%', duration: 4}, {width: '100%'}, 0)
+
+
+        // gsap.fromTo('.uniLogo__hkustLogo', {width: '0%', scrollTrigger: ".uniLogo__hkustLogo"}, {width: '100%'})
     },[])
 
     return (
@@ -212,11 +228,23 @@ export function Skills() {
                                 <div class="graduationImage px-3 col-12 col-md-6">
                                     <p class="text-start pt-4 mb-0" style={{color: 'var(--gold)'}}>Qualitifaction</p>
                                     <h1 class="text-start pb-4" style={{ fontFamily: 'Times New Roman', fontWeight: 'bold' }}>Education</h1>
-                                    <img src={graduation}></img>
-                                    <h4 class="py-2">Bachelor of Engineering in Electronic Engineering</h4>
-                                    <p>Sep 2016 - Nov 2020</p>
-                                    <p className='university__name'>The Hong Kong University of Science and Technology</p>
-                                    <a className='qs_ranking' href='https://www.topuniversities.com/university-subject-rankings/electrical-electronic-engineering/2020?page=1'><mark class='gold'>Ranked #22</mark> in QS World University Rankings for Electronic Engineering in 2020</a>
+                                        <div className='graduation__content__card'>
+                                            <div className='grad__cert grad__cert__outermost'>
+                                                <div className='grad__cert grad__cert__middle'>
+                                                    <div className='grad__cert grad__cert__innermost'>
+                                                
+                                                    <div className='uniLogo__container'>
+                                                        <img className='uniLogo uniLogo__gradHat' src={graduation}></img>
+                                                        <img className='uniLogo uniLogo__hkustLogo' src={ustLogo}></img>
+                                                    </div>
+                                                    <a className='qs_ranking' href='https://www.topuniversities.com/university-subject-rankings/electrical-electronic-engineering/2020?page=1'><mark class='gold'>Ranked #22</mark> in QS World University Rankings for Electronic Engineering in 2020</a>
+                                                    <p className="degree__name pt-2">Bachelor of Engineering in Electronic Engineering</p>
+                                                    <p><small>Sep 2016 - Nov 2020</small></p>
+                                                    {/* <p className='university__name'>The Hong Kong University of Science and Technology</p> */}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="mySkills px-3 text-start col-12 col-md-6">
                                 <p class="text-start pt-4 mb-0" style={{color: 'var(--gold)'}}>Computing</p>

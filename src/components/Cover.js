@@ -1,8 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "./Cover.css";
-import ProPic_Landscape from './images/ProPic_Landscape_3.jpg';
-import ProPic_Landscape_Me from './images/ProPic_Landscape_3_me.png';
+import ProPic_Landscape from './images/ProPic_Landscape_3_downscale.jpg';
+// import ProPic_Landscape_Me from './images/ProPic_Landscape_3_me.png';
 import LinkedInProPic from './images/ProPic.jpg';
 
 import React, { useState, useEffect } from 'react';
