@@ -13,27 +13,59 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { NavBar } from './NavBar';
 gsap.registerPlugin(ScrollTrigger);
 
-export function Cover() {
+export function Cover({setNavbarInUsed}) {
     const CoverContent = {
       'Title': 'Software Engineer',
       // 'LittleBio': 'Previously worked in a FinTech Innovation Team in a Financial Institution, my expertise is to adhere to the Software Development Life Cycle to build secure, scalable and efficient applications.'
-      'LittleBio': "I'm a tech enthusiast and software engineer with a knack for building secure, scalable applications. From coding to problem-solving, I love diving into the dynamic world of software development, bringing ideas to life!"
+      // 'LittleBio': "I'm a tech enthusiast and software engineer with a knack for building secure, scalable applications. From coding to problem-solving, I love diving into the dynamic world of software development, bringing ideas to life!"
+      'LittleBio': "I develop end-to-end software solutions, handling frontend, backend, database, and deployment within the software development life cycle."
     };
 
     useEffect(() => {
-      gsap.timeline({scrollTrigger:{
-        trigger:'.outerCover',
-        start: 'top top',
-        end: 'bottom top',
-        ease: "none",
-        scrub: 1,
-        // markers: true
-    }})
-        .fromTo('.Greeting', {y: 0}, {y: 400}, 0)
-        .fromTo('.CoverProPic--Bg', {y: 0}, {y: 300}, 0)
-        .fromTo('.CoverProPic--Me', {y: 0}, {y: 300}, 0)
+    //   gsap.timeline({scrollTrigger:{
+    //     trigger:'.outerCover',
+    //     start: 'top top',
+    //     end: 'bottom top',
+    //     ease: "linear",
+    //     scrub: true,
+    //     // markers: true
+    // }})
+    //     .to('.Greeting', {y: 400}, 0)
+    //     .to('.CoverProPic--Bg', {y: 300}, 0)
+    //     .to('.CoverProPic--Me', {y: 300}, 0)
+
+      gsap.fromTo(".Greeting", {
+        y: 0,
+      },
+      {
+        y: -200,
+        ease: "linear",
+        scrollTrigger: {
+          trigger: ".outerCover",
+          start: "top top", // the default values
+          end: "bottom top",
+          scrub: true,
+          // markers: true
+        }, 
+      });
+      
+      gsap.fromTo(".CoverProPic", {
+        yPercent: 0,
+      },
+      {
+        yPercent: 20,
+        ease: "linear",
+        scrollTrigger: {
+          trigger: ".outerCover",
+          start: "top top", // the default values
+          end: "bottom top",
+          scrub: true,
+          // markers: true
+        }, 
+      });
     }, []);
 
     return (
@@ -43,12 +75,13 @@ export function Cover() {
               {/* <img class="CoverProPic CoverProPic--Me" src={ProPic_Landscape_Me}></img> */}
               <img class="CoverProPic CoverProPic--Bg" src={ProPic_Landscape}></img>
               <div class="Greeting text-start">
-                <h1>I'm a <span>{CoverContent.Title}</span></h1>
-                <h1><big>Jacky Chong</big></h1>
+                <h1 className='greeting--name'>Jacky Chong</h1>
+                <h1 className='greeting--job-title'>{CoverContent.Title}</h1>
                 <p>{CoverContent.LittleBio}</p>
                 <a class="LearnMore btn rounded-pill mt-2 px-3" href="#NavBar">Learn More</a>
               </div>
             </div>
+            {/* <NavBar setNavbarInUsed={setNavbarInUsed}/> */}
           </div>
 
 

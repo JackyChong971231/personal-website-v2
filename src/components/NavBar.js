@@ -15,7 +15,7 @@ import { faBars, faBell, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export function NavBar({navbarInUsed, setNavbarInUsed, setPrevScrollpos}) {
+export function NavBar({setNavbarInUsed}) {
     const [isExpended, setIsExpended] = useState(false);
     const [isDocsExpended, setIsDocsExpended] = useState(false);
 
@@ -57,7 +57,7 @@ export function NavBar({navbarInUsed, setNavbarInUsed, setPrevScrollpos}) {
             <nav id="NavBar" className="navbar navbar-expand-md navbar-light fixed-top"
             style={{top: (isExpended || isDocsExpended)?"0":""}}>
                 {/* <!-- Container wrapper --> */}
-                <div class="container-fluid">
+                <div class="container-fluid container-fluid--navbar">
                     {/* <!-- Toggle button --> */}
                     <button
                     class="navbar-toggler shadow-none border-0"
@@ -101,24 +101,12 @@ export function NavBar({navbarInUsed, setNavbarInUsed, setPrevScrollpos}) {
                                 >Projects</a>
                             </li>
                         </ul>
-                        {/* <!-- Left links --> */}
                     </div>
-                    {/* <!-- Collapsible wrapper --> */}
 
-                    {/* <!-- Right elements --> */}
                     <div class="d-flex align-items-center">
-                        {/* <!-- Icon --> */}
-                        <a class="text-reset me-3" href="#">
-                            <i class="fas fa-shopping-cart"></i>
-                        </a>
 
-
-
-
-                        {/* <!-- Notifications --> */}
-                        <div class="dropdown"
-                        // onBlur={docsOnBlurHandler}
-                        >
+                        <a class="text-reset me-3" href="#"><i class="fas fa-shopping-cart"></i></a>
+                        <div class="dropdown">
                             <a
                             class="text-reset me-3 dropdown-toggle hidden-arrow"
                             href="#"
@@ -132,12 +120,8 @@ export function NavBar({navbarInUsed, setNavbarInUsed, setPrevScrollpos}) {
                             Docs
                             {/* <span class="badge rounded-pill badge-notification bg-danger">1</span> */}
                             </a>
-                                <ul
-                                // class={(clicked)? "dropdown-menu dropdown-menu-right": "dropdown-menu dropdown-menu-end"}
-                                className={'dropdown-menu '+((isExpended)? 'dropdown-menu-start ':'dropdown-menu-end ') + ((isDocsExpended)? 'show': '')}
-                                // onBlur={docsOnBlurHandler}
-                                aria-labelledby="navbarDropdownMenuLink"
-                                >
+                                <ul className={'dropdown-menu '+((isExpended)? 'dropdown-menu-start ':'dropdown-menu-end ') + ((isDocsExpended)? 'show': '')}
+                                aria-labelledby="navbarDropdownMenuLink">
                                     <li>
                                         <a class="dropdown-item" href={resume} target="_blank">Resume</a>
                                     </li>
@@ -151,35 +135,6 @@ export function NavBar({navbarInUsed, setNavbarInUsed, setPrevScrollpos}) {
                                     </li>
                                 </ul>
                         </div>
-
-                        {/* <!-- Avatar --> */}
-                        {/* <div class="dropdown">
-                            <a
-                            class="dropdown-toggle d-flex align-items-center hidden-arrow"
-                            href="#"
-                            role="button"
-                            id="navbarDropdownMenuAvatar"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                            >
-                                <img
-                                    src={propic}
-                                    class="rounded-circle"
-                                    height="25"
-                                    alt="Black and White Portrait of a Man"
-                                    loading="lazy"
-                                />
-                            </a>
-                            <ul
-                                class="dropdown-menu dropdown-menu-end"
-                                aria-labelledby="navbarDropdownMenuAvatar"
-                            >
-                                <li><a class="dropdown-item" href="#">My profile</a></li>
-                                <li><a class="dropdown-item" href="#">Settings</a></li>
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
-                            </ul>
-                        </div> */}
-                        
                         <a
                             class="btn"
                             href="#"
@@ -201,11 +156,8 @@ export function NavBar({navbarInUsed, setNavbarInUsed, setPrevScrollpos}) {
                             <FontAwesomeIcon icon={faGithub} />
                         </a>
                     </div>
-                    {/* <!-- Right elements --> */}
                 </div>
-                {/* <!-- Container wrapper --> */}
             </nav>
-            {/* <!-- Navbar --> */}
         </>
     )
 }

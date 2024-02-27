@@ -14,15 +14,28 @@ code {
 
 :root {
   --gold: rgb(231, 177, 0);
-  --darkGold: rgb(197, 151, 0);
+  --darkGold: rgb(198, 152, 0);
   --superDarkGold: rgb(133, 103, 2);
   --white: #ffffff;
+  --darkGrayFont: rgb(110,110,110);
 }
 
 mark.gold {
   color: var(--darkGold);
-  font-weight: 600;
+  /* color: black; */
   background: transparent;
+  /* text-shadow: 0.5px 0.5px 3px rgba(99, 89, 22, 0.20); */
+}
+
+mark.black {
+  color: rgb(148, 116, 0);
+  /* color: black; */
+  background: transparent;
+  /* text-shadow: 0.5px 0.5px 3px rgba(99, 89, 22, 0.20); */
+}
+
+mark.bold {
+  font-weight: 600;
 }
 
 mark.highlight {

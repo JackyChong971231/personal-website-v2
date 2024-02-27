@@ -6,6 +6,8 @@ import canadaFlag from '../../components/images/AboutMe/canada-flag.mp4';
 // import { f } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+
 import AboutMeBg from '../images/ProPic_Landscape_2_downscale.jpg'
 
 import './AboutMe.css';
@@ -13,6 +15,7 @@ import axios from "axios";
 
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SectionHeader } from '../common/sectionHeader';
 gsap.registerPlugin(ScrollTrigger);
 
 const POST      = 'POST';
@@ -52,8 +55,9 @@ export function AboutMe() {
     const AboutMeContent = {
         Title: 'Software Engineer',
         Workplace: 'Canada',
-        Bio: <p>Formerly contributing to the FinTech Innovation Team within a Financial Institution as a software engineer, my area of expertise lies in implementing the <mark class='gold'>Software Development Life Cycle</mark> to develop secure, scalable, and efficient applications. Through my experience and training, I have developed a deep understanding of the complexities of financial technology and the importance of adhering to industry standards. By leveraging cutting-edge tools and techniques, I am able to deliver high-quality solutions that meet the needs of both my clients and stakeholders.</p>,
-        Passion: <p><mark class='gold'>Coding, for me, is not just a job; it's a passion. Imagine teaching a computer to think like you do – that's the thrill I find in building applications from scratch.</mark> What sets me apart is not just my technical expertise but also my commitment to staying at the forefront of advancements. I take pride in crafting high-quality, optimal code that evolves with the industry. Join me in exploring the dynamic world of software development, where innovation meets impact.</p>,
+        // Bio: <p>Formerly contributing to the FinTech Innovation Team within a Financial Institution as a software engineer, my area of expertise lies in implementing the <mark class='gold'>Software Development Life Cycle</mark> to develop secure, scalable, and efficient applications. Through my experience and training, I have developed a deep understanding of the complexities of financial technology and the importance of adhering to industry standards. By leveraging cutting-edge tools and techniques, I am able to deliver high-quality solutions that meet the needs of both my clients and stakeholders.</p>,
+        // Passion: <p><mark class='gold'>Coding, for me, is not just a job; it's a passion. Imagine teaching a computer to think like you do – that's the thrill I find in building applications from scratch.</mark> What sets me apart is not just my technical expertise but also my commitment to staying at the forefront of advancements. I take pride in crafting high-quality, optimal code that evolves with the industry. Join me in exploring the dynamic world of software development, where innovation meets impact.</p>,
+        Bio: <p>I specialize in implementing the <mark class='black bold'>Software Development Life Cycle</mark> for secure, scalable applications, handling <mark class='black bold'>frontend, backend, database and deployment</mark>. With experience in working in a financial institution, I prioritize industry standards, delivering top-notch solutions using cutting-edge tools.<br/><br/><mark class='black bold'>Coding isn't just a job; it's my passion. Teaching a computer to think like humans thrills me.</mark> I'm committed to staying updated with advancements, crafting high-quality, evolving code.</p>,
         AboutMeObject: {
             Birthday: <div class="col-8">31 Dec 1997</div>,
             Age: <div class="col-8">26 Years Old</div>,
@@ -138,60 +142,86 @@ export function AboutMe() {
 
     return (
         <>
-            <div class="about-me__container container col-12 col-lg-8 pt-3 pb-5">
-            
-                <img class="AboutMeBg" src={AboutMeBg} ref={bgImgRef}></img>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h1 class="text-sm-start fw-bold">About <span style={{color: 'var(--gold)'}}>Me</span></h1>
-                        <div className='aboutMeShortBio__container'>
-                            <p class="aboutMeShortBio text-sm-start">A {AboutMeContent.Title} based in {AboutMeContent.Workplace}</p>
-                            <video className='canadaFlag' autoPlay muted loop>
-                                <source src={canadaFlag} type='video/mp4' />
-                            </video>
-                        </div>
-                    </div>
-                </div>
-                <div class="row my-3">
-                    <div class="row col-md-4 pt-md-4 mx-auto py-2">  {/*d-flex align-items-center*/}
-                        <div className='col-md-12 col-12 px-4'>
-                            <img class="img-thumbnail rounded-circle t-50" src={propic}></img>
-                        </div>
-                    </div>
-                    <div class="col-md-8 py-md-0 py-3">
-                        <div class="row my-3 my-sm-0">
-                            <div class="d-flex align-items-center">
-                                {Object.keys(ContactPoint).map((eachApp)=>(
-                                    <a
-                                    class="btn btn-dark mx-1"
-                                    href={ContactPoint[eachApp].url}
-                                    target="_blank"
-                                    role="button">
-                                        <FontAwesomeIcon icon={ContactPoint[eachApp].icon} />
-                                    </a>
-                                ))}
-                                <a class="btn btn-dark mx-1" href={resume} target="_blank"> Download resume</a>
+            <div className='about-me-outer-container w-100'>
+                <div class="about-me__container col-12 col-lg-10 row px-3 m-0">
+                    <div className='about-me-scroll-container col-12'>
+                        <p>My expertise</p>
+                        <div className='about-me-scroll' style={{"--time":'30s'}}>
+                            <div>
+                                <span className='about-me-scroll-item'>ReactJS</span>
+                                <span className='about-me-scroll-item'>Spring Boot</span>
+                                <span className='about-me-scroll-item'>JavaScript</span>
+                                <span className='about-me-scroll-item'>Python</span>
+                                <span className='about-me-scroll-item'>qweqwe</span>
+                                <span className='about-me-scroll-item'>sdfsd</span>
+                                <span className='about-me-scroll-item'>we</span>
+                                <span className='about-me-scroll-item'>hgfr</span>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="text-start pt-3">
-                                <h3>I'm a passionate Software Engineer</h3>
-                                {AboutMeContent.Bio}
-                                {AboutMeContent.Passion}
+                            <div>
+                                <span className='about-me-scroll-item'>ReactJS</span>
+                                <span className='about-me-scroll-item'>Spring Boot</span>
+                                <span className='about-me-scroll-item'>JavaScript</span>
+                                <span className='about-me-scroll-item'>Python</span>
+                                <span className='about-me-scroll-item'>qweqwe</span>
+                                <span className='about-me-scroll-item'>sdfsd</span>
+                                <span className='about-me-scroll-item'>we</span>
+                                <span className='about-me-scroll-item'>hgfr</span>
                             </div>
                         </div>
                     </div>
-                    <div className='col-12 px-4 border-2 border-top h-100'>
-                        <div class="row pt-2">
-                            {Object.keys(AboutMeContent.AboutMeObject).map((fieldName)=>(
-                                <div class="col-12 col-md-6">
-                                    <div class="row text-start my-1">
-                                        <div class="col-4 fw-bold">{fieldName}: </div>
-                                        {AboutMeContent.AboutMeObject[fieldName]}
+                    <div className='about-me__inner-container col-12'>
+                        {/* <img class="AboutMeBg" src={AboutMeBg} ref={bgImgRef}></img> */}
+                        <div class="row align-items-center">
+                            <div className='col-12 col-md-7'>
+                                <SectionHeader 
+                                section='About'
+                                title='A software engineer based in Canada'
+                                description={AboutMeContent.Bio}/>
+                                <button>Learn more</button>
+                            </div>
+                            <div className='about-me-img-container col-12 col-sm-10 col-md-5'>
+                                <img class="about-me-img" src={propic}></img>
+                            </div>
+                        </div>
+                        {/* <div class="row my-5">
+                            <div class="row col-md-4 pt-md-4 mx-auto py-2">
+                                <div className='col-md-12 col-12 px-4'>
+                                    <img class="img-thumbnail rounded-circle t-50" src={propic}></img>
+                                </div>
+                                <div className='about-me-contact col-12 px-4 pt-4'>
+                                    <div><FontAwesomeIcon icon={faPhone} /><a href="tel:+1-437-660-0469" className="ps-3">+1 (437) 660-0469</a></div>
+                                    <div><FontAwesomeIcon icon={faEnvelope} /><a href="mailto:kinyechong@outlook.com" class="ps-3">kinyechong@outlook.com</a></div>
+                                </div>
+                            </div>
+                            <div class="col-md-8 py-md-0 py-3">
+                                <div class="row my-3 my-sm-0">
+                                    <div class="d-flex align-items-center">
+                                        {Object.keys(ContactPoint).map((eachApp)=>(
+                                            <a
+                                            class="btn btn-dark mx-1"
+                                            href={ContactPoint[eachApp].url}
+                                            target="_blank"
+                                            role="button">
+                                                <FontAwesomeIcon icon={ContactPoint[eachApp].icon} />
+                                            </a>
+                                        ))}
+                                        <a class="btn btn-dark mx-1" href={resume} target="_blank"> Download resume</a>
                                     </div>
                                 </div>
-                            ))}
-                        </div>
+                            </div>
+                            <div className='col-12 px-4 border-2 border-top h-100'>
+                                <div class="row pt-2">
+                                    {Object.keys(AboutMeContent.AboutMeObject).map((fieldName)=>(
+                                        <div class="col-12 col-md-6">
+                                            <div class="row text-start my-1">
+                                                <div class="col-4 fw-bold">{fieldName}: </div>
+                                                {AboutMeContent.AboutMeObject[fieldName]}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

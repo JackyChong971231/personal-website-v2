@@ -1,11 +1,11 @@
 .navbar {
   position: sticky;
-  background-color: rgb(255,255,255, 0.6);
-  backdrop-filter: blur(10px);
   transition: 0.1s;
-  /* border: 1px solid black; */
-  /* height: 58px; */
-  /* overflow-y: visible; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+  order: 100;
 }
 
 .navbar-collapse.collapsing {
@@ -13,4 +13,13 @@
   margin-left: 0%;
   right: -20%;
   transition: all 0.1s ease;
+}
+
+.container-fluid--navbar {
+  padding-block: 0.5rem;
+  border-radius: 2rem;
+  width: 90%;
+  background-color: rgb(255,255,255, 0.6);
+  backdrop-filter: blur(8px);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }

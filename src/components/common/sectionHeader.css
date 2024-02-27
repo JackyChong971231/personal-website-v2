@@ -1,0 +1,38 @@
+.section-header {
+    position: relative;
+}
+
+.section-header-section{
+    position: relative;
+    text-align: left;
+    width: 100%;
+}
+
+.section-header-section > h2 {
+    position: relative;
+    text-indent: 3.5em;
+    font-size: 2rem;
+    font-family: sans-serif;
+    line-height: 1.1;
+    font-weight: 500;
+}
+
+.section-header-section > p {
+    position: absolute;
+    top: .2rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+    font-size: 1rem;
+    bottom: auto;
+    /* left: 0%; */
+    right: auto;
+    color: var(--darkGold);
+}
+
+.section-header-description {
+    color: grey;
+    text-align: left;
+    margin-top: 1rem;
+    line-height: 1.5rem;
+    font-size: 1rem;
+}

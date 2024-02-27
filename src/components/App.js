@@ -28,7 +28,7 @@ function App() {
           if (document.getElementsByClassName("collapse")[0].style.height) { // this is double confirm check for NavBar cuz when navbar expanded, window pageyOffset is changed too
             document.getElementsByClassName("navbar")[0].style.top = "0";
           } else {
-            document.getElementsByClassName("navbar")[0].style.top = "-70px";
+            document.getElementsByClassName("navbar")[0].style.top = "-100px";
           }
         }
         setPrevScrollpos(window.pageYOffset);
@@ -44,9 +44,9 @@ function App() {
   return (
     <div class="App">
 
-      <Cover/>
+      <Cover setNavbarInUsed={setNavbarInUsed}/>
       <div id="JustAboveNarbar"></div>
-      <NavBar navbarInUsed={navbarInUsed} setNavbarInUsed={setNavbarInUsed} setPrevScrollpos={setPrevScrollpos}/>
+      <NavBar setNavbarInUsed={setNavbarInUsed}/>
       <section id="AboutMe"><AboutMe/></section>
       <section id="Projects"><Projects/></section>
       <section id="Skills"><Skills/></section>
