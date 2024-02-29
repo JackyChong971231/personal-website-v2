@@ -7,7 +7,7 @@ import vscodeLineRight from '../../assets/images/vscode1.png';
 import vscodeLineLeft from '../../assets/images/vscode2.png';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLock } from "@fortawesome/free-solid-svg-icons";
+import { faArrowDown, faLock } from "@fortawesome/free-solid-svg-icons";
 
 import './Projects.css';
 
@@ -22,7 +22,7 @@ const projectsData = [
         url: 'This site',
         image: personalWebsiteImg,
         description: 'This website serves to provide a concise overview of my skills, achievements, and work experience.',
-        framework: 'ReactJS, Bootstrap',
+        framework: 'ReactJS, Bootstrap, Jenkins',
         language: 'JavaScript, HTML and CSS'
     },
     {
@@ -30,28 +30,20 @@ const projectsData = [
         url: 'http://ckyjacky.ca:5001',
         image: ikeaCloneImg,
         description: 'My IKEA clone project demonstrates my full-stack development skills by seamlessly integrating frontend aesthetics with backend functionality.',
-        framework: 'ReactJS, Bootstrap, Spring Boot, MySQL',
+        framework: 'ReactJS, Bootstrap, Spring Boot, MySQL, Jenkins',
         language: 'JavaScript, Java, SQL'
     }
 ]
 
 export function Projects () {
-    function animateFrom(elem) {
-        gsap.fromTo(elem, {maxHeight: 0}, {
+    function expandProject(id) {
+        gsap.fromTo('#project'+id, {maxHeight: 0}, {
             duration: 1.25, 
-            maxHeight: 100,
+            maxHeight: 1000,
             ease: "expo", 
             overwrite: "auto"
         });
-    }
-    
-    function hide(elem) {
-        gsap.fromTo(elem, {maxHeight: 100}, {
-            duration: 1.25, 
-            maxHeight: 0,
-            ease: "expo", 
-            overwrite: "auto"
-        });
+
     }
 
     useEffect(() => {
@@ -63,20 +55,6 @@ export function Projects () {
         }})
             .fromTo('.vscodeLeft', {y: -100}, {y: -300}, 0)
             .fromTo('.vscodeRight', {y: -300}, {y: -100}, 0)
-
-        // gsap.utils.toArray(".each-project-hidden-info").forEach(function(elem) {
-        //     hide(elem); // assure that the element is hidden when scrolled into view
-            
-        //     ScrollTrigger.create({
-        //         trigger: elem,
-        //         start: 'top 70%',
-        //         end: 'bottom 30%',
-        //         markers: true,
-        //         onEnter: function() { animateFrom(elem) }, 
-        //         onEnterBack: function() { animateFrom(elem) },
-        //         onLeave: function() { hide(elem) } // assure that the element is hidden when scrolled into view
-        //     });
-        //     });
     },[])
 
     return (
@@ -88,18 +66,16 @@ export function Projects () {
             </div>
             <div className='projects-section__inner-container row py-3'>
                 <div className='project__header px-4 pt-4'>
-                    {/* <h1>My <mark class='gold'>projects</mark></h1> */}
                     <SectionHeader 
                     section='Work'
                     title='My recent projects'
                     description='I have been highly passionate about programming and these are the projects to showcase my skills'/>
-                    {/* <p>below are my projects</p> */}
                 </div>
                 <div className='project__content px-3'>
                     <div className='all-projects__container row'>
                         {projectsData.map((eachProjectData, i) => (
                             <div className=' col-md-6 col-12 px-3'>
-                                <div className='each-project__container'>
+                                <div className='each-project__container h-md-100'>
                                     <div className='each-project-safari-header'>
                                         <div className='each-project-top-wrap'>
                                             <div className='each-project-url-wrap'>
@@ -111,7 +87,8 @@ export function Projects () {
                                     <div className='each-project-content'>
                                         <img className='each-project-website' src={eachProjectData.image}/>
                                     </div>
-                                    <div className='each-project-hidden-info px-3'>
+                                
+                                    <div className='each-project-hidden-info px-3' id={'project'+i}>
                                         <div className='row py-4'>
                                             <div className='col-12 col-sm-4 col-md-12 col-lg-4 text-start'>
                                                 <h5>Framework</h5>
@@ -127,19 +104,12 @@ export function Projects () {
                                             </div>
                                         </div>
                                     </div>
-                                    {/* <div className='each-project__header py-2'>
-                                        <h5 className='ms-3 mb-1'>{i+1+'.  '+eachProjectData.title}</h5>
-                                        <a className='ms-3 mb-1' href={eachProjectData.url}>{eachProjectData.url}</a>
+                                    <div className='each-project-expand-btn-wrapper'>
+                                        <button className='each-project-expand-btn'
+                                        onClick={() => {expandProject(i)}}>
+                                        </button>
+                                        <FontAwesomeIcon className='each-project-expand-arrow' icon={faArrowDown} />
                                     </div>
-                                    <img className='each-project__image'
-                                    src={eachProjectData.image} alt="Website Thumbnail"></img>
-                                    
-                                    <div className='each-project__description mt-2'>
-                                        <p>{eachProjectData.description}</p>
-                                    </div>
-                                    <div className='each-project__language'>
-                                        <p>Language: {eachProjectData.language}</p>
-                                    </div> */}
                                 </div>
                             </div>
                         ))}

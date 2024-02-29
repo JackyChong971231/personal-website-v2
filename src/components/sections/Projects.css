@@ -151,22 +151,25 @@
     transition: all .4s;
     position: relative;
     overflow: hidden;
-    margin-block: 2rem;
+    margin-block: 1rem;
+    overflow: hidden;
+    scale: 0.9;
 }
 
 .each-project__container:hover {
     /* background-color: white; */
-    box-shadow: 0px 0px 15px 3px var(--superDarkGold);
+    /* box-shadow: 0px 0px 15px 3px var(--superDarkGold); */
+    scale: 1;
 }
 
 .each-project-safari-header {
     background-color: #ddd;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: .25rem;
-  display: flex;
-  position: relative;
-  overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: .25rem;
+    display: flex;
+    position: relative;
+    overflow: hidden;
 }
 
 .each-project-top-wrap {
@@ -216,6 +219,72 @@
     /* height: 45vw; */
 }
 
+.each-project-expand-btn-wrapper {
+    /* position: relative; */
+    transition: 0.3s;
+    overflow: hidden;
+    /* border-radius: .8em; */
+}
+
+.each-project-expand-arrow {
+    position: relative;
+    /* z-index: 100; */
+    color: black;
+    cursor: pointer;
+}
+
+.each-project-expand-btn {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    width: 100%;
+
+    background-color: transparent;
+    border: none;
+    transition: 1s;
+
+    backdrop-filter: blur(4px);
+    color: black;
+    height: 4rem;
+    line-height: 4rem;
+    mask: linear-gradient(to bottom, 
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,0.3) 25%,
+    rgba(0,0,0,1) 50%);
+    border-radius: .8em;
+    background-image: linear-gradient(to bottom, transparent 0%, #ddd 100%);
+}
+
+/* .each-project-expand-btn:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(to bottom, transparent 0%, #ddd 60%);
+    transition: 0.8s;
+  } */
+
+.each-project-expand-btn-wrapper:hover .each-project-expand-arrow {
+    color: white;
+}
+
+.each-project-expand-btn-wrapper:hover .each-project-expand-btn {
+    background-image: linear-gradient(to bottom, transparent 20%, black 100%);
+}
+
+/* .each-project-expand-btn:hover {
+    background-color: var(--darkGold);
+    background-image: linear-gradient(to bottom, transparent 20%, var(--darkGold) 100%);
+} */
+
+.each-project-expand-btn > span {
+    z-index: 100;
+    margin-bottom: 0;
+    padding-top: 2rem;
+}
+
 .each-project-website {
     object-fit: cover;
     width: 100%;
@@ -224,6 +293,11 @@
 
 .each-project-hidden-info {
     color: black;
+    max-height: 4.5rem;
+    /* mask-image: linear-gradient(to bottom, 
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,1) 50%,
+    rgba(0,0,0,0) 80%); */
 }
 
 .each-project-hidden-info h3 {

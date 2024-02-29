@@ -14,6 +14,7 @@ import { AboutMe } from './sections/AboutMe';
 import { Skills } from './sections/Skills';
 import { ContactMe } from './sections/ContactMe';
 import { Projects } from './sections/Projects';
+import { Experience } from './sections/Experience';
 
 function App() {
   const [prevScrollpos, setPrevScrollpos] = useState(0);
@@ -51,6 +52,7 @@ function App() {
       <section id="Projects"><Projects/></section>
       <section id="Skills"><Skills/></section>
       <section id="ContactMe"><ContactMe/></section>
+      <section id='Experience'><Experience/></section>
     </div>
   );
 }

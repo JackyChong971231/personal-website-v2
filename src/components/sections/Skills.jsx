@@ -16,6 +16,7 @@ import './Skills.css';
 
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SectionHeader } from '../common/sectionHeader';
 gsap.registerPlugin(ScrollTrigger);
 
 const expertise = {
@@ -130,10 +131,18 @@ export function Skills() {
     const [languagesComponent, setLanguagesComponent] = useState([]);
     const [professionalsComponent, setProfessionalsComponent] = useState([]);
     const [selectedExpertise, setSelectedExpertise] = useState('Developer');
-    const [minimumHeight, setMinimumHeight] = useState('0px')
-    const ref = useRef(null)
+    const [minimumHeight, setMinimumHeight] = useState('0px');
+    const ref = useRef(null);
+    const [expertiseOrder, setExpertiseOrder] = useState([
+        'Developer',
+        'Software Project Management',
+        'Embedded System Design',
+        'System Analysis & Solution Design'
+    ]);
+    const [intervalID, setIntervalID] = useState(0)
 
     useEffect(() => {
+        clearInterval(intervalID);
         function handleResize() {
             setMinimumHeight(ref.current.clientHeight.toString()+'px');
         }
@@ -209,9 +218,20 @@ export function Skills() {
             .fromTo('.uniLogo__gradHat', {width: '100%', duration: 4}, {width: '0%'}, 0)
             .fromTo('.uniLogo__hkustLogo', {width: '0%', duration: 4}, {width: '100%'}, 0)
 
+        automatedExpertiseLoop();
+        },[])
 
-        // gsap.fromTo('.uniLogo__hkustLogo', {width: '0%', scrollTrigger: ".uniLogo__hkustLogo"}, {width: '100%'})
-    },[])
+    const automatedExpertiseLoop = () => {
+        setIntervalID(setInterval(() => {
+            // setCurrentIndex((prevIndex) => (prevIndex + (isMobile? 1: 3)) % Object.keys(dummy).length);
+
+            setExpertiseOrder(prevExpertiseOrder => [
+                ...prevExpertiseOrder.slice(1),
+                ...prevExpertiseOrder.slice(0,1)
+            ]);
+
+        }, 5000));
+    }
 
     return (
         <>
@@ -262,30 +282,35 @@ export function Skills() {
                                 </div>
                             </div>
                         </div>
-                        <div class="container px-4">
+
+                        <div class="container py-3">
+                            <SectionHeader 
+                            section='Expertise'
+                            title='Achievements'
+                            // description={expertiseOrder.map(expertiseName => (
+                            //     <span className='px-3'>{expertiseName}</span>
+                            // ))}
+                            description='Developer  |  Software Project Management  |  Embeeded System Design  |  System Analysis & Solution Design'
+                            />
                             <div class="row justify-content-center">
-                                {/* <h1 class="text-start col-12 py-4" style={{ fontFamily: 'Times New Roman', fontWeight: 'bold' }}>Projects</h1> */}
-                            </div>
-                        </div>
-                        <div class="container px-4">
-                            <div class="row justify-content-center">
-                                <h1 class="text-start col-12 py-4" style={{ fontFamily: 'Times New Roman', fontWeight: 'bold' }}>Expertise</h1>
                                 {Object.keys(expertise).map((eachExpertise, index) => (
                                     <div class="col-6 col-md-3 col-xl-2 p-3">
-                                        <div key={index} class={(eachExpertise===selectedExpertise) ? 
-                                            "border border-warning rounded p-2 pb-0 h-100" :
-                                            "border rounded p-2 pb-0 h-100"
-                                            } style={{transition: '0.5s'}} onMouseOver={() => setSelectedExpertise(eachExpertise)} onClick={() => setSelectedExpertise(eachExpertise)}>
+                                        <div key={index} class={(eachExpertise===expertiseOrder[0]) ? 
+                                            "each-expertise each-expertise--hover p-2 pb-0 h-100" :
+                                            "each-expertise p-2 pb-0 h-100"
+                                            }
+                                            onMouseOver={() => setSelectedExpertise(eachExpertise)} 
+                                            onClick={() => setSelectedExpertise(eachExpertise)}>
                                             <img class="expertiseIcon p-3" src={expertise[eachExpertise]['logo']}></img>
                                             <p class="">{eachExpertise}</p>
                                         </div>
                                     </div>
                                 ))}
                                 <div class="ExpertiseDescription col-12 col-lg-8 mt-4 ">
-                                    <p><large>{selectedExpertise}</large></p>
+                                    <p><large>{expertiseOrder[0]}</large></p>
                                     <h2>Achievements</h2>
                                     <div class="expertiseDescriptionContainer pb-1" ref={ref} style={{ minHeight: minimumHeight }}>
-                                        {expertise[selectedExpertise]['achievements'].map((eachAchievement, index) => (
+                                        {expertise[expertiseOrder[0]]['achievements'].map((eachAchievement, index) => (
                                                     <div className='row'>
                                                         <p className='col-1'>&#10070;</p>
                                                         <p className='col-11' align="justify" key={index}><small>{eachAchievement}</small></p>
