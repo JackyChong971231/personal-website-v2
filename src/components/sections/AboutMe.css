@@ -94,6 +94,67 @@
     }
 }
 
+.about-me-contact-me-btn-container {
+    position: relative;
+    left: 0;
+    border-radius: 0.5rem;
+    border: 1px solid var(--darkGrayFont);
+    /* padding-right: 2rem; */
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+.about-me-contact-me-btn-container:hover  .about-me-contact-me-btn-bg {
+    width: 100%;
+}
+
+.about-me-contact-me-btn-bg {
+    position: absolute;
+    background-color: var(--darkGold);
+    width: 50%;
+    left: 0;
+    height: 100%;
+    border-radius: 0 0.5rem 0.5rem 0;
+    padding: 0;
+    margin: 0;
+    transition: 1s;
+}
+
+.about-me-contact-me-btn-text {
+    position: relative;
+    left: 0;
+    top: 0;
+    border-radius: 0.5rem;
+    background-color: var(--darkGold);
+    color: white;
+}
+
+.about-me-contact-me-btn-arrow {
+    position: relative;
+    padding-inline: 0rem;
+    width: 2.5rem;
+    color: var(--darkGold);
+    /* background-color: white; */
+    mix-blend-mode: difference;
+}
+
+.about-me-img-container{
+    position: relative;
+    left: 10%;
+    opacity: 0;
+}
+
+.about-me-text-container {
+    position: relative;
+    left: -10%;
+    opacity: 0;
+    text-align: start;
+}
+
 .about-me-img {
     /* animation: float 6s ease-in-out infinite; */
     position: relative;

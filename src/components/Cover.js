@@ -35,6 +35,10 @@ export function Cover({setNavbarInUsed}) {
     // }})
     //     .fromTo('.Greeting', {y: 0}, {y: -200})
     //     .fromTo('.CoverProPic', {yPercent: 0}, {yPercent: 20})
+      gsap.to('.greeting--name', {left: '0rem', opacity: '1', duration: 2});
+      gsap.to('.greeting--job-title', {left: '0rem', duration: 2});
+      gsap.to('.greeting--bio', {left: '0rem', opacity: '1', duration: 2});
+      gsap.to('.LearnMore', {top: '0rem', opacity: '1', duration: 1}, 1.5);
 
       gsap.fromTo(".Greeting", {
         y: 0,
@@ -75,8 +79,10 @@ export function Cover({setNavbarInUsed}) {
               <img class="CoverProPic CoverProPic--Bg" src={ProPic_Landscape}></img>
               <div class="Greeting text-start">
                 <h1 className='greeting--name'>Jacky Chong</h1>
-                <h1 className='greeting--job-title'>{CoverContent.Title}</h1>
-                <p>{CoverContent.LittleBio}</p>
+                <div className='greeting--job-title-container'>
+                  <h1 className='greeting--job-title'>{CoverContent.Title}</h1>
+                </div>
+                <p className='greeting--bio'>{CoverContent.LittleBio}</p>
                 <a class="LearnMore btn rounded-pill mt-2 px-3" href="#NavBar">Learn More</a>
               </div>
             </div>

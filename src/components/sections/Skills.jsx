@@ -13,6 +13,10 @@ import ustLogo from '../images/Skills/ustFull_1.png';
 import dotsMp4 from '../images/Skills/dots.mp4';
 import './Skills.css';
 
+import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SectionHeader } from '../common/sectionHeader';
@@ -57,15 +61,17 @@ export function Skills() {
     const [minimumHeight, setMinimumHeight] = useState('0px');
     const ref = useRef(null);
     const [expertiseOrder, setExpertiseOrder] = useState([
-        'Developer',
         'Software Project Management',
         'Embedded System Design',
-        'System Analysis & Solution Design'
+        'System Analysis & Solution Design',
+        'Developer'
     ]);
     const [intervalID, setIntervalID] = useState(0)
+    const [isExpertiseLoop, setIsExpertiseLoop] = useState(true);
+    const [isExpertiseLoopManual, setIsExpertiseLoopManual] = useState(true);
 
     useEffect(() => {
-        clearInterval(intervalID);
+        // clearInterval(intervalID);
         function handleResize() {
             setMinimumHeight(ref.current.clientHeight.toString()+'px');
         }
@@ -105,25 +111,54 @@ export function Skills() {
             .fromTo('.uniLogo__gradHat', {width: '100%', duration: 4}, {width: '0%'}, 0)
             .fromTo('.uniLogo__hkustLogo', {width: '0%', duration: 4}, {width: '100%'}, 0)
 
-        automatedExpertiseLoop();
+        // startExpertiseLoop();
         },[])
+    
+    useEffect(() => {
+        if (isExpertiseLoopManual) {startExpertiseLoop()} else {pauseExpertiseLoop()};
+    },[isExpertiseLoopManual])
 
-    const automatedExpertiseLoop = () => {
-        setIntervalID(setInterval(() => {
-            // setCurrentIndex((prevIndex) => (prevIndex + (isMobile? 1: 3)) % Object.keys(dummy).length);
+    const startExpertiseLoop = () => {
+        if (isExpertiseLoopManual) {
+            clearInterval(intervalID);
+            setIntervalID(setInterval(() => {
+                // setCurrentIndex((prevIndex) => (prevIndex + (isMobile? 1: 3)) % Object.keys(dummy).length);
+    
+                setExpertiseOrder(prevExpertiseOrder => [
+                    ...prevExpertiseOrder.slice(1),
+                    ...prevExpertiseOrder.slice(0,1)
+                ]);
+    
+            }, 3000));
+            setIsExpertiseLoop(true)
+        }
+    }
 
-            setExpertiseOrder(prevExpertiseOrder => [
-                ...prevExpertiseOrder.slice(1),
-                ...prevExpertiseOrder.slice(0,1)
-            ]);
+    const pauseExpertiseLoop = () => {
+        clearInterval(intervalID);
+        setIsExpertiseLoop(false)
+    }
 
-        }, 5000));
+    const viewExpertise = (selectedExpertise) => {
+        let defaultOrder = ['Developer',
+        'Software Project Management',
+        'Embedded System Design',
+        'System Analysis & Solution Design']
+        while (defaultOrder[0] !== selectedExpertise) {
+            defaultOrder.push(defaultOrder.shift())
+        }
+        setExpertiseOrder(defaultOrder);
+        setIsExpertiseLoop(false)
+    }
+
+    const loopManualToggle = () => {
+        setIsExpertiseLoopManual(prevState => !prevState)
     }
 
     return (
         <>
             <div class="skills-outer-container container-fluid">
-                <div class="row skills out no-gutters py-3">
+                <div class="row skills py-5">
                     {/* <video className='quote-background' playsinline autoplay muted loop poster="cake.jpg" >
                         <source type='video/mp4' src={dotsMp4} />
                     </video> */}
@@ -173,7 +208,7 @@ export function Skills() {
                             </div>
                         </div>
 
-                        <div class="container py-3">
+                        <div class="container mt-5 py-3">
                             <SectionHeader 
                             section='Expertise'
                             title='Achievements'
@@ -182,15 +217,27 @@ export function Skills() {
                             // ))}
                             description='Developer  |  Software Project Management  |  Embeeded System Design  |  System Analysis & Solution Design'
                             />
-                            <div class="row justify-content-center">
+                            <div className='expertise-loop-indicator'
+                            onClick={loopManualToggle}>
+                                <div className={
+                                (isExpertiseLoop)?'circular-animation circular-animation--play':
+                                'circular-animation circular-animation--pause'}>
+                                    <div className='circular-animation-circle'>
+                                    </div>
+                                </div>    
+                                <FontAwesomeIcon className='expertise-loop-icon' icon={(isExpertiseLoop)?faPlay:faPause} />
+                            </div>
+                            <div class="row justify-content-center"
+                            onMouseEnter={pauseExpertiseLoop}
+                            onMouseLeave={startExpertiseLoop}>
                                 {Object.keys(expertise).map((eachExpertise, index) => (
                                     <div class="col-6 col-md-3 col-xl-2 p-3">
                                         <div key={index} class={(eachExpertise===expertiseOrder[0]) ? 
                                             "each-expertise each-expertise--hover p-2 pb-0 h-100" :
                                             "each-expertise p-2 pb-0 h-100"
                                             }
-                                            onMouseOver={() => setSelectedExpertise(eachExpertise)} 
-                                            onClick={() => setSelectedExpertise(eachExpertise)}>
+                                            onMouseOver={() => viewExpertise(eachExpertise)} 
+                                            onClick={() => viewExpertise(eachExpertise)}>
                                             <img class="expertiseIcon p-3" src={expertise[eachExpertise]['logo']}></img>
                                             <p class="">{eachExpertise}</p>
                                         </div>

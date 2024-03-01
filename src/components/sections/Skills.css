@@ -39,6 +39,7 @@
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     display: flex;
+    box-shadow: 0px 0px 25px 25px rgb(27, 27, 27);
 }
 
 .row.skills.in::before {
@@ -68,17 +69,23 @@
 }
 
 .grad__cert {
-    border-radius: 1.5rem;
     margin: 0.2rem;
+}
+
+.grad__cert__outermost {
+    /* border-color: rgb(204,153,0); */
+    border: 1px solid rgb(0,51,102);
+    border-radius: 1.5rem;
 }
 
 .grad__cert__middle {
     border: 2px solid rgb(204,153,0);
+    border-radius: 1.3rem;
 }
 
-.grad__cert__outermost, .grad__cert__innermost {
-    /* border-color: rgb(204,153,0); */
+.grad__cert__innermost {
     border: 1px solid rgb(0,51,102);
+    border-radius: 1.1rem;
 }
 
 .uniLogo__container {
@@ -138,6 +145,92 @@ to { -webkit-mask-position: -50%; }
     padding-bottom: -20%;
 }
 
+.expertise-loop-indicator{
+    position: relative;
+    /* top: 50%; */
+    /* left: 50%; */
+    margin: 2rem;
+    transform: translate(-50%,-50%);
+    width: 2rem;
+    height: 2rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 1s;
+  }
+
+  .expertise-loop-indicator:hover {
+    scale: 1.2;
+  }
+
+.expertise-loop-indicator .circular-animation{
+    position: absolute;
+    border:2px solid #121212;
+    top: 0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    background:090909;
+    box-shadow:0 0 10px rgba(0,0,0,1);
+    border-radius: 50%;
+    border-left: 2px solid #ffff00;
+    border-top: 2px solid #ffff00;
+}
+
+.circular-animation--play {
+    animation: ani1 3s linear infinite;
+    animation-play-state: running;
+  }
+
+  .circular-animation--pause {
+    animation: ani1 3s linear infinite;
+    animation-play-state: paused;
+  }
+
+  .expertise-loop-indicator .circular-animation .circular-animation-circle{
+    position: absolute;
+    top: calc(50% - 1px);
+    left: 50%;
+    width: 50%;
+    height: 2px;
+    transform-origin: left;
+    transform: rotate(-45deg);
+  }
+
+
+  .expertise-loop-indicator .circular-animation .circular-animation-circle:before{
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #fff;
+    top: -2px;
+    right: -3px;
+  }
+  .expertise-loop-indicator .circular-animation .circular-animation-circle:before{
+    background:#ffff00;
+    box-shadow: 0 0 20px #ff0,0 0 40px #ff0,0 0 60px #ff0,0 0 80px #ff0,
+    0 0 100px #ff0,0 0 0 5px rgba(255,255,0,.1);
+  }
+
+  @keyframes ani1{
+    0%{
+      transform:rotate(0deg);
+    }
+    100%{
+      transform:rotate(360deg);
+    }
+  }
+
+.expertise-loop-icon {
+    scale: 0.8;
+    transition: 1s;
+}
+
+
 .each-expertise {
     transition: 0.5s;
     filter: blur(5px);
@@ -158,6 +251,11 @@ to { -webkit-mask-position: -50%; }
     filter: invert(100%);
     object-fit: cover;
     width: 60%;
+}
+
+.ExpertiseDescription {
+    position: relative;
+    /* height: cal(100vw); */
 }
 
 .ExpertiseDescription > h2{

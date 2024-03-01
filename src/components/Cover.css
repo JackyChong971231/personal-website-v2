@@ -54,15 +54,30 @@
 }
 
 .greeting--name {
+    position: relative;
     font-size: 1rem;
     font-family: georgia;
+    /* for landing page animation */
+    left: -4rem;
+    opacity: 0;
 }
 
 .greeting--job-title {
+    position: relative;
     color: var(--gold);
     font-weight: 500;
     font-family: serif;
     font-size: 3rem;
+    /* for landing page animation */
+    left: -100%;
+    opacity: 1;
+}
+
+.greeting--bio {
+    position: relative;
+    /* for landing page animation */
+    left: 4rem;
+    opacity: 0;
 }
 
 .Greeting > p {
@@ -73,5 +88,16 @@
 }
 
 .LearnMore {
+    position: relative;
     background-color: var(--gold);
+    position: relative;
+    /* for landing page animation */
+    top: -2rem;
+    opacity: 0;
+}
+
+.greeting--job-title-container {
+    position: relative;
+    /* border: 1px solid white; */
+    overflow-x: hidden;
 }

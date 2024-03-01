@@ -10,6 +10,8 @@ import './Experience.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SectionHeader } from '../common/sectionHeader';
+import { MultiPosition } from './experience/multiPosition';
+import { OnePosition } from './experience/onePosition';
 
 const workingExperience = {
     'Best Buy Canada': {
@@ -180,49 +182,59 @@ export const Experience = () => {
         }
     }
 
-    useEffect(() => {
-        // let = tempComponentForJobs = [];
-        // for (const companyName in workingExperience) {
-        //     const jobsInCompany = workingExperience[companyName]['Positions']
-        //     if (jobsInCompany.length > 1) {
-                
-        //     } else {
+    const generateCompanyHistory = (companyName) => {
+        if (workingExperience[companyName].positions.length>1) {
+            return <MultiPosition companyName={companyName} thisCompany={workingExperience[companyName]}/>
+        } else {
+            return <OnePosition companyName={companyName} thisCompany={workingExperience[companyName]}/>
+        }
+    }
 
-        //     }
-        // }
+    useEffect(() => {
+        let tempComponentForJobs = [];
+        Object.keys(workingExperience).map((companyName, index) => {
+            tempComponentForJobs.push(generateCompanyHistory(companyName))
+        })
+        setComponentForJobs(tempComponentForJobs)
     },[])
 
     return(
         <>
-            <div className='experience-outer-container py-5 px-2 px-sm-4'>
-                <SectionHeader
-                section='experience'
-                title='Job History'
-                description='My working experience and role description'
-                />
-                <div className='px-4'>
-                    {Object.keys(workingExperience).map((companyName, index) => (
-                        <div className='experience-each-company-container'>
-                            <div className='experience-each-company-wrapper px-3 py-2 my-4'>
-                                <div className='experience-each-company-row-1'>
-                                    <div className='experience-each-company-logo'>
-                                        <img className='experience-each-company-logo mx-3' src={workingExperience[companyName].logo}></img>
-                                    </div>
-                                    <div className='experience-each-company-short-detail'>
-                                        {generateCompanyShortDetail(companyName)}
-                                    </div>
-                                </div>
-                                <div className='experience-each-company-row-2'>
-                                    {generateRoleDetail(companyName)}
-                                </div>
-                            </div>
-                            <div className='ps-4'>
-                                <ul class="timeline-with-icons">
-                                    {generatePositions(companyName)}
-                                </ul>
-                            </div>
-                        </div>
-                    ))}
+            <div className='experience-outer-container py-5 mt-5 w-100 '>
+                <div className='experience-inner-container col-12 col-lg-10 row px-2 m-0'>
+                    <div className='col-12'>
+                        <SectionHeader
+                        section='experience'
+                        title='Job History'
+                        description='My working experience and role description'
+                        />
+                    </div>
+                    <div className='px-4 col-12'>
+                        {componentForJobs}
+                        {/* {Object.keys(workingExperience).map((companyName, index) => (
+                            generateCompanyHistory(companyName)
+                            // <div className='experience-each-company-container'>
+                            //     <div className='experience-each-company-wrapper px-3 py-2 my-4'>
+                            //         <div className='experience-each-company-row-1'>
+                            //             <div className='experience-each-company-logo'>
+                            //                 <img className='experience-each-company-logo mx-3' src={workingExperience[companyName].logo}></img>
+                            //             </div>
+                            //             <div className='experience-each-company-short-detail'>
+                            //                 {generateCompanyShortDetail(companyName)}
+                            //             </div>
+                            //         </div>
+                            //         <div className='experience-each-company-row-2'>
+                            //             {generateRoleDetail(companyName)}
+                            //         </div>
+                            //     </div>
+                            //     <div className='ps-4'>
+                            //         <ul class="timeline-with-icons">
+                            //             {generatePositions(companyName)}
+                            //         </ul>
+                            //     </div>
+                            // </div>
+                        ))} */}
+                    </div>
                 </div>
             </div>
         </>

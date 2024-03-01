@@ -6,7 +6,7 @@ import canadaFlag from '../../components/images/AboutMe/canada-flag.mp4';
 // import { f } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 import AboutMeBg from '../images/ProPic_Landscape_2_downscale.jpg'
 
@@ -54,16 +54,20 @@ const apiGateway = async (method, endPoint, requestBody) => {
 }
 
 export function AboutMe() {
-    const bgImgRef = useRef(null);
     const [fromIp, setFromIp] = useState();
     const [startTime, setStartTime] = useState(new Date().toISOString().slice(0, 19).replace("T", " "));
     // const [visitRecordID, setVisitRecordID] = useState(); // for database
     let visitRecordID = null; // for database
+    let vistRecordRequest = { // for database
+        ipAddr: null,
+        enterTime: null,
+        geolocation: '',
+        connectionType: '',
+        organizationName: ''
+    }
     const AboutMeContent = {
         Title: 'Software Engineer',
         Workplace: 'Canada',
-        // Bio: <p>Formerly contributing to the FinTech Innovation Team within a Financial Institution as a software engineer, my area of expertise lies in implementing the <mark class='gold'>Software Development Life Cycle</mark> to develop secure, scalable, and efficient applications. Through my experience and training, I have developed a deep understanding of the complexities of financial technology and the importance of adhering to industry standards. By leveraging cutting-edge tools and techniques, I am able to deliver high-quality solutions that meet the needs of both my clients and stakeholders.</p>,
-        // Passion: <p><mark class='gold'>Coding, for me, is not just a job; it's a passion. Imagine teaching a computer to think like you do – that's the thrill I find in building applications from scratch.</mark> What sets me apart is not just my technical expertise but also my commitment to staying at the forefront of advancements. I take pride in crafting high-quality, optimal code that evolves with the industry. Join me in exploring the dynamic world of software development, where innovation meets impact.</p>,
         Bio: <p>I specialize in implementing the <mark class='black bold'>Software Development Life Cycle</mark> for secure, scalable applications, handling <mark class='black bold'>frontend, backend, database and deployment</mark>. With experience in working in a financial institution, I prioritize industry standards, delivering top-notch solutions using cutting-edge tools.<br/><br/><mark class='black bold'>Coding isn't just a job; it's my passion. Teaching a computer to think like humans thrills me.</mark> I'm committed to staying updated with advancements, crafting high-quality, evolving code.</p>,
         AboutMeObject: {
             Birthday: <div class="col-8">31 Dec 1997</div>,
@@ -78,41 +82,65 @@ export function AboutMe() {
         LinkedIn:   {icon: faLinkedin,  url: "https://www.linkedin.com/in/jacky-chong-kin-ye"}
     }
 
-    const getIpLocationInfo = async (ip) => {
-        const apiKey = '880c446f454e4f5eabda78d4ca25bef4';
-        const ipAddress = ip;
-        // const fields = 'country,city';
+    var options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0,
+    };
 
-        try {
-            const response = await fetch(`https://ipgeolocation.abstractapi.com/v1/?api_key=${apiKey}&ip_address=${ipAddress}`);
-            
-            if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+    async function success(pos) {
+        var crd = pos.coords;
+        // console.log("Your current position is:");
+        // console.log(`Latitude : ${crd.latitude}`);
+        // console.log(`Longitude: ${crd.longitude}`);
+        // console.log(`More or less ${crd.accuracy} meters.`);
+        // console.log(vistRecordRequest)
+        vistRecordRequest.geolocation = `Latitude: ${crd.latitude}; Longtitude: ${crd.longitude} within ${crd.accuracy} meters`;
+        const response = await apiGateway(POST, endPoint + "/add", vistRecordRequest);
+        visitRecordID = response.data.personalWebsiteHttpRequestId;
+    }
+    
+    async function errors(err) {
+        // console.warn(`ERROR(${err.code}): ${err.message}`);
+        const response = await apiGateway(POST, endPoint + "/add", vistRecordRequest);
+        visitRecordID = response.data.personalWebsiteHttpRequestId;
+        // return {latitude: null, longitude: null}
+    }
+
+    const getGeolocation = async () => {
+        if (navigator.geolocation) {
+            const result = await navigator.permissions.query({ name: "geolocation" })
+
+            if (result.state === "granted") {
+                //If granted then you can directly call your function here
+                navigator.geolocation.getCurrentPosition(success, errors, options);
+            } else if (result.state === "prompt") {
+                //If prompt then the user will be asked to give permission
+                navigator.geolocation.getCurrentPosition(success, errors, options);
+            } else if (result.state === "denied") {
+                //If denied then you have to show instructions to enable location
             }
 
-            const data = await response.json();
-            // console.log(data);
-            return data;
-            // Handle the data as needed
-        } catch (error) {
-            console.error('Error fetching data:', error);
-            // Handle errors
+        } else {
+            console.log("Geolocation is not supported by this browser.");
         }
     }
 
-
     const recordUserData = async () => {
         const userIp = await getFromIp();
-        const ipInfo = await getIpLocationInfo(userIp);
-        const vistRecordRequest = {
-            ipAddr: userIp,
-            enterTime: startTime,
-            geolocation: ipInfo.city + ', ' + ipInfo.country + ', ' + ipInfo.postal_code,
-            connectionType: String(ipInfo.connection.connection_type),
-            organizationName: String(ipInfo.connection.organization_name)
-        }
-        const response = await apiGateway(POST, endPoint + "/add", vistRecordRequest);
-        visitRecordID = response.data.personalWebsiteHttpRequestId;
+        vistRecordRequest.ipAddr = userIp;
+        vistRecordRequest.enterTime = startTime;
+        getGeolocation();
+        // const ipInfo = await getIpLocationInfo(userIp); // api max usage reached
+        // const vistRecordRequest = { // api max usage reached
+        //     ipAddr: userIp,
+        //     enterTime: startTime,
+        //     geolocation: ipInfo.city + ', ' + ipInfo.country + ', ' + ipInfo.postal_code,
+        //     connectionType: String(ipInfo.connection.connection_type),
+        //     organizationName: String(ipInfo.connection.organization_name)
+        // }
+        // const response = await apiGateway(POST, endPoint + "/add", vistRecordRequest);
+        // visitRecordID = response.data.personalWebsiteHttpRequestId;
     }
 
     const getFromIp = async () => {
@@ -136,6 +164,7 @@ export function AboutMe() {
 
     useEffect(() => {        
         recordUserData(); // add a record in database
+        // getGeolocation();
 
         gsap.timeline({scrollTrigger:{
             trigger:'.about-me__container',
@@ -145,6 +174,9 @@ export function AboutMe() {
             scrub: 1,
         }})
             .fromTo('.AboutMeBg', {y: -100, ease: 'none'}, {y: 0}, 0)
+
+        gsap.to('.about-me-img-container', {scrollTrigger: ".about-me-img-container", left: 0, opacity: 1, duration: 2});
+        gsap.to('.about-me-text-container', {scrollTrigger: ".about-me-text-container", left: 0, opacity: 1, duration: 2});
     },[])
 
     return (
@@ -175,12 +207,19 @@ export function AboutMe() {
                     <div className='about-me__inner-container col-12'>
                         {/* <img class="AboutMeBg" src={AboutMeBg} ref={bgImgRef}></img> */}
                         <div class="row align-items-center">
-                            <div className='col-12 col-md-7'>
+                            <div className='about-me-text-container col-12 col-md-7'>
                                 <SectionHeader 
                                 section='About'
                                 title='A software engineer based in Canada'
                                 description={AboutMeContent.Bio}/>
-                                <button>Learn more</button>
+                                <button className='about-me-contact-me-btn-container ms-4 my-3'
+                                    onClick={() => {window.location.href='#contactSection'}}>
+                                    <div className='about-me-contact-me-btn-bg'>
+                                        
+                                    </div>
+                                    <p className='about-me-contact-me-btn-text m-0 py-2 px-4'>Contact me</p>
+                                    <FontAwesomeIcon className='about-me-contact-me-btn-arrow' icon={faArrowRight} />
+                                </button>
                             </div>
                             <div className='about-me-img-container col-12 col-sm-10 col-md-5'>
                                 <img class="about-me-img" src={propic}></img>
