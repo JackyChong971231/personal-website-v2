@@ -5,27 +5,49 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ContactMeBackground from '../images/ContactMe/ContactMeBackground.jpg'
 
 import './ContactMe.css';
+import { SectionHeader } from '../common/sectionHeader';
 
 export function ContactMe() {
 
+    var [date,setDate] = useState(new Date());
+
+    useEffect(() => {
+        var timer = setInterval(()=>setDate(new Date()), 1000 )
+        return function cleanup() {
+            clearInterval(timer)
+        }
+    })
+
     return (
         <>
-            <div class="ContactMeContainer container-fluid">
+            <div class="ContactMeContainer container-fluid pt-5">
+                <SectionHeader
+                section='Contact'
+                title='Want to get in touch? I would love to hear from you!'
+                />
+                <p className='text-start px-4 py-2'>
+                    <span>Local time:</span><br/>
+                    <span>{date.toLocaleTimeString()}</span>
+                    <span>, EST</span>
+                </p>
                 <div class="row justify-content-center">
-                    <h1 class="col-12 py-5" style={{ fontFamily: 'Times New Roman' }}>Get In Touch</h1>
+                    {/* <h1 class="col-12 py-5" style={{ fontFamily: 'Times New Roman' }}>Get In Touch</h1> */}
                     <form class="contactMeForm col-10 col-md-6 col-lg-5">
                         {/* <!-- Name input --> */}
-                        <div class="form-outline mb-4">
+                        <div class="form-outline mb-4 text-start">
+                            <p className='m-1'><small>Name</small></p>
                             <input type="text" id="form4Example1" placeholder="Name" class="form-control" />
                         </div>
 
                         {/* <!-- Email input --> */}
-                        <div class="form-outline mb-4">
+                        <div class="form-outline mb-4 text-start">
+                            <p className='m-1'><small>E-Mail</small></p>
                             <input type="email" id="form4Example2" placeholder="Email" class="form-control" />
                         </div>
 
                         {/* <!-- Message input --> */}
-                        <div class="form-outline mb-4">
+                        <div class="form-outline mb-4 text-start">
+                            <p className='m-1'><small>Message</small></p>
                             <textarea class="form-control" id="form4Example3" placeholder="Message" rows="4"></textarea>
                         </div>
 

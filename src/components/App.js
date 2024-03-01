@@ -51,8 +51,8 @@ function App() {
       <section id="AboutMe"><AboutMe/></section>
       <section id="Projects"><Projects/></section>
       <section id="Skills"><Skills/></section>
-      <section id="ContactMe"><ContactMe/></section>
       <section id='Experience'><Experience/></section>
+      <section id="ContactMe"><ContactMe/></section>
     </div>
   );
 }

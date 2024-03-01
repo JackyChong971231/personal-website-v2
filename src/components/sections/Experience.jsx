@@ -105,8 +105,13 @@ const workingExperience = {
 export const Experience = () => {
     const [componentForJobs, setComponentForJobs] = useState();
 
-    const shortDetail = () => {
-
+    const generateRoleDetail = (companyName) => {
+        const thisJob = workingExperience[companyName].positions[0]
+        return (
+            <ol className='each-company-single-job-role-description'>
+                {thisJob.description}
+            </ol>
+        )
     }
 
     const generateCompanyShortDetail = (companyName) => {
@@ -141,9 +146,9 @@ export const Experience = () => {
                         <span> • </span>
                         <span>{thisJob.durationCount}</span>
                     </p>
-                    <p className='each-company-short-detail__role pt-3'>
+                    {/* <p className='each-company-short-detail__role pt-3'>
                         {thisJob.description}
-                    </p>
+                    </p> */}
                 </div>
             )
         }
@@ -153,28 +158,26 @@ export const Experience = () => {
         const jobsInCompany = workingExperience[companyName].positions
         if (jobsInCompany.length > 1) {
             const thisCompany = workingExperience[companyName]
-            const dotStyle = (jobsInCompany.length < 2)? {width: "31px", height: "31px", left: "-48px"}: {width: "15px", height: "15px", left: "-40px"}
             let tempWorkingExperienceComponent = [];
             jobsInCompany.forEach(position => {
                 tempWorkingExperienceComponent.push(
                     <li class="timeline-item mb-5 text-start">
-                        <span class="timeline-icon" style={dotStyle}>
-                            {/* <img className='company-logo' src={bestbuyLogo}/> */}
+                        <span class="timeline-icon">
                             <i class="fas fa-rocket text-primary fa-sm fa-fw w-25"></i>
                         </span>
                         
-                        <p class=" mb-2 fw-bold" style={{color: 'var(--gold)'}}>{position.title}</p>
-                        <p class=" mb-2 fw-bold">{position.duration}</p>
-                        {/* <img className='company-logo' src={bestbuyLogo}></img> */}
-                        <ul class="each-position-description" style={{color: 'lightgray', listStylePosition: 'inside'}}>
+                        <p class=" mb-0 fw-bold ps-4">{position.title}</p>
+                        <p class="each-company-multi-job__duration mb-2 ps-4">{position.duration}</p>
+                        <ol class="each-position-description">
                             {position.description}
-                        </ul>
+                        </ol>
                     </li>
                 )
             })
             return tempWorkingExperienceComponent;
+        } else {
+            return null
         }
-        else {return null}
     }
 
     useEffect(() => {
@@ -191,7 +194,7 @@ export const Experience = () => {
 
     return(
         <>
-            <div className='experience-outer-container py-4'>
+            <div className='experience-outer-container py-5 px-2 px-sm-4'>
                 <SectionHeader
                 section='experience'
                 title='Job History'
@@ -201,11 +204,16 @@ export const Experience = () => {
                     {Object.keys(workingExperience).map((companyName, index) => (
                         <div className='experience-each-company-container'>
                             <div className='experience-each-company-wrapper px-3 py-2 my-4'>
-                                <div className='experience-each-company-logo'>
-                                    <img className='experience-each-company-logo mx-3' src={workingExperience[companyName].logo}></img>
+                                <div className='experience-each-company-row-1'>
+                                    <div className='experience-each-company-logo'>
+                                        <img className='experience-each-company-logo mx-3' src={workingExperience[companyName].logo}></img>
+                                    </div>
+                                    <div className='experience-each-company-short-detail'>
+                                        {generateCompanyShortDetail(companyName)}
+                                    </div>
                                 </div>
-                                <div className='experience-each-company-short-detail'>
-                                    {generateCompanyShortDetail(companyName)}
+                                <div className='experience-each-company-row-2'>
+                                    {generateRoleDetail(companyName)}
                                 </div>
                             </div>
                             <div className='ps-4'>

@@ -33,9 +33,8 @@ export function Cover({setNavbarInUsed}) {
     //     scrub: true,
     //     // markers: true
     // }})
-    //     .to('.Greeting', {y: 400}, 0)
-    //     .to('.CoverProPic--Bg', {y: 300}, 0)
-    //     .to('.CoverProPic--Me', {y: 300}, 0)
+    //     .fromTo('.Greeting', {y: 0}, {y: -200})
+    //     .fromTo('.CoverProPic', {yPercent: 0}, {yPercent: 20})
 
       gsap.fromTo(".Greeting", {
         y: 0,

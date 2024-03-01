@@ -10,6 +10,13 @@ import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 import AboutMeBg from '../images/ProPic_Landscape_2_downscale.jpg'
 
+import reactLogo from '../images/AboutMe/logos/react.png'
+import springBootLogo from '../images/AboutMe/logos/springBoot.png'
+import djangoLogo from '../images/AboutMe/logos/django.png'
+import mysqlLogo from '../images/AboutMe/logos/mysql.png'
+import dockerLogo from '../images/AboutMe/logos/docker.png'
+import jenkinsLogo from '../images/AboutMe/logos/jenkins.png'
+
 import './AboutMe.css';
 import axios from "axios";
 
@@ -146,26 +153,22 @@ export function AboutMe() {
                 <div class="about-me__container col-12 col-lg-10 row px-3 m-0">
                     <div className='about-me-scroll-container col-12'>
                         <p>My expertise</p>
-                        <div className='about-me-scroll' style={{"--time":'30s'}}>
+                        <div className='about-me-scroll' style={{"--time":'50s'}}>
                             <div>
-                                <span className='about-me-scroll-item'>ReactJS</span>
-                                <span className='about-me-scroll-item'>Spring Boot</span>
-                                <span className='about-me-scroll-item'>JavaScript</span>
-                                <span className='about-me-scroll-item'>Python</span>
-                                <span className='about-me-scroll-item'>qweqwe</span>
-                                <span className='about-me-scroll-item'>sdfsd</span>
-                                <span className='about-me-scroll-item'>we</span>
-                                <span className='about-me-scroll-item'>hgfr</span>
+                                <span className='about-me-scroll-item'><img src={reactLogo}/></span>
+                                <span className='about-me-scroll-item'><img src={springBootLogo}/></span>
+                                <span className='about-me-scroll-item'><img src={djangoLogo}/></span>
+                                <span className='about-me-scroll-item'><img src={mysqlLogo}/></span>
+                                <span className='about-me-scroll-item'><img src={jenkinsLogo}/></span>
+                                <span className='about-me-scroll-item'><img src={dockerLogo}/></span>
                             </div>
                             <div>
-                                <span className='about-me-scroll-item'>ReactJS</span>
-                                <span className='about-me-scroll-item'>Spring Boot</span>
-                                <span className='about-me-scroll-item'>JavaScript</span>
-                                <span className='about-me-scroll-item'>Python</span>
-                                <span className='about-me-scroll-item'>qweqwe</span>
-                                <span className='about-me-scroll-item'>sdfsd</span>
-                                <span className='about-me-scroll-item'>we</span>
-                                <span className='about-me-scroll-item'>hgfr</span>
+                                <span className='about-me-scroll-item'><img src={reactLogo}/></span>
+                                <span className='about-me-scroll-item'><img src={springBootLogo}/></span>
+                                <span className='about-me-scroll-item'><img src={djangoLogo}/></span>
+                                <span className='about-me-scroll-item'><img src={mysqlLogo}/></span>
+                                <span className='about-me-scroll-item'><img src={jenkinsLogo}/></span>
+                                <span className='about-me-scroll-item'><img src={dockerLogo}/></span>
                             </div>
                         </div>
                     </div>

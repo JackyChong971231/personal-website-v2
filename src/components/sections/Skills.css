@@ -1,3 +1,7 @@
+.skills-outer-container {
+    position: relative;
+}
+
 .row.working.out {
     position: relative;
     background-color: rgb(49, 49, 49);
@@ -42,6 +46,7 @@
     display: block;
     content: "";
     background-image: url("../images/Skills/skillBackground.jpg");
+    filter: blur(5px);
     background-size: cover;
     background-position: 100%;
     top: 0px;

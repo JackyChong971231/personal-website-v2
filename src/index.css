@@ -21,7 +21,7 @@ code {
 }
 
 mark.gold {
-  color: var(--darkGold);
+  color: var(--superDarkGold);
   /* color: black; */
   background: transparent;
   /* text-shadow: 0.5px 0.5px 3px rgba(99, 89, 22, 0.20); */

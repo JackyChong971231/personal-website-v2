@@ -19,6 +19,7 @@ gsap.registerPlugin(ScrollTrigger);
 const projectsData = [
     {
         title: 'Personal Website',
+        special: 'Responsive',
         url: 'This site',
         image: personalWebsiteImg,
         description: 'This website serves to provide a concise overview of my skills, achievements, and work experience.',
@@ -27,6 +28,7 @@ const projectsData = [
     },
     {
         title: 'IKEA Clone',
+        special: 'Responsive',
         url: 'http://ckyjacky.ca:5001',
         image: ikeaCloneImg,
         description: 'My IKEA clone project demonstrates my full-stack development skills by seamlessly integrating frontend aesthetics with backend functionality.',
@@ -90,7 +92,12 @@ export function Projects () {
                                 
                                     <div className='each-project-hidden-info px-3' id={'project'+i}>
                                         <div className='row py-4'>
-                                            <div className='col-12 col-sm-4 col-md-12 col-lg-4 text-start'>
+                                            <div className='
+                                            col-12 order-2 
+                                            col-sm-4 order-sm-1 
+                                            col-md-12 order-md-2 
+                                            col-lg-4 order-lg-1 
+                                            text-start'>
                                                 <h5>Framework</h5>
                                                 <p>{eachProjectData.framework}</p>
                                                 <h5>Language</h5>
@@ -98,8 +105,16 @@ export function Projects () {
                                                 <h5>Live Site</h5>
                                                 <p>{eachProjectData.url}</p>
                                             </div>
-                                            <div className='col-12 col-sm-8 col-md-12 col-lg-8 text-start'>
-                                                <h3>{eachProjectData.title}</h3>
+                                            <div className='
+                                            col-12 order-1 
+                                            col-sm-8 order-sm-2 
+                                            col-md-12 order-md-1 
+                                            col-lg-8 order-lg-2 
+                                            text-start'>
+                                                <h3>
+                                                    <span>{eachProjectData.title}</span>
+                                                    <p><mark className='gold'><small>{eachProjectData.special}</small></mark></p>
+                                                </h3>
                                                 <p>{eachProjectData.description}</p>
                                             </div>
                                         </div>
