@@ -44,7 +44,7 @@ export const MultiPosition = ({companyName, thisCompany}) => {
                         {position.description}
                     </ol>
                     <button className='each-position-see-more-btn'
-                    onClick={() => {setIsExpand(prevState => !prevState)}}>See more</button>
+                    onClick={() => {setIsExpand(prevState => !prevState)}}>{isExpand?'See less': 'See more'}</button>
                 </li>
             )
         })

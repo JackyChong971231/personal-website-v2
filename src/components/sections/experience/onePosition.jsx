@@ -7,6 +7,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 // import { SectionHeader } from '../common/sectionHeader';
 
 export const OnePosition = ({companyName, thisCompany}) => {
+    const [isExpand, setIsExpand] = useState(false);
+
     const generateCompanyShortDetail = () => {
         const jobsInCompany = thisCompany.positions
 
@@ -25,22 +27,26 @@ export const OnePosition = ({companyName, thisCompany}) => {
                     <span> • </span>
                     <span>{thisJob.durationCount}</span>
                 </p>
-                {/* <p className='each-company-short-detail__role pt-3'>
+                <p className={
+                    (isExpand)?'each-company-short-detail__role each-company-short-detail__role--expand pt-3'
+                    :'each-company-short-detail__role pt-3'}>
                     {thisJob.description}
-                </p> */}
+                </p>
             </div>
         )
         
     }
 
-    const generateRoleDetail = () => {
-        const thisJob = thisCompany.positions[0]
-        return (
-            <ol className='each-company-single-job-role-description'>
-                {thisJob.description}
-            </ol>
-        )
-    }
+    // const generateRoleDetail = () => {
+    //     const thisJob = thisCompany.positions[0]
+    //     return (
+    //         <ol className={
+    //             (isExpand)?'each-company-single-job-role-description each-company-single-job-role-description--expand'
+    //             :'each-company-single-job-role-description'}>
+    //             {thisJob.description}
+    //         </ol>
+    //     )
+    // }
 
     useEffect(() => {
         console.log(thisCompany)
@@ -56,11 +62,15 @@ export const OnePosition = ({companyName, thisCompany}) => {
                         </div>
                         <div className='experience-each-company-short-detail'>
                             {generateCompanyShortDetail()}
+                            <button className='each-position-see-more-btn'
+                            onClick={() => {setIsExpand(prevState => !prevState)}}>{isExpand?'See less': 'See more'}</button>
                         </div>
                     </div>
-                    <div className='experience-each-company-row-2'>
+                    {/* <div className='experience-each-company-row-2'>
                         {generateRoleDetail()}
-                    </div>
+                        <button className='each-position-see-more-btn'
+                        onClick={() => {setIsExpand(prevState => !prevState)}}>{isExpand?'See less': 'See more'}</button>
+                    </div> */}
                 </div>
             </div>
         </>
