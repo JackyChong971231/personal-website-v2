@@ -225,7 +225,7 @@ export function Skills() {
                                     <div className='circular-animation-circle'>
                                     </div>
                                 </div>    
-                                <FontAwesomeIcon className='expertise-loop-icon' icon={(isExpertiseLoop)?faPlay:faPause} />
+                                <FontAwesomeIcon className='expertise-loop-icon' icon={(isExpertiseLoop)?faPause:faPlay} />
                             </div>
                             <div class="row justify-content-center"
                             onMouseEnter={pauseExpertiseLoop}

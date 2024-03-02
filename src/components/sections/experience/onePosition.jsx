@@ -27,26 +27,15 @@ export const OnePosition = ({companyName, thisCompany}) => {
                     <span> • </span>
                     <span>{thisJob.durationCount}</span>
                 </p>
-                <p className={
+                {/* <ol className={
                     (isExpand)?'each-company-short-detail__role each-company-short-detail__role--expand pt-3'
                     :'each-company-short-detail__role pt-3'}>
                     {thisJob.description}
-                </p>
+                </ol> */}
             </div>
         )
         
     }
-
-    // const generateRoleDetail = () => {
-    //     const thisJob = thisCompany.positions[0]
-    //     return (
-    //         <ol className={
-    //             (isExpand)?'each-company-single-job-role-description each-company-single-job-role-description--expand'
-    //             :'each-company-single-job-role-description'}>
-    //             {thisJob.description}
-    //         </ol>
-    //     )
-    // }
 
     useEffect(() => {
         console.log(thisCompany)
@@ -62,8 +51,6 @@ export const OnePosition = ({companyName, thisCompany}) => {
                         </div>
                         <div className='experience-each-company-short-detail'>
                             {generateCompanyShortDetail()}
-                            <button className='each-position-see-more-btn'
-                            onClick={() => {setIsExpand(prevState => !prevState)}}>{isExpand?'See less': 'See more'}</button>
                         </div>
                     </div>
                     {/* <div className='experience-each-company-row-2'>
@@ -71,6 +58,13 @@ export const OnePosition = ({companyName, thisCompany}) => {
                         <button className='each-position-see-more-btn'
                         onClick={() => {setIsExpand(prevState => !prevState)}}>{isExpand?'See less': 'See more'}</button>
                     </div> */}
+                    <ol className={
+                    (isExpand)?'each-company-short-detail__role each-company-short-detail__role--expand pt-3'
+                    :'each-company-short-detail__role pt-3'}>
+                    {thisCompany.positions[0].description}
+                    </ol>
+                    <button className='each-position-see-more-btn'
+                            onClick={() => {setIsExpand(prevState => !prevState)}}>{isExpand?'See less': 'See more'}</button>
                 </div>
             </div>
         </>

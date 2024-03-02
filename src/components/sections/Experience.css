@@ -71,6 +71,8 @@
     max-height: 3.5rem;
     overflow-y: hidden;
     margin: 0;
+    list-style-position: outside;
+    list-style-type: disc;
 }
 
 .each-company-short-detail__role--expand, .each-position-description--expand {
@@ -160,6 +162,11 @@
     list-style-position: outside;
     list-style-type: disc;
     padding-left: 3em;
+}
+
+.each-company-short-detail__role {
+    /* padding-left: 0; */
+    text-align: justify;
 }
 
 .each-position-see-more-btn {
