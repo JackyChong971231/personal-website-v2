@@ -157,11 +157,8 @@ export function Skills() {
 
     return (
         <>
-            <div class="skills-outer-container container-fluid">
+            <div class="skills-outer-container container-fluid mt-4">
                 <div class="row skills py-5">
-                    {/* <video className='quote-background' playsinline autoplay muted loop poster="cake.jpg" >
-                        <source type='video/mp4' src={dotsMp4} />
-                    </video> */}
                     <h5 class="px-4 pt-4" >“You can't connect the dots looking forward; you can only connect them looking backwards"</h5>
                     <h5 class="text-end pt-2 px-4 pb-4" >Steve Jobs</h5>
                     <p2><mark class="gold">This mindset is what keeps me hooked on learning</mark></p2>

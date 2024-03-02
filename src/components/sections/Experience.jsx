@@ -200,7 +200,7 @@ export const Experience = () => {
 
     return(
         <>
-            <div className='experience-outer-container py-5 mt-5 w-100 '>
+            <div id='experienceSection' className='experience-outer-container py-5 mt-5 w-100 '>
                 <div className='experience-inner-container col-12 col-lg-10 row px-2 m-0'>
                     <div className='col-12'>
                         <SectionHeader

@@ -23,7 +23,7 @@ export function ContactMe() {
             <div id='contactSection' class="ContactMeContainer pt-5 w-100">
                 <div className='row justify-content-center'>
 
-                    <div className='col-12 col-lg-8 m-0'>
+                    <div className='col-12 col-lg-8 px-sm-5 m-0'>
                         <div className='contact-me-header'>
                             <SectionHeader
                             section='Contact'

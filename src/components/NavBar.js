@@ -80,13 +80,13 @@ export function NavBar({setNavbarInUsed}) {
                                 <a class="nav-link" style={{cursor: "pointer"}}
                                 data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
                                 onClick={() => navbarItemOnClickHandler("#JustAboveNarbar")}
-                                >About Me</a>
+                                >About</a>
                             </li>
                             <li class="nav-item mx-3">
                                 <a class="nav-link" style={{cursor: "pointer"}}
                                 data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
-                                onClick={() => navbarItemOnClickHandler("#workingExperience")}
-                                >Working Experience</a>
+                                onClick={() => navbarItemOnClickHandler("#projectsSection")}
+                                >Projects</a>
                             </li>
                             <li class="nav-item mx-3">
                                 <a class="nav-link" style={{cursor: "pointer"}}
@@ -97,8 +97,8 @@ export function NavBar({setNavbarInUsed}) {
                             <li class="nav-item mx-3">
                                 <a class="nav-link" style={{cursor: "pointer"}}
                                 data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
-                                onClick={() => navbarItemOnClickHandler("#projectsSection")}
-                                >Projects</a>
+                                onClick={() => navbarItemOnClickHandler("#experienceSection")}
+                                >Experience</a>
                             </li>
                         </ul>
                     </div>
