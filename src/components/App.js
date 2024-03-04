@@ -9,7 +9,7 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { NavBar } from './NavBar';
-import { Cover } from './Cover';
+import { Cover } from './sections/1-cover-page/Cover';
 import { AboutMe } from './sections/AboutMe';
 import { Skills } from './sections/Skills';
 import { ContactMe } from './sections/ContactMe';

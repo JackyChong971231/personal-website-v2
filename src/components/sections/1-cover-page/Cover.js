@@ -1,19 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "./Cover.css";
-import ProPic_Landscape from './images/ProPic_Landscape_3_downscale.jpg';
-// import ProPic_Landscape_Me from './images/ProPic_Landscape_3_me.png';
-import LinkedInProPic from './images/ProPic.jpg';
+import ProPic_Landscape from '../../images/ProPic_Landscape_3_downscale.jpg';
 
 import React, { useState, useEffect } from 'react';
 
-import { faBars, faBell, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { faGithub } from "@fortawesome/free-brands-svg-icons"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { NavBar } from './NavBar';
+
 gsap.registerPlugin(ScrollTrigger);
 
 export function Cover({setNavbarInUsed}) {
@@ -25,16 +19,7 @@ export function Cover({setNavbarInUsed}) {
     };
 
     useEffect(() => {
-    //   gsap.timeline({scrollTrigger:{
-    //     trigger:'.outerCover',
-    //     start: 'top top',
-    //     end: 'bottom top',
-    //     ease: "linear",
-    //     scrub: true,
-    //     // markers: true
-    // }})
-    //     .fromTo('.Greeting', {y: 0}, {y: -200})
-    //     .fromTo('.CoverProPic', {yPercent: 0}, {yPercent: 20})
+
       gsap.to('.greeting--name', {left: '0rem', opacity: '1', duration: 2});
       gsap.to('.greeting--job-title', {left: '0rem', duration: 2});
       gsap.to('.greeting--bio', {left: '0rem', opacity: '1', duration: 2});
