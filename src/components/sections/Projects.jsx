@@ -48,6 +48,8 @@ export function Projects () {
         }})
             .fromTo('.vscodeLeft', {y: -100}, {y: -300}, 0)
             .fromTo('.vscodeRight', {y: -300}, {y: -100}, 0)
+
+        
     },[])
 
     return (

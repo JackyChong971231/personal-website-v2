@@ -41,15 +41,45 @@ export function Cover({setNavbarInUsed}) {
       });
       
       gsap.fromTo(".CoverProPic", {
-        yPercent: 0,
+        opacity: 1,
       },
       {
-        yPercent: 20,
+        opacity: 0,
         ease: "linear",
         scrollTrigger: {
           trigger: ".outerCover",
           start: "top top", // the default values
           end: "bottom top",
+          scrub: true,
+          // markers: true
+        }, 
+      });
+
+      gsap.fromTo(".outerCover", {
+        opacity: 1,
+      },
+      {
+        opacity: 0,
+        ease: "linear",
+        scrollTrigger: {
+          trigger: ".outerCover",
+          start: "bottom bottom", // the default values
+          end: "bottom 70%",
+          scrub: true,
+          // markers: true
+        }, 
+      });
+
+      gsap.fromTo(".outerCover", {
+        zIndex: 1,
+      },
+      {
+        zIndex: 0,
+        ease: "linear",
+        scrollTrigger: {
+          trigger: ".outerCover",
+          start: "bottom 70%", // the default values
+          end: "bottom 70%",
           scrub: true,
           // markers: true
         }, 
