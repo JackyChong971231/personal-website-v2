@@ -2,11 +2,29 @@
     background-color: white;
 }
 
+#AboutMe {  
+    position: relative;
+    top: -35vh;
+}
+
 .about-me-outer-container {
     position: relative;
     display: flex;
     justify-content: center;
+    /* opacity: 0; */
 }
+
+/* .about-me-outer-container {
+    position: fixed;
+    display: flex;
+    left: 0;
+    top: 0;
+    background-color: lightgray;
+    width: 100vw;
+    z-index: 1000;
+    justify-content: center;
+    opacity: 0;
+} */
 
 .about-me-scroll-container {
     color: var(--darkGrayFont);
