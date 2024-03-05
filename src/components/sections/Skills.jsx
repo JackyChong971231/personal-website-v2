@@ -9,6 +9,7 @@ import systemDeveloper from '../images/Skills/systemDeveloper.png'
 import graduation from '../images/Skills/graduation.png'
 
 import ustLogo from '../images/Skills/ustFull_1.png';
+import skillsBgImg from '../images/Skills/skillBackground.jpg';
 
 import dotsMp4 from '../images/Skills/dots.mp4';
 import './Skills.css';
@@ -111,7 +112,17 @@ export function Skills() {
             .fromTo('.uniLogo__gradHat', {width: '100%', duration: 4}, {width: '0%'}, 0)
             .fromTo('.uniLogo__hkustLogo', {width: '0%', duration: 4}, {width: '100%'}, 0)
 
-        // startExpertiseLoop();
+        gsap.timeline({scrollTrigger: {
+            trigger: '#Skills',
+            start: 'top 75%',
+            end: 'top 50%',
+            ease: 'power2',
+            scrub: 1,
+            // markers: true
+        }})
+            .fromTo('#projectsSection', {zIndex: 98, opacity: 1}, {zIndex: 0, opacity: 0}, 0)
+            // .fromTo('.App', {backgroundColor: 'black'}, {backgroundColor: 'rgb(226, 226, 226)'}, 0)
+            .fromTo('#Skills', {opacity: 0, top: '-40vh'}, {opacity: 1, top: '-60vh' }, 0)
         },[])
     
     useEffect(() => {
@@ -157,12 +168,15 @@ export function Skills() {
 
     return (
         <>
-            <div class="skills-outer-container container-fluid mt-4">
-                <div class="row skills py-5">
+            <div className='skills__bg'>
+                <img className='skills__bg__img' src={skillsBgImg}></img>
+            </div>
+            <div class="skills-outer-container mt-4">
+                {/* <div class="row skills py-5">
                     <h5 class="px-4 pt-4" >“You can't connect the dots looking forward; you can only connect them looking backwards"</h5>
                     <h5 class="text-end pt-2 px-4 pb-4" >Steve Jobs</h5>
                     <p2><mark class="gold">This mindset is what keeps me hooked on learning</mark></p2>
-                </div>
+                </div> */}
                 <div class="row skills in no-gutters">
                     <div>
                         <div class="container px-4">

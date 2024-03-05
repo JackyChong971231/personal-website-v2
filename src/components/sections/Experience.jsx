@@ -104,6 +104,7 @@ const workingExperience = {
     }
 }
 
+gsap.registerPlugin(ScrollTrigger);
 export const Experience = () => {
     const [componentForJobs, setComponentForJobs] = useState();
 
@@ -196,11 +197,25 @@ export const Experience = () => {
             tempComponentForJobs.push(generateCompanyHistory(companyName))
         })
         setComponentForJobs(tempComponentForJobs)
+
+        gsap.timeline({scrollTrigger: {
+            trigger: '#experienceSection',
+            start: 'top 90%',
+            end: 'top 65%',
+            ease: 'power2',
+            scrub: 1,
+            markers: true
+        }})
+            .fromTo('#Skills', {zIndex: 97, opacity: 1}, {zIndex: 0, opacity: 0}, 0)
+            // .fromTo('.App', {backgroundColor: 'black'}, {backgroundColor: 'rgb(226, 226, 226)'}, 0)
+            .fromTo('#experienceSection', {opacity: 0, top: '-40vh'}, {opacity: 1, top: '-60vh' }, 0)
+
     },[])
 
     return(
         <>
             <div id='experienceSection' className='experience-outer-container py-5 mt-5 w-100 '>
+                <div className='experience-section-bg'></div>
                 <div className='experience-inner-container col-12 col-lg-10 row px-2 m-0'>
                     <div className='col-12'>
                         <SectionHeader

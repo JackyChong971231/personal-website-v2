@@ -178,25 +178,12 @@ export function AboutMe() {
         gsap.to('.about-me-img-container', {scrollTrigger: ".about-me-img-container", left: 0, opacity: 1, duration: 2});
         gsap.to('.about-me-text-container', {scrollTrigger: ".about-me-text-container", left: 0, opacity: 1, duration: 2});
 
-        // gsap.fromTo(".about-me-outer-container", {
-        // opacity: 0,
-        // },
-        // {
-        // opacity: 1,
-        // ease: "linear",
-        // scrollTrigger: {
-        //     trigger: ".about-me-outer-container",
-        //     start: "top top", // the default values
-        //     end: "bottom top",
-        //     scrub: true,
-        //     markers: true
-        // }, 
-        // });
     },[])
 
     return (
         <>
             <div className='about-me-outer-container w-100'>
+                <div className='about-me-section-bg'></div>
                 <div class="about-me__container col-12 col-lg-10 row px-3 m-0">
                     <div className='about-me-scroll-container col-12'>
                         <p>My expertise</p>

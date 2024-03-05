@@ -1,8 +1,9 @@
 .App {
+  position: relative;
   text-align: center;
   width: 100vw;
-  /* overflow-x: hidden; */
-  background-color: rgb(226, 226, 226);
+  /* height: 10px; */
+  /* background-color: red; */
 }
 
 .App-logo {

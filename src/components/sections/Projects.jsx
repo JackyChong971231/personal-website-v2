@@ -7,7 +7,7 @@ import vscodeLineRight from '../../assets/images/vscode1.png';
 import vscodeLineLeft from '../../assets/images/vscode2.png';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowDown, faLock } from "@fortawesome/free-solid-svg-icons";
+import { faArrowDown, faLock, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import './Projects.css';
 
@@ -39,6 +39,9 @@ const projectsData = [
 ]
 
 export function Projects () {
+    const [projectHiddenDetail, setProjectHiddenDetail] = useState(null);
+    const [showHiddenDetail, setShowHiddenDetail] = useState(false);
+
     useEffect(() => {
         gsap.timeline({scrollTrigger:{
             trigger:'#projectsSection',
@@ -48,9 +51,30 @@ export function Projects () {
         }})
             .fromTo('.vscodeLeft', {y: -100}, {y: -300}, 0)
             .fromTo('.vscodeRight', {y: -300}, {y: -100}, 0)
-
+        
+        gsap.timeline({scrollTrigger: {
+            trigger: '#projectsSection',
+            start: 'top 75%',
+            end: 'top 50%',
+            ease: 'power2',
+            scrub: 1
+        }})
+            .fromTo('#AboutMe', {zIndex: 99, opacity: 1}, {zIndex: 0, opacity: 0}, 0)
+            .fromTo('.App', {backgroundColor: 'rgb(226, 226, 226)'}, {backgroundColor: 'black'}, 0)
+            .fromTo('#projectsSection', {opacity: 0, top: '-40vh'}, {opacity: 1, top: '-60vh'}, 0)
+            .fromTo('.project_bg', {opacity: 0}, {opacity: 1}, 0)
         
     },[])
+
+    const hideProjectContentHiddenDetail = () => {
+        setShowHiddenDetail(false)
+    }
+
+    const showProjectContentHiddenDetail = (component) => {
+        console.log(component)
+        setProjectHiddenDetail(component)
+        setShowHiddenDetail(true)
+    }
 
     return (
         <div id='projectsSection' className='py-4'>
@@ -69,9 +93,21 @@ export function Projects () {
                 <div className='project__content px-3'>
                     <div className='all-projects__container row'>
                         {projectsData.map((eachProjectData, i) => (
-                            <EachProject eachProjectData={eachProjectData} index={i} />
+                            <EachProject eachProjectData={eachProjectData} showProjectContentHiddenDetail={showProjectContentHiddenDetail} index={i} />
                         ))}
                     </div>
+                </div>
+
+            </div>
+            <div className={
+            (showHiddenDetail)? 'project__content__hidden-detail-container project__content__hidden-detail-container--show': 
+            'project__content__hidden-detail-container'}>
+                <div className='project__content__hidden-detail-wrapper'>
+                    <button className='project__content__hidden-detail-close-btn'
+                    onClick={hideProjectContentHiddenDetail}>
+                        <FontAwesomeIcon icon={faXmark} />
+                    </button>
+                    {projectHiddenDetail}
                 </div>
             </div>
         </div>

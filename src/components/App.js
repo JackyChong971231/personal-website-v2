@@ -44,12 +44,14 @@ function App() {
 
   return (
     <div class="App">
-
+      <div id="ReturnToTopAnchor"></div>
       <Cover setNavbarInUsed={setNavbarInUsed}/>
-      <div id="JustAboveNarbar"></div>
+      <div id="ProjectsAnchor"></div>
       <NavBar setNavbarInUsed={setNavbarInUsed}/>
       <section id="AboutMe"><AboutMe/></section>
+      <div id="SkillsAnchor"></div>
       <section id="Projects"><Projects/></section>
+      <div id="ExperienceAnchor"></div>
       <section id="Skills"><Skills/></section>
       <section id='Experience'><Experience/></section>
       <section id="ContactMe"><ContactMe/></section>

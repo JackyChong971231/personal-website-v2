@@ -18,6 +18,7 @@ code {
   --superDarkGold: rgb(133, 103, 2);
   --white: #ffffff;
   --darkGrayFont: rgb(110,110,110);
+  --rootBg: rgb(226, 226, 226);
 }
 
 mark.gold {

@@ -1,3 +1,14 @@
+#ContactMe {
+    position: relative;
+    z-index: 100;
+    margin-top: -50vh;
+    /* top: -40vh; */
+}
+
+/* .contact-me-section-bg {
+    position: fixed;
+} */
+
 .contactMeForm > button {
     background-color: var(--darkGold);
     border: 0;
@@ -5,7 +16,9 @@
 
 .ContactMeContainer {
     position: relative;
-    box-shadow: 25px 25px 0px 0px rgb(0, 0, 0);
+    width: 100%;
+    overflow: hidden;
+    /* box-shadow: 25px 25px 0px 0px rgb(0, 0, 0); */
 }
 
 .ContactMeContainer::before {

@@ -79,25 +79,25 @@ export function NavBar({setNavbarInUsed}) {
                             <li class="nav-item mx-3">
                                 <a class="nav-link" style={{cursor: "pointer"}}
                                 data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
-                                onClick={() => navbarItemOnClickHandler("#JustAboveNarbar")}
+                                onClick={() => navbarItemOnClickHandler("#ReturnToTopAnchor")}
                                 >About</a>
                             </li>
                             <li class="nav-item mx-3">
                                 <a class="nav-link" style={{cursor: "pointer"}}
                                 data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
-                                onClick={() => navbarItemOnClickHandler("#projectsSection")}
+                                onClick={() => navbarItemOnClickHandler("#ProjectsAnchor")}
                                 >Projects</a>
                             </li>
                             <li class="nav-item mx-3">
                                 <a class="nav-link" style={{cursor: "pointer"}}
                                 data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
-                                onClick={() => navbarItemOnClickHandler("#skillsSection")}
+                                onClick={() => navbarItemOnClickHandler("#SkillsAnchor")}
                                 >Skills</a>
                             </li>
                             <li class="nav-item mx-3">
                                 <a class="nav-link" style={{cursor: "pointer"}}
                                 data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
-                                onClick={() => navbarItemOnClickHandler("#experienceSection")}
+                                onClick={() => navbarItemOnClickHandler("#ExperienceAnchor")}
                                 >Experience</a>
                             </li>
                         </ul>

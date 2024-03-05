@@ -4,8 +4,10 @@
 
 #AboutMe {  
     position: relative;
-    top: -35vh;
-
+    top: -45vh;
+    /* scroll-snap-stop: always; */
+    z-index: 99;
+    /* border: 2px solid gold; */
 }
 
 .about-me-outer-container {
@@ -15,17 +17,14 @@
     /* opacity: 0; */
 }
 
-/* .about-me-outer-container {
+.about-me-section-bg {
     position: fixed;
-    display: flex;
-    left: 0;
     top: 0;
-    background-color: lightgray;
+    left: 0;
+    background-color: var(--rootBg);
     width: 100vw;
-    z-index: 1000;
-    justify-content: center;
-    opacity: 0;
-} */
+    height: 100vh;
+}
 
 .about-me-scroll-container {
     color: var(--darkGrayFont);

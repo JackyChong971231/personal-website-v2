@@ -1,8 +1,26 @@
-.experience-outer-container {
+#Experience {
+    position: relative;
+    background-color: transparent;
+    /* height: calc(100%-40vh); */
+}
+
+#experienceSection {
     position: relative;
     /* background-color: lightgray; */
     display: flex;
     justify-content: center;
+    top: -60vh;
+    z-index: 96;
+    /* opacity: 0; */
+}
+
+.experience-section-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(226, 226, 226);
+    width: 100vw;
+    height: 100vh;
 }
 
 .experience-inner-container {
