@@ -204,7 +204,7 @@ export const Experience = () => {
             end: 'top 65%',
             ease: 'power2',
             scrub: 1,
-            markers: true
+            // markers: true
         }})
             .fromTo('#Skills', {zIndex: 97, opacity: 1}, {zIndex: 0, opacity: 0}, 0)
             // .fromTo('.App', {backgroundColor: 'black'}, {backgroundColor: 'rgb(226, 226, 226)'}, 0)
