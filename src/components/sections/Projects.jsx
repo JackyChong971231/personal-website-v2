@@ -59,11 +59,25 @@ export function Projects () {
             ease: 'power2',
             scrub: 1
         }})
-            .fromTo('#AboutMe', {zIndex: 99, opacity: 1}, {zIndex: 0, opacity: 0}, 0)
+            .fromTo('#AboutMe', {opacity: 1}, {opacity: 0}, 0)
             .fromTo('.App', {backgroundColor: 'rgb(226, 226, 226)'}, {backgroundColor: 'black'}, 0)
             .fromTo('#projectsSection', {opacity: 0, top: '-40vh'}, {opacity: 1, top: '-60vh'}, 0)
             .fromTo('.project_bg', {opacity: 0}, {opacity: 1}, 0)
         
+        gsap.fromTo("#AboutMe", {
+            zIndex: 99,
+            },
+            {
+            zIndex: 0,
+            ease: "power2",
+            scrollTrigger: {
+                trigger: "#projectsSection",
+                start: "top 55%", // the default values
+                end: "top 55%",
+                scrub: true,
+                // markers: true
+            }, 
+            });
     },[])
 
     const hideProjectContentHiddenDetail = () => {
