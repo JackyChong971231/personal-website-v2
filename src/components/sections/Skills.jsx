@@ -196,7 +196,6 @@ export function Skills() {
                                                     <a className='qs_ranking' href='https://www.topuniversities.com/university-subject-rankings/electrical-electronic-engineering/2020?page=1'><mark class='gold'>Ranked #22</mark> in QS World University Rankings for Electronic Engineering in 2020</a>
                                                     <p className="degree__name pt-2">Bachelor of Engineering in Electronic Engineering</p>
                                                     <p><small>Sep 2016 - Nov 2020</small></p>
-                                                    {/* <p className='university__name'>The Hong Kong University of Science and Technology</p> */}
                                                 </div>
                                             </div>
                                         </div>
@@ -259,11 +258,11 @@ export function Skills() {
                                     <h2>Achievements</h2>
                                     <div class="expertiseDescriptionContainer pb-1" ref={ref} style={{ minHeight: minimumHeight }}>
                                         {expertise[expertiseOrder[0]]['achievements'].map((eachAchievement, index) => (
-                                                    <div className='row'>
-                                                        <p className='col-1'>&#10070;</p>
-                                                        <p className='col-11' align="justify" key={index}><small>{eachAchievement}</small></p>
-                                                    </div>
-                                                ))}
+                                            <div className='row'>
+                                                <p className='col-1'>&#10070;</p>
+                                                <p className='col-11' align="justify" key={index}><small>{eachAchievement}</small></p>
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                             </div>

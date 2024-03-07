@@ -29,16 +29,17 @@
 
 .experience-each-company-container {
     position: relative;
-    /* background-color: rgb(219, 219, 219);
-    border-radius: 1rem; */
+    background-color: rgb(214, 214, 214);
+    border-radius: 1rem;
+    box-shadow: rgb(162, 162, 162) 0px 0px 6px 0px;
 }
 
 .experience-each-company-wrapper {
     position: relative;
     /* display: flex; */
-    background-color: lightgray;
+    /* background-color: lightgray;
     border-radius: 1rem;
-    box-shadow: rgb(162, 162, 162) 0px 0px 6px 0px;
+    box-shadow: rgb(162, 162, 162) 0px 0px 6px 0px; */
     /* align-items: center; */
 
 }

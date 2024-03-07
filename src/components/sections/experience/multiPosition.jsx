@@ -58,7 +58,7 @@ export const MultiPosition = ({companyName, thisCompany}) => {
     return (
         <>
             <div className='experience-each-company-container'>
-                <div className='experience-each-company-wrapper px-3 py-2 my-4'>
+                <div className='experience-each-company-wrapper--multi px-3 py-2 my-4'>
                     <div className='experience-each-company-row-1'>
                         <div className='experience-each-company-logo'>
                             <img className='experience-each-company-logo mx-3' src={thisCompany.logo}></img>
