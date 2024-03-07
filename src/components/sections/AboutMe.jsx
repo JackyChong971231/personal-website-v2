@@ -188,7 +188,7 @@ export function AboutMe() {
                     <div className='about-me-scroll-container col-12'>
                         <p>My expertise</p>
                         <div className='about-me-scroll' style={{"--time":'50s'}}>
-                            <div>
+                            <div className='about-me-scroll-set-1'>
                                 <span className='about-me-scroll-item'><img src={reactLogo}/></span>
                                 <span className='about-me-scroll-item'><img src={springBootLogo}/></span>
                                 <span className='about-me-scroll-item'><img src={djangoLogo}/></span>
@@ -196,7 +196,7 @@ export function AboutMe() {
                                 <span className='about-me-scroll-item'><img src={jenkinsLogo}/></span>
                                 <span className='about-me-scroll-item'><img src={dockerLogo}/></span>
                             </div>
-                            <div>
+                            <div className='about-me-scroll-set-2'>
                                 <span className='about-me-scroll-item'><img src={reactLogo}/></span>
                                 <span className='about-me-scroll-item'><img src={springBootLogo}/></span>
                                 <span className='about-me-scroll-item'><img src={djangoLogo}/></span>
