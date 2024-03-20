@@ -1,0 +1,125 @@
+.outerCover {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* overflow: hidden; */
+    /* background-color: lightgray; */
+    /* box-shadow: 0px 0px 25px 25px rgb(20, 20, 20); */
+    margin-bottom: 3rem;
+    z-index: 100;
+}
+
+.Cover {
+    width: 100%;
+    height: 100vh;
+    /* overflow: hidden; */
+    /* box-shadow: 0 0 10px 5px #000; */
+    /* background-color: black; */
+}
+
+.CoverProPic {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    filter: brightness(50%);
+    /* background: linear-gradient(to bottom, white, transparent 90%); */
+    /* transform: translateY(50px) scale(1.5); */
+    /* -webkit-mask-image: linear-gradient(315deg, black 50%, transparent); */
+    /* background-color: black; */
+    /* mask-image: linear-gradient(to bottom, 
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,1) 60%,
+    rgba(0,0,0,0.3) 70%,
+    rgba(0,0,0,0.3) 90%,
+    rgba(0,0,0,0) 95%); */
+}
+
+.Greeting {
+    position: absolute;
+    bottom: 15%;
+    padding-inline: 10%;
+    left: 0px;
+    color: white;
+    
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* border: solid; */
+}
+
+.Greeting > h1 {
+    text-shadow: 5px 5px 15px #000000;
+}
+
+.Greeting > h1 > span{
+    color: var(--gold);
+    /* font-weight: 600; */
+}
+
+.greeting--name {
+    position: relative;
+    font-size: 1rem;
+    font-family: georgia;
+    /* for landing page animation */
+    left: -4rem;
+    opacity: 0;
+}
+
+.greeting--job-title {
+    position: relative;
+    color: var(--gold);
+    font-weight: 500;
+    font-family: serif;
+    font-size: 3rem;
+    /* for landing page animation */
+    left: -100%;
+    opacity: 1;
+}
+
+.greeting--bio {
+    position: relative;
+    /* for landing page animation */
+    left: 4rem;
+    opacity: 0;
+}
+
+.Greeting > p {
+    /* border: 1px solid black; */
+    width: 90%;
+    font-size: 0.8rem;
+    text-align: justify;
+}
+
+.LearnMore {
+    position: relative;
+    background-color: var(--gold);
+    position: relative;
+    /* for landing page animation */
+    top: -2rem;
+    opacity: 0;
+}
+
+.greeting--job-title-container {
+    position: relative;
+    /* border: 1px solid white; */
+    overflow-x: hidden;
+}
+
+/* .scroll-watcher {
+    height: 10px;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: lime;
+    width: 100%;
+    scale: 0.5 1;
+    transform-origin: left;
+
+    animation: scroll-watcher linear;
+    animation-timeline: scroll();
+}
+
+@keyframes scroll-watcher {
+    to {scale: 1 1;}
+} */
