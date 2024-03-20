@@ -1,3 +1,7 @@
+.each-project-outermost-container {
+    cursor: pointer;
+}
+
 .each-project__header {
     text-align: left;
 }
@@ -146,8 +150,8 @@
     line-height: 4rem;
     mask: linear-gradient(to bottom, 
     rgba(0,0,0,0) 0%,
-    rgba(0,0,0,0.3) 25%,
-    rgba(0,0,0,1) 50%);
+    rgba(0,0,0,0.3) 45%,
+    rgba(0,0,0,1) 70%);
     /* border-radius: .8em; */
     /* background-image: linear-gradient(to bottom, transparent 0%, #ddd 100%); */
 }
@@ -188,15 +192,25 @@
     border-radius: .5rem;
 }
 
+.each-project-website-hidden-info {
+    object-fit: contain;
+    width: 100%;
+    max-height: 45vh;
+    /* border-radius: .5rem; */
+}
+
+.each-project-hidden-detail-safari-wrapper {
+    position: relative;
+    /* object-fit: contain; */
+    max-height: 50vh;
+    /* scale: 0.35; */
+}
+
 .each-project-hidden-info {
     position: relative;
     color: black;
     max-height: 4.5rem;
     transition: 0.3s;
-    /* mask-image: linear-gradient(to bottom, 
-    rgba(0,0,0,1) 0%,
-    rgba(0,0,0,1) 50%,
-    rgba(0,0,0,0) 80%); */
 }
 
 .each-project-hidden-info--expanded {
@@ -205,6 +219,7 @@
 
 .each-project-hidden-info h3 {
     font-weight: 600;
+    font-size: 1.5rem;
 }
 
 .each-project-hidden-info h5 {

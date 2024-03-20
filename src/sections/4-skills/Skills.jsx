@@ -94,15 +94,6 @@ export function Skills() {
 
         setMinimumHeight(ref.current.clientHeight.toString()+'px');
         window.addEventListener('resize', handleResize)
-
-        // gsap.timeline({scrollTrigger:{
-        //     trigger:'#skillsSection',
-        //     start: 'top 60%',
-        //     end: '20% 60%',
-        //     scrub: true,
-        //     markers: true
-        // }})
-        //     .fromTo('.uniLogo__hkustLogo', {width: '0%'}, {width: '100%'}, 0)
         
         gsap.timeline({scrollTrigger:{
             trigger:'#skillsSection',
@@ -114,14 +105,22 @@ export function Skills() {
         gsap.timeline({scrollTrigger: {
             trigger: '#Skills',
             start: 'top 75%',
-            end: 'top 50%',
+            end: 'top 40%',
             ease: 'power2',
-            scrub: 1,
-            // markers: true
+            scrub: 1
         }})
-            .fromTo('#projectsSection', {zIndex: 98, opacity: 1}, {zIndex: 0, opacity: 0}, 0)
+            .fromTo('#projectsSection', {opacity: 1}, {opacity: 0}, 0)
             // .fromTo('.App', {backgroundColor: 'black'}, {backgroundColor: 'rgb(226, 226, 226)'}, 0)
             .fromTo('#Skills', {opacity: 0, top: '-40vh'}, {opacity: 1, top: '-60vh' }, 0)
+        
+        gsap.timeline({scrollTrigger: {
+            trigger: '#Skills',
+            start: 'top 50%',
+            end: 'top 40%',
+            ease: 'power2',
+            scrub: 1
+        }})
+            .fromTo('#projectsSection', {zIndex: 98}, {zIndex: 0}, 0)    
         },[])
     
     useEffect(() => {
@@ -158,7 +157,8 @@ export function Skills() {
             defaultOrder.push(defaultOrder.shift())
         }
         setExpertiseOrder(defaultOrder);
-        setIsExpertiseLoop(false)
+        setIsExpertiseLoop(false);
+        
     }
 
     const loopManualToggle = () => {

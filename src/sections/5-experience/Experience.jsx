@@ -108,81 +108,6 @@ gsap.registerPlugin(ScrollTrigger);
 export const Experience = () => {
     const [componentForJobs, setComponentForJobs] = useState();
 
-    const generateRoleDetail = (companyName) => {
-        const thisJob = workingExperience[companyName].positions[0]
-        return (
-            <ol className='each-company-single-job-role-description'>
-                {thisJob.description}
-            </ol>
-        )
-    }
-
-    const generateCompanyShortDetail = (companyName) => {
-        const jobsInCompany = workingExperience[companyName].positions
-        const thisCompany = workingExperience[companyName]
-        if (jobsInCompany.length > 1) {
-            // short detail for multiple jobs in the company
-            return (
-                <div className='each-company-short-detail text-start'>
-                    <p className='each-company-short-detail__title'>{companyName}</p>
-                    <p className='each-company-short-detail__normal'>{thisCompany.location}</p>
-                    <p className='each-company-short-detail__normal'>
-                        <span>{thisCompany.duration}</span>
-                        <span> • </span>
-                        <span>{thisCompany.durationCount}</span>
-                    </p>
-                </div>
-            )
-        } else {
-            // short detail for 1 job in the company
-            const thisJob = jobsInCompany[0];
-            return (
-                <div className='each-company-short-detail text-start'>
-                    <p className='each-company-short-detail__title'>{thisJob.title}</p>
-                    <p className='each-company-short-detail__normal'>
-                        <span>{companyName}</span>
-                        <span> • </span>
-                        <span>{thisCompany.location}</span>
-                    </p>
-                    <p className='each-company-short-detail__normal'>
-                        <span>{thisJob.duration}</span>
-                        <span> • </span>
-                        <span>{thisJob.durationCount}</span>
-                    </p>
-                    {/* <p className='each-company-short-detail__role pt-3'>
-                        {thisJob.description}
-                    </p> */}
-                </div>
-            )
-        }
-    }
-
-    const generatePositions = (companyName) => {
-        const jobsInCompany = workingExperience[companyName].positions
-        if (jobsInCompany.length > 1) {
-            const thisCompany = workingExperience[companyName]
-            let tempWorkingExperienceComponent = [];
-            jobsInCompany.forEach(position => {
-                tempWorkingExperienceComponent.push(
-                    <li class="timeline-item mb-5 text-start">
-                        <span class="timeline-icon">
-                            <i class="fas fa-rocket text-primary fa-sm fa-fw w-25"></i>
-                        </span>
-                        
-                        <p class=" mb-0 fw-bold ps-4">{position.title}</p>
-                        <p class="each-company-multi-job__duration mb-2 ps-4">{position.duration}</p>
-                        <ol class="each-position-description">
-                            {position.description}
-                        </ol>
-                    </li>
-                )
-            })
-            return tempWorkingExperienceComponent;
-        } else {
-            return null
-        }
-    }
-
     const generateCompanyHistory = (companyName) => {
         if (workingExperience[companyName].positions.length>1) {
             return <MultiPosition companyName={companyName} thisCompany={workingExperience[companyName]}/>
@@ -200,8 +125,8 @@ export const Experience = () => {
 
         gsap.timeline({scrollTrigger: {
             trigger: '#experienceSection',
-            start: 'top 90%',
-            end: 'top 65%',
+            start: 'top 70%',
+            end: 'top 30%',
             ease: 'power2',
             scrub: 1,
             // markers: true
