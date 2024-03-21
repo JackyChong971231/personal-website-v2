@@ -9,10 +9,42 @@
     position: fixed;
 } */
 
-.contactMeForm > button {
+.send-email-btn {
+    position: relative;
     background-color: var(--darkGold);
     border: 0;
+    display: flex;
+    align-items: center;
 } 
+
+.message-sent-indicator {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: 1s;
+    height: 1.5rem;
+    max-width: 0px;
+    overflow: hidden;
+}
+
+.message-sent-indicator > img {
+    height: 1.5rem;
+}
+
+.message-sent-indicator > p {
+    line-height: 1.5rem;
+    margin: 0;
+    font-size: 0.7rem;
+    color: rgb(22, 255, 22);
+    /* padding-left: 0.5rem; */
+}
+
+.message-sent-indicator--show {
+    max-width: 100vw;
+    padding-left: 1rem;
+    padding-right: 0.5rem;
+}
 
 .ContactMeContainer {
     position: relative;
