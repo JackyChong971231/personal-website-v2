@@ -160,6 +160,7 @@ export function AboutMe() {
 
     useEffect(() => {        
         recordUserData(); // add a record in database
+        console.log(process.env.SERVER_LOCATION)
         // getGeolocation();
 
         gsap.timeline({scrollTrigger:{
