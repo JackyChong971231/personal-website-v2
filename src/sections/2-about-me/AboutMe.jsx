@@ -157,10 +157,15 @@ export function AboutMe() {
         // console.log('function called');
     }
 
+    useEffect(async() => {
+        console.log(process.env.REACT_APP_LOCATION)
+        const response = await fetch('https://w7vdsordvd.execute-api.us-east-1.amazonaws.com/dev',
+        {method: 'POST'})
+        console.log(response.json())
+    },[])
 
     useEffect(() => {        
         recordUserData(); // add a record in database
-        console.log(process.env.REACT_APP_LOCATION)
         // getGeolocation();
 
         gsap.timeline({scrollTrigger:{
