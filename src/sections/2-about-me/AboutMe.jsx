@@ -158,12 +158,12 @@ export function AboutMe() {
         // console.log('function called');
     }
 
-    useEffect(async() => {
-        console.log(process.env.REACT_APP_LOCATION)
-        const response = await fetch('https://w7vdsordvd.execute-api.us-east-1.amazonaws.com/dev/initial-visit',
-        {method: 'POST'})
-        console.log(response.json())
-    },[])
+    // useEffect(async() => {
+    //     console.log(process.env.REACT_APP_LOCATION)
+    //     const response = await fetch('https://w7vdsordvd.execute-api.us-east-1.amazonaws.com/dev/initial-visit',
+    //     {method: 'POST'})
+    //     console.log(response.json())
+    // },[])
 
     useEffect(() => {   
         if (process.env.REACT_APP_LOCATION === 'amplify') {
