@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import ikeaCloneImg from '../../assets/images/3-projects/screenshot-ikea-clone.png';
 import personalWebsiteImg from '../../assets/images/3-projects/screenshot-personal-website.png';
 import fypImg from '../../assets/images/3-projects/screenshot-fyp.jpg';
-import elec3300Img from '../../assets/images/3-projects/sEMG-based-gesture-recognition.JPG';
+import elec3300Img from '../../assets/images/3-projects/sEMG-based-gesture-recognition.png';
 import vscodeBg from '../../assets/images/3-projects/vscode.jpg';
 import vscodeLineRight from '../../assets/images/3-projects/vscode1.png';
 import vscodeLineLeft from '../../assets/images/3-projects/vscode2.png';
