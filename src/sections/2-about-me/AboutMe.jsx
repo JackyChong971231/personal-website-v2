@@ -159,7 +159,7 @@ export function AboutMe() {
 
     useEffect(async() => {
         console.log(process.env.REACT_APP_LOCATION)
-        const response = await fetch('https://w7vdsordvd.execute-api.us-east-1.amazonaws.com/dev',
+        const response = await fetch('https://w7vdsordvd.execute-api.us-east-1.amazonaws.com/dev/initial-visit',
         {method: 'POST'})
         console.log(response.json())
     },[])
