@@ -19,6 +19,7 @@ import axios from "axios";
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SectionHeader } from '../../components/section-header/sectionHeader';
+import { recordInitialVisit } from '../../service/aws/visitRecordService';
 gsap.registerPlugin(ScrollTrigger);
 
 const POST      = 'POST';
@@ -164,8 +165,12 @@ export function AboutMe() {
         console.log(response.json())
     },[])
 
-    useEffect(() => {        
-        recordUserData(); // add a record in database
+    useEffect(() => {   
+        if (process.env.REACT_APP_LOCATION === 'amplify') {
+            recordInitialVisit()
+        } else if (process.env.REACT_APP_LOCATION === 'vm') {
+            recordUserData(); // add a record in database
+        }  
         // getGeolocation();
 
         gsap.timeline({scrollTrigger:{
