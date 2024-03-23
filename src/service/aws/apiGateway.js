@@ -9,6 +9,7 @@ export async function apiGateway(method, endPoint, requestBody = null) {
         method: method,
         body: JSON.stringify(requestBody)
     })
+    console.log(response);
     const body = await response.json();
     return body;
 }
