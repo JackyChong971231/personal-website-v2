@@ -9,19 +9,24 @@ const getFromIp = async () => {
     return res.data.ip;
 }
 export async function recordInitialVisitVM() {
-    const userIp = await getFromIp();
-    let vistRecordRequest = { // for database
-        ipAddr: null,
-        enterTime: null,
-        geolocation: '',
-        connectionType: '',
-        organizationName: ''
+    const storedVisitId = localStorage.getItem('visitId');
+    if (storedVisitId === null) {
+        const userIp = await getFromIp();
+        let vistRecordRequest = { // for database
+            ipAddr: null,
+            enterTime: null,
+            geolocation: '',
+            connectionType: '',
+            organizationName: ''
+        }
+        vistRecordRequest.ipAddr = userIp;
+        vistRecordRequest.enterTime = new Date().toISOString().slice(0, 19).replace("T", " ");
+        const response = await apiGateway('POST', endPoint + "/add", vistRecordRequest);
+        const visitRecordID = response.data.personalWebsiteHttpRequestId;
+        localStorage.setItem('visitId', visitRecordID);
+    } else {
+        console.log(`visitId is found in localStorage: ${storedVisitId}`)
     }
-    vistRecordRequest.ipAddr = userIp;
-    vistRecordRequest.enterTime = new Date().toISOString().slice(0, 19).replace("T", " ");
-    const response = await apiGateway('POST', endPoint + "/add", vistRecordRequest);
-    const visitRecordID = response.data.personalWebsiteHttpRequestId;
-    localStorage.setItem('visitId', visitRecordID);
 }
 
 
