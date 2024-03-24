@@ -19,7 +19,8 @@ import axios from "axios";
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SectionHeader } from '../../components/section-header/sectionHeader';
-import { recordInitialVisit } from '../../service/aws/visitRecordService';
+import { recordInitialVisitAWS } from '../../service/aws/visitRecordService';
+import { recordInitialVisitVM, updateVisitRecordVM } from '../../service/vm/visitRecordService';
 gsap.registerPlugin(ScrollTrigger);
 
 const POST      = 'POST';
@@ -128,16 +129,6 @@ export function AboutMe() {
         vistRecordRequest.ipAddr = userIp;
         vistRecordRequest.enterTime = startTime;
         getGeolocation();
-        // const ipInfo = await getIpLocationInfo(userIp); // api max usage reached
-        // const vistRecordRequest = { // api max usage reached
-        //     ipAddr: userIp,
-        //     enterTime: startTime,
-        //     geolocation: ipInfo.city + ', ' + ipInfo.country + ', ' + ipInfo.postal_code,
-        //     connectionType: String(ipInfo.connection.connection_type),
-        //     organizationName: String(ipInfo.connection.organization_name)
-        // }
-        // const response = await apiGateway(POST, endPoint + "/add", vistRecordRequest);
-        // visitRecordID = response.data.personalWebsiteHttpRequestId;
     }
 
     const getFromIp = async () => {
@@ -158,19 +149,13 @@ export function AboutMe() {
         // console.log('function called');
     }
 
-    // useEffect(async() => {
-    //     console.log(process.env.REACT_APP_LOCATION)
-    //     const response = await fetch('https://w7vdsordvd.execute-api.us-east-1.amazonaws.com/dev/initial-visit',
-    //     {method: 'POST'})
-    //     console.log(response.json())
-    // },[])
-
     useEffect(() => {  
         // console.log(process.env.REACT_APP_LOCATION); 
         if (process.env.REACT_APP_LOCATION === 'amplify') {
-            recordInitialVisit()
+            recordInitialVisitAWS()
         } else if (process.env.REACT_APP_LOCATION === 'vm') {
-            recordUserData(); // add a record in database
+            // recordUserData(); // add a record in database
+            recordInitialVisitVM()
         }  
         // getGeolocation();
         // recordInitialVisit();
@@ -179,7 +164,8 @@ export function AboutMe() {
             trigger:'.about-me__container',
             start: 'top 70%',
             end: 'bottom 30%',
-            onEnter: updateVisitRecord,
+            // onEnter: updateVisitRecord,
+            onEnter: updateVisitRecordVM,
             scrub: 1,
         }})
             .fromTo('.AboutMeBg', {y: -100, ease: 'none'}, {y: 0}, 0)

@@ -1,6 +1,6 @@
 import { apiGateway } from "./apiGateway";
 
-export async function recordInitialVisit() {
+export async function recordInitialVisitAWS() {
     const storedVisitId = localStorage.getItem('visitId');
     if (storedVisitId === null) {
         const responseBody = await apiGateway('POST', '/initial-visit');
