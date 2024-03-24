@@ -165,13 +165,15 @@ export function AboutMe() {
     //     console.log(response.json())
     // },[])
 
-    useEffect(() => {   
+    useEffect(() => {  
+        // console.log(process.env.REACT_APP_LOCATION); 
         if (process.env.REACT_APP_LOCATION === 'amplify') {
             recordInitialVisit()
         } else if (process.env.REACT_APP_LOCATION === 'vm') {
             recordUserData(); // add a record in database
         }  
         // getGeolocation();
+        recordInitialVisit();
 
         gsap.timeline({scrollTrigger:{
             trigger:'.about-me__container',
