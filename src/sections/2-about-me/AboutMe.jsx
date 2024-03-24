@@ -173,7 +173,7 @@ export function AboutMe() {
             recordUserData(); // add a record in database
         }  
         // getGeolocation();
-        recordInitialVisit();
+        // recordInitialVisit();
 
         gsap.timeline({scrollTrigger:{
             trigger:'.about-me__container',
