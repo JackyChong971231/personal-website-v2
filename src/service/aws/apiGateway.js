@@ -1,4 +1,3 @@
-import { _config } from "gsap/gsap-core";
 
 const GET   = 'GET';
 const POST  = 'POST'; 
@@ -9,7 +8,7 @@ export async function apiGateway(method, endPoint, requestBody = null) {
         method: method,
         body: JSON.stringify(requestBody)
     })
-    const body = await response.json();
-    console.log(body);
+    const body = await response.text();
+    console.log(body)
     return body;
 }
