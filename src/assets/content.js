@@ -128,10 +128,10 @@ export const ExperienceContent = {
                 duration: 'Sep 2023 - Present',
                 durationCount: '6 mos',
                 description: [
-                // <li>Provided personalized computing advice and driving sales with proven customer satisfaction</li>,
-                <li>Offered <mark class='gold'>personalized guidance</mark>, explaining features, specifications, and benefits to customers, empowering them to maximize the potential of their computing devices</li>,
-                <li>Demonstrated in-depth product knowledge for effective <mark class='gold'>upselling and cross-selling</mark> of computing devices and accessories</li>,
-                ]
+                    // <li>Offered <mark class='gold'>personalized guidance</mark>, explaining features, specifications, and benefits to customers, empowering them to maximize the potential of their computing devices</li>,
+                    // <li>Demonstrated in-depth product knowledge for effective <mark class='gold'>upselling and cross-selling</mark> of computing devices and accessories</li>,
+                    <li>Offering personalized guidance, upselling and cross-selling computing devices, accessories and Best Buy services</li>
+            ]
             }
         ]
     },
@@ -147,10 +147,15 @@ export const ExperienceContent = {
                 duration: 'Jun 2022 - Apr 2023',
                 durationCount: '11 mos',
                 description: [
-                <li>Developed and presented a <mark class='gold'>Proof-of-Concept program</mark> to demonstrate the <mark class='gold'>blockchain</mark>'s potential in optimizing the Loan Application Process across 3 famous financial institution</li>,
-                <li>Managed the <mark class='gold'>WhatsApp Business API (WABA)</mark> and its <mark class='gold'>Django-based Backend Server</mark>, ensuring its consistent and optimal performance by adding user-requested functions, diagnosing cross-server technical issues, and resolving bugs from WABA version incompatibility and Meta errors</li>,
-                <li>Led <mark class='gold'>On-Premises to Cloud API migration</mark> for <mark class='gold'>WhatsApp Business API</mark> and its <mark class='gold'>backend server</mark>, guiding vendors and users in project scope, requirements, contracts, and risk assessments for compliance</li>,
-                <li>Enhanced functionalities within a <mark class='gold'>Java-based Customer Data Platform</mark> using <mark class='gold'>Spring Boot</mark>, contributing to system refinement</li>]
+                    // <li>Developed and presented a <mark class='gold'>Proof-of-Concept program</mark> to demonstrate the <mark class='gold'>blockchain</mark>'s potential in optimizing the Loan Application Process across 3 famous financial institution</li>,
+                    // <li>Managed the <mark class='gold'>WhatsApp Business API (WABA)</mark> and its <mark class='gold'>Django-based Backend Server</mark>, ensuring its consistent and optimal performance by adding user-requested functions, diagnosing cross-server technical issues, and resolving bugs from WABA version incompatibility and Meta errors</li>,
+                    // <li>Led <mark class='gold'>On-Premises to Cloud API migration</mark> for <mark class='gold'>WhatsApp Business API</mark> and its <mark class='gold'>backend server</mark>, guiding vendors and users in project scope, requirements, contracts, and risk assessments for compliance</li>,
+                    // <li>Enhanced functionalities within a <mark class='gold'>Java-based Customer Data Platform</mark> using <mark class='gold'>Spring Boot</mark>, contributing to system refinement</li>]
+                    <li>Designed, developed and launched a <mark class='gold'>Hyperledger Fabric blockchain solution</mark>, achieving a remarkable reduction in <mark class='gold'>loan application processing time from 1 week to just 15 minutes</mark> across 3 leading financial institutions in Hong Kong</li>,
+                    <li>Managed the development, deployment and maintenance of <mark class='gold'>40 WhatsApp Business APIs</mark> and <mark class='gold'>Django-based Backend Server, handling 120k monthly messages with 48% year-over-year growth</mark>, ensuring smooth operation of Document Upload Tool for loan applications</li>,
+                    <li>Led <mark class='gold'>end-to-end cloud migration for WhatsApp Document Upload Tool from On-Premises WhatsApp Business API to Cloud-API & Django Server to AWS Lambda</mark>, improving stability, reducing maintenance and upgrade complexity, and paving the way for seamless scalability and integration with 2 new systems</li>,
+                    <li>Implemented <mark class='gold'>Strapi, a headless Content Management System (CMS)</mark> for the Spring Boot Customer Data Platform to <mark class='gold'>reduce content management operations from 50 to 30 for over 200+ pieces of content</mark>, enabling streamlined content management and distribution for programmatic advertising and digital marketing across platforms</li>
+            ]
             }
         ]
     },
@@ -167,10 +172,14 @@ export const ExperienceContent = {
                 duration: 'Jul 2021 - June 2022',
                 durationCount: '11 mos',
                 description: [
-                <li>Designed, developed and tested <mark class='gold'>C/C++ software, embedded firmware and bootloaders</mark> for cutting-edge <mark class='gold'>400G & 800G optical transceivers</mark></li>,
-                <li style={{paddingLeft: '10%'}}>PMIC, design and develop drivers for I2C, SRAM, SDRAM, ADCs, Flash, GPIOs, ISR and peripheral ICs like TIA, CDRs</li>,
-                <li>Developed and upheld the proprietary <mark class='gold'>Firmware Upload Software - PyQt5 GUI</mark></li>,
-                <li>Collaborated with cross-functional teams, including testing, hardware, and chip vendors, to validate hardware and support technical leads in architecture discussions and design tradeoffs</li>]
+                    // <li>Designed, developed and tested <mark class='gold'>C/C++ software, embedded firmware and bootloaders</mark> for cutting-edge <mark class='gold'>400G & 800G optical transceivers</mark></li>,
+                    // <li style={{paddingLeft: '10%'}}>PMIC, design and develop drivers for I2C, SRAM, SDRAM, ADCs, Flash, GPIOs, ISR and peripheral ICs like TIA, CDRs</li>,
+                    // <li>Developed and upheld the proprietary <mark class='gold'>Firmware Upload Software - PyQt5 GUI</mark></li>,
+                    // <li>Collaborated with cross-functional teams, including testing, hardware, and chip vendors, to validate hardware and support technical leads in architecture discussions and design tradeoffs</li>]
+                    <li>Designed and developed <mark class='gold'>firmware and bootloaders in C</mark> for the manufacturing of 400G & 800G optical transceivers. This includes integration with PMIC, design and develop drivers for I2C, SRAM, SDRAM, ADCs, Flash, GPIOs, ISR and peripheral ICs like TIA, CDRs</li>,
+                    <li>Developed and maintained the proprietary <mark class='gold'>Firmware Upload Software PyQt5 GUI</mark> ensuring the smooth firmware upgrade between the bootloader and switch/ computer <mark class='gold'>for 30+ test engineers and production workers, and 10+ clients</mark></li>,
+                    <li>Collaborated with cross-functional teams, including 20+ test engineers, 8 PCB design engineers, and 2 chip vendors, to validate hardware and support technical leads in architecture discussions and design tradeoffs</li>,
+                ]
             },
             {
                 title: 'Optical Product Engineer',
@@ -178,10 +187,14 @@ export const ExperienceContent = {
                 duration: 'June 2020 - Jul 2021',
                 durationCount: '1 yr 3 mos',
                 description: [
-                <li>Developed a Python based <mark class='gold'>Hardware Diagnostic GUI (PyQt5)</mark> and testing software for automated firmware verification, products evaluation and demo</li>,
-                <li style={{paddingLeft: '10%'}}><mark class='gold'>GUI (mainly PyQt5 and Tkinter)</mark> for different types of projects and automation programmes for firmware verification</li>,
-                <li>Conducted diverse <mark class='gold'>PCB Flying Probe tests</mark> and failure and data analysis for design and yield improvement</li>,
-                <li>Collaborated with PCB and Firmware Design Engineers to optimize designs for production and ensure compatibility with chips & components</li>]
+                    // <li>Developed a Python based <mark class='gold'>Hardware Diagnostic GUI (PyQt5)</mark> and testing software for automated firmware verification, products evaluation and demo</li>,
+                    // <li style={{paddingLeft: '10%'}}><mark class='gold'>GUI (mainly PyQt5 and Tkinter)</mark> for different types of projects and automation programmes for firmware verification</li>,
+                    // <li>Conducted diverse <mark class='gold'>PCB Flying Probe tests</mark> and failure and data analysis for design and yield improvement</li>,
+                    // <li>Collaborated with PCB and Firmware Design Engineers to optimize designs for production and ensure compatibility with chips & components</li>]
+                    <li>Developed a <mark class='gold'>Python-based Hardware Diagnostic GUI (PyQt5) and testing software</mark>, empowering <mark class='gold'>30+ test engineers and production workers</mark> to conduct comprehensive firmware verification and product evaluation</li>,
+                    <li>Conducted diverse <mark class='gold'>PCB Flying Probe tests</mark> and failure and data analysis for design and yield improvement of 400G & 800G optical transceivers, improving the Bit Error Rate from ^-6 to ^-12, error-free, for PAM-4 and NRZ signal</li>,
+                    <li>Collaborated with PCB and Firmware Design Engineers to optimize designs for production and ensure compatibility with chips & components</li>,
+                ]
             }
         ]
     },
@@ -197,10 +210,10 @@ export const ExperienceContent = {
                 duration: 'Jul 2019 - Aug 2019',
                 durationCount: '2 mos',
                 description: [
-                <li>Participated in studying the concepts behind some design schematics and operation theories</li>,
-                <li>Control System, Generation Plant Power Supply Distribution, Transmission Substations Design and Network etc</li>,
-                <li>Studied and verified the cybersecurity measures done on the newly built HKE Lamma Unit 10</li>,
-                <li style={{paddingLeft: '10%'}}>NERC-CIP Standard Comparison</li>]
+                    <li>Participated in studying the concepts behind some design schematics and operation theories</li>,
+                    <li>Control System, Generation Plant Power Supply Distribution, Transmission Substations Design and Network etc</li>,
+                    <li>Studied and verified the cybersecurity measures done on the newly built HKE Lamma Unit 10 - NERC-CIP Standard Comparison</li>
+                ]
             }
         ]
     }
