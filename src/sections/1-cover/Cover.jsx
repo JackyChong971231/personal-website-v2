@@ -9,16 +9,11 @@ import React, { useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import { CoverContent } from "../../assets/content.js";
+
 gsap.registerPlugin(ScrollTrigger);
 
 export function Cover({setNavbarInUsed}) {
-    const CoverContent = {
-      'Title': 'Software Engineer',
-      // 'LittleBio': 'Previously worked in a FinTech Innovation Team in a Financial Institution, my expertise is to adhere to the Software Development Life Cycle to build secure, scalable and efficient applications.'
-      // 'LittleBio': "I'm a tech enthusiast and software engineer with a knack for building secure, scalable applications. From coding to problem-solving, I love diving into the dynamic world of software development, bringing ideas to life!"
-      'LittleBio': "I develop end-to-end software solutions, handling frontend, backend, database, and deployment within the software development life cycle."
-    };
-
     useEffect(() => {
 
       gsap.to('.greeting--name', {left: '0rem', opacity: '1', duration: 2});
@@ -41,37 +36,6 @@ export function Cover({setNavbarInUsed}) {
         }, 
       });
       
-
-      // gsap.fromTo(".CoverProPic", {
-      //   opacity: 1,
-      // },
-      // {
-      //   opacity: 0,
-      //   ease: "linear",
-      //   scrollTrigger: {
-      //     trigger: ".outerCover",
-      //     start: "top top", // the default values
-      //     end: "bottom top",
-      //     scrub: true,
-      //     // markers: true
-      //   }, 
-      // });
-
-      // gsap.fromTo(".outerCover", {
-      //   opacity: 1,
-      // },
-      // {
-      //   opacity: 0,
-      //   ease: "linear",
-      //   scrollTrigger: {
-      //     trigger: ".outerCover",
-      //     start: "bottom bottom", // the default values
-      //     end: "bottom 70%",
-      //     scrub: true,
-      //     // markers: true
-      //   }, 
-      // });
-
       gsap.timeline({scrollTrigger:{
         trigger:'.outerCover',
         start: "bottom bottom", // the default values

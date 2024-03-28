@@ -20,6 +20,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SectionHeader } from '../../components/section-header/sectionHeader';
+
+import { SkillsContent } from "../../assets/content.js";
 gsap.registerPlugin(ScrollTrigger);
 
 const expertise = {
@@ -239,7 +241,7 @@ export function Skills() {
                             <div class="row justify-content-center"
                             onMouseEnter={pauseExpertiseLoop}
                             onMouseLeave={startExpertiseLoop}>
-                                {Object.keys(expertise).map((eachExpertise, index) => (
+                                {Object.keys(SkillsContent).map((eachExpertise, index) => (
                                     <div class="col-6 col-md-3 col-xl-2 p-3">
                                         <div key={index} class={(eachExpertise===expertiseOrder[0]) ? 
                                             "each-expertise each-expertise--hover p-2 pb-0 h-100" :
@@ -247,7 +249,7 @@ export function Skills() {
                                             }
                                             onMouseOver={() => viewExpertise(eachExpertise)} 
                                             onClick={() => viewExpertise(eachExpertise)}>
-                                            <img class="expertiseIcon p-3" src={expertise[eachExpertise]['logo']}></img>
+                                            <img class="expertiseIcon p-3" src={SkillsContent[eachExpertise]['logo']}></img>
                                             <p class="">{eachExpertise}</p>
                                         </div>
                                     </div>
@@ -256,7 +258,7 @@ export function Skills() {
                                     <p><large>{expertiseOrder[0]}</large></p>
                                     <h2>Achievements</h2>
                                     <div class="expertiseDescriptionContainer pb-1" ref={ref} style={{ minHeight: minimumHeight }}>
-                                        {expertise[expertiseOrder[0]]['achievements'].map((eachAchievement, index) => (
+                                        {SkillsContent[expertiseOrder[0]]['achievements'].map((eachAchievement, index) => (
                                             <div className='row'>
                                                 <p className='col-1'>&#10070;</p>
                                                 <p className='col-11' align="justify" key={index}><small>{eachAchievement}</small></p>

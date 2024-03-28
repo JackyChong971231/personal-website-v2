@@ -21,6 +21,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SectionHeader } from '../../components/section-header/sectionHeader';
 import { recordInitialVisitAWS } from '../../service/aws/visitRecordService';
 import { recordInitialVisitVM, updateVisitRecordVM } from '../../service/vm/visitRecordService';
+
+import { AboutMeContent } from "../../assets/content.js";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const POST      = 'POST';
@@ -29,136 +32,18 @@ const GET       = "GET";
 // const serverUrl = process.env.REACT_APP_SERVER_IP || 'http://137.184.166.60:8080';
 // const serverUrl = process.env.REACT_APP_SERVER_IP || 'http://localhost:8080';
 // const serverUrl = 'http://localhost:8080'; // testing
-const serverUrl = 'http://137.184.166.60:8080';
-const endPoint = "/api/v1/personal-website/http-request"
+// const serverUrl = 'http://137.184.166.60:8080';
+// const endPoint = "/api/v1/personal-website/http-request"
 
-const apiGateway = async (method, endPoint, requestBody) => {
-    // console.log(JSON.stringify(requestBody));
-    const response = await fetch(serverUrl + endPoint, {
-        method: method,
-        mode: 'cors',
-        credentials: 'include',
-        headers: { 
-            'Content-Type': 'application/json', 
-            'Connection': 'keep-alive', 
-            'Access-Control-Allow-Origin': "*",
-            'Origin': 'http://192.168.56.1:3000' // testing 
-            // 'Origin': 'http://137.184.166.60:5000' 
-        },
-        body: (method !== GET)? JSON.stringify(requestBody): null
-    })
-    const body = await response.json();
-    return body;
-}
+
 
 export function AboutMe() {
-    const [fromIp, setFromIp] = useState();
-    const [startTime, setStartTime] = useState(new Date().toISOString().slice(0, 19).replace("T", " "));
-    // const [visitRecordID, setVisitRecordID] = useState(); // for database
-    let visitRecordID = null; // for database
-    let vistRecordRequest = { // for database
-        ipAddr: null,
-        enterTime: null,
-        geolocation: '',
-        connectionType: '',
-        organizationName: ''
-    }
-    const AboutMeContent = {
-        Title: 'Software Engineer',
-        Workplace: 'Canada',
-        Bio: <p>I specialize in implementing the <mark class='black bold'>Software Development Life Cycle</mark> for secure, scalable applications, handling <mark class='black bold'>frontend, backend, database and deployment</mark>. With experience in working in a financial institution, I prioritize industry standards, delivering top-notch solutions using cutting-edge tools.<br/><br/><mark class='black bold'>Coding isn't just a job; it's my passion. Teaching a computer to think like humans thrills me.</mark> I'm committed to staying updated with advancements, crafting high-quality, evolving code.</p>,
-        AboutMeObject: {
-            Birthday: <div class="col-8">31 Dec 1997</div>,
-            Age: <div class="col-8">26 Years Old</div>,
-            Phone: <a href="tel:+1-437-660-0469" class="col-8">+1 (437) 660-0469</a>,
-            Email: <a href="mailto:kinyechong@outlook.com" class="col-8">kinyechong@outlook.com</a>
-        }
-    }
-
-    const ContactPoint = {
-        Instagram:  {icon: faInstagram, url: "https://www.instagram.com/cggyee"},
-        LinkedIn:   {icon: faLinkedin,  url: "https://www.linkedin.com/in/jacky-chong-kin-ye"}
-    }
-
-    var options = {
-        enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 0,
-    };
-
-    async function success(pos) {
-        var crd = pos.coords;
-        // console.log("Your current position is:");
-        // console.log(`Latitude : ${crd.latitude}`);
-        // console.log(`Longitude: ${crd.longitude}`);
-        // console.log(`More or less ${crd.accuracy} meters.`);
-        // console.log(vistRecordRequest)
-        vistRecordRequest.geolocation = `Latitude: ${crd.latitude}; Longtitude: ${crd.longitude} within ${crd.accuracy} meters`;
-        const response = await apiGateway(POST, endPoint + "/add", vistRecordRequest);
-        visitRecordID = response.data.personalWebsiteHttpRequestId;
-    }
-    
-    async function errors(err) {
-        // console.warn(`ERROR(${err.code}): ${err.message}`);
-        const response = await apiGateway(POST, endPoint + "/add", vistRecordRequest);
-        visitRecordID = response.data.personalWebsiteHttpRequestId;
-        // return {latitude: null, longitude: null}
-    }
-
-    const getGeolocation = async () => {
-        if (navigator.geolocation) {
-            const result = await navigator.permissions.query({ name: "geolocation" })
-
-            if (result.state === "granted") {
-                //If granted then you can directly call your function here
-                navigator.geolocation.getCurrentPosition(success, errors, options);
-            } else if (result.state === "prompt") {
-                //If prompt then the user will be asked to give permission
-                navigator.geolocation.getCurrentPosition(success, errors, options);
-            } else if (result.state === "denied") {
-                //If denied then you have to show instructions to enable location
-            }
-
-        } else {
-            console.log("Geolocation is not supported by this browser.");
-        }
-    }
-
-    const recordUserData = async () => {
-        const userIp = await getFromIp();
-        vistRecordRequest.ipAddr = userIp;
-        vistRecordRequest.enterTime = startTime;
-        getGeolocation();
-    }
-
-    const getFromIp = async () => {
-        const res = await axios.get("https://api.ipify.org/?format=json");
-        setFromIp(res.data.ip);
-        return res.data.ip;
-    }
-
-    const updateVisitRecord = async () => {
-        const endTime = new Date().toISOString().slice(0, 19).replace("T", " ");
-        const vistRecordUpdateRequest = {
-            personalWebsiteHttpRequestId: visitRecordID,
-            leaveTime: endTime
-        }
-        // console.log(vistRecordUpdateRequest);
-        const response = await apiGateway(POST, endPoint + "/update", vistRecordUpdateRequest);
-        // console.log(response);
-        // console.log('function called');
-    }
-
     useEffect(() => {  
-        // console.log(process.env.REACT_APP_LOCATION); 
         if (process.env.REACT_APP_LOCATION === 'amplify') {
             recordInitialVisitAWS()
         } else if (process.env.REACT_APP_LOCATION === 'vm') {
-            // recordUserData(); // add a record in database
             recordInitialVisitVM()
         }  
-        // getGeolocation();
-        // recordInitialVisit();
 
         gsap.timeline({scrollTrigger:{
             trigger:'.about-me__container',
@@ -202,7 +87,6 @@ export function AboutMe() {
                         </div>
                     </div>
                     <div className='about-me__inner-container col-12'>
-                        {/* <img class="AboutMeBg" src={AboutMeBg} ref={bgImgRef}></img> */}
                         <div class="row align-items-center">
                             <div className='about-me-text-container col-12 col-md-7'>
                                 <SectionHeader 
@@ -222,45 +106,6 @@ export function AboutMe() {
                                 <img class="about-me-img" src={propic}></img>
                             </div>
                         </div>
-                        {/* <div class="row my-5">
-                            <div class="row col-md-4 pt-md-4 mx-auto py-2">
-                                <div className='col-md-12 col-12 px-4'>
-                                    <img class="img-thumbnail rounded-circle t-50" src={propic}></img>
-                                </div>
-                                <div className='about-me-contact col-12 px-4 pt-4'>
-                                    <div><FontAwesomeIcon icon={faPhone} /><a href="tel:+1-437-660-0469" className="ps-3">+1 (437) 660-0469</a></div>
-                                    <div><FontAwesomeIcon icon={faEnvelope} /><a href="mailto:kinyechong@outlook.com" class="ps-3">kinyechong@outlook.com</a></div>
-                                </div>
-                            </div>
-                            <div class="col-md-8 py-md-0 py-3">
-                                <div class="row my-3 my-sm-0">
-                                    <div class="d-flex align-items-center">
-                                        {Object.keys(ContactPoint).map((eachApp)=>(
-                                            <a
-                                            class="btn btn-dark mx-1"
-                                            href={ContactPoint[eachApp].url}
-                                            target="_blank"
-                                            role="button">
-                                                <FontAwesomeIcon icon={ContactPoint[eachApp].icon} />
-                                            </a>
-                                        ))}
-                                        <a class="btn btn-dark mx-1" href={resume} target="_blank"> Download resume</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='col-12 px-4 border-2 border-top h-100'>
-                                <div class="row pt-2">
-                                    {Object.keys(AboutMeContent.AboutMeObject).map((fieldName)=>(
-                                        <div class="col-12 col-md-6">
-                                            <div class="row text-start my-1">
-                                                <div class="col-4 fw-bold">{fieldName}: </div>
-                                                {AboutMeContent.AboutMeObject[fieldName]}
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </div> */}
                     </div>
                 </div>
             </div>
