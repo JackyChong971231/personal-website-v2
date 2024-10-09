@@ -21,39 +21,11 @@ import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SectionHeader } from '../../components/section-header/sectionHeader';
 
-import { SkillsContent } from "../../assets/content.js";
+import { SkillsContent, CertificateContent, technicalSkillsContent } from "../../assets/content.js";
+
+import { EachCert } from './eachCert.jsx';
 gsap.registerPlugin(ScrollTrigger);
 
-const expertise = {
-    'Developer': {
-        logo: systemDeveloper,
-        achievements: [
-            'Designed and developed a Python PyQt 5 GUI-based Hardware Diagnostic UI to facilitate efficient collaboration among PCB Design Engineer, Firmware Design Engineer, and Test Engineer in optical transceiver manufacturing',
-            'Maintained Django Backend Server to handle thousands of messages from 40 WhatsApp Numbers on a daily basis'
-        ]
-    },
-    'Software Project Management': {
-        logo: projectManagement,
-        achievements: [
-            'Defined project scope, objectives, and approach for a blockchain project in close collaboration with business users and vendors',
-            'Led cloud migration for WhatsApp Business API, conducting security risk assessments and managing contract follow-up with compliance teams and suppliers',
-            'Introduced OCR technology to enhance the customer journey, following a successful tender evaluation process'
-        ]
-    },
-    'Embedded System Design': {
-        logo: firmware,
-        achievements: [
-            'Developed embedded firmware, and bootloaders for high-speed optical transceivers (400 Gbps/800 Gbps) using C/C++',
-            'Designed and maintained a Python PyQt 5 GUI-based proprietary Firmware Upload Software'
-        ]
-    },
-    'System Analysis & Solution Design': {
-        logo: solutionDesign,
-        achievements: [
-            'Communicated with vendors, developed a Proof of Concept program, and presented to the business users and finance team how Hyperledger Fabric Blockchain can be used to streamline the Loan Application Process while maintaining the beauty of the existing workflow'
-        ]
-    }
-}
 
 
 export function Skills() {
@@ -173,23 +145,18 @@ export function Skills() {
                 <img className='skills__bg__img' src={skillsBgImg}></img>
             </div>
             <div class="skills-outer-container mt-4">
-                {/* <div class="row skills py-5">
-                    <h5 class="px-4 pt-4" >“You can't connect the dots looking forward; you can only connect them looking backwards"</h5>
-                    <h5 class="text-end pt-2 px-4 pb-4" >Steve Jobs</h5>
-                    <p2><mark class="gold">This mindset is what keeps me hooked on learning</mark></p2>
-                </div> */}
                 <div class="row skills in no-gutters">
                     <div>
                         <div class="container px-4">
                             <div id="skillsSection" class="row">
                                 <div class="graduationImage px-3 col-12 col-md-6">
-                                    <p class="text-start pt-4 mb-0" style={{color: 'var(--gold)'}}>Qualitifaction</p>
+                                    <p class="text-start pt-4 mb-0" style={{color: 'var(--gold)'}}>Qualifaction</p>
                                     <h1 class="text-start pb-4" style={{ fontFamily: 'Times New Roman', fontWeight: 'bold' }}>Education</h1>
-                                        <div className='graduation__content__card'>
-                                            <div className='grad__cert grad__cert__outermost'>
-                                                <div className='grad__cert grad__cert__middle'>
-                                                    <div className='grad__cert grad__cert__innermost'>
-                                                
+                                    <div className='graduation__content__card'>
+                                        <div className='grad__cert grad__cert__outermost'>
+                                            <div className='grad__cert grad__cert__middle'>
+                                                <div className='grad__cert grad__cert__innermost'>
+                                            
                                                     <div className='uniLogo__container'>
                                                         <img className='uniLogo uniLogo__gradHat' src={graduation}></img>
                                                         <img className='uniLogo uniLogo__hkustLogo' src={ustLogo}></img>
@@ -201,19 +168,27 @@ export function Skills() {
                                             </div>
                                         </div>
                                     </div>
+                                    <h1 class="text-start py-4" style={{ fontFamily: 'Times New Roman', fontWeight: 'bold' }}>Licenses & certifications</h1>
+                                    <div className='certificates__container'>
+                                        {Object.keys(CertificateContent).map((eachCertificate, idx) => (
+                                            <EachCert eachCertTitle={eachCertificate} eachCertContent={CertificateContent[eachCertificate]} />
+                                        ))}
+                                    </div>
                                 </div>
-                                <div class="mySkills px-3 text-start col-12 col-md-6">
+                                <div class="mySkills px-3 text-start col-12 col-md-6 mt-5 mt-md-0">
                                 <p class="text-start pt-4 mb-0" style={{color: 'var(--gold)'}}>Computing</p>
                                     <h1 class="text-start pb-4" style={{ fontFamily: 'Times New Roman', fontWeight: 'bold' }}>My Skill</h1>
                                     <div class="row">
-                                        <div class="col-6">
-                                            <h4>Professionals</h4>
-                                            <ul class="" style={{listStylePosition: 'outside'}}>{professionalsComponent}</ul>
-                                        </div>
-                                        <div class="col-6">
-                                            <h4>Languages</h4>
-                                            <ul class="" style={{listStylePosition: 'outside'}}>{languagesComponent}</ul>
-                                        </div>
+                                        {Object.keys(technicalSkillsContent).map((eachSkillCategory, index) => (    
+                                            <div class="col-6 py-3">
+                                                <h4>{eachSkillCategory}</h4>
+                                                <ul className='m-0' style={{listStylePosition: 'outside', listStyleType: 'circle'}}>
+                                                    {Object.keys(technicalSkillsContent[eachSkillCategory].content).map((eachContent, idx) => (
+                                                        <li>{eachContent}</li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                             </div>

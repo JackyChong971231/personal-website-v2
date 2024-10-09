@@ -7,6 +7,8 @@ import projectManagement from './images/4-skills/projectManagement.png'
 import firmware from './images/4-skills/cpu.png'
 import solutionDesign from './images/4-skills/innovation.png'
 import systemDeveloper from './images/4-skills/systemDeveloper.png'
+import awsLogo from './images/4-skills/certLogo/amazon_web_services_logo.jpeg'
+import awsSaaC03CertPdf from './documents/aws-saa-c03-cert.pdf';
 
 import bestbuyLogo from './images/5-experience/best_buy_canada_logo.jpg';
 import pclLogo from './images/5-experience/pcl_logo.jpg';
@@ -83,6 +85,62 @@ export const ProjectsContent = [
         description: 'The project involves two key aspects: enabling the cart to autonomously follow us using ultrasonic sensors and implementing obstacle detection and avoidance mechanisms. Ultrasonic sensors placed strategically ensure the cart maintains a constant distance from us, while infrared sensors detect obstacles, prompting the cart to maneuver accordingly. Additionally, a bottom-mounted ultrasonic sensor detects potential emergencies, triggering alerts if necessary. Challenges include motor force limitations and managing interference among multiple sensors.'
     }
 ]
+
+export const CertificateContent = {
+    'AWS Certified Solutions Architect - Associate': {
+        logo: awsLogo,
+        issuedBy: 'Amazon Web Services (AWS)',
+        validity: 'Issued Oct 2024 · Expires Oct 2027',
+        link: 'https://www.credly.com/badges/c659357d-e228-4839-a8ed-2939f1f813aa/linked_in_profile',
+        document: awsSaaC03CertPdf
+    }
+}
+
+export const technicalSkillsContent = {
+    'AWS Cloud Computing': {
+        logo: null,
+        content: {
+            'Infrastructure Management': null,
+            'Identiity & Access Management': null,
+            'Serverless Computing': null,
+            'Networking & Security': null,
+            'Resilient & Scalable Architecture Design': null
+        }
+    },
+    'Full-Stack Development': {
+        logo: null,
+        content: {
+            'React.JS': null,
+            'Bootstrap': null,
+            'Spring Boot': null,
+            'Django': null,
+            'NodeJS': null,
+            'MySQL': null,
+            'PostgreSQL': null
+        }
+    },
+    'CI/CD & DevOps': {
+        logo: null,
+        content: {
+            'Git': null,
+            'JIRA': null,
+            'Jenkins': null,
+            'Docker': null,
+            'Linux OS': null
+        }
+    },
+    'Programming': {
+        logo: null,
+        content: {
+            'Python': null,
+            'JavaScript': null,
+            'HTML & CSS': null,
+            'Java': null,
+            'SQL': null,
+            'Shell Scripting': null,
+        }
+    }
+}
 
 export const SkillsContent = {
     'Developer': {

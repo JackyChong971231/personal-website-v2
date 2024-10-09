@@ -8,6 +8,7 @@ import propic from '../../assets/images/components/navbar/ProPic.jpg'
 import resume from '../../assets/documents/resume.pdf';
 import HKEReferenceLetter from '../../assets/documents/HKEReferenceLetter.pdf';
 import PCLReferenceLetter from '../../assets/documents/PCLReferenceLetter.pdf';
+import awsSaaC03Pdf from '../../assets/documents/aws-saa-c03-cert.pdf';
 
 import React, { useState, useEffect, useRef } from 'react';
 
@@ -59,7 +60,7 @@ export function NavBar({setNavbarInUsed}) {
                 {/* <!-- Container wrapper --> */}
                 <div class="container-fluid container-fluid--navbar">
                     {/* <!-- Toggle button --> */}
-                    <button
+                    {/* <button
                     class="navbar-toggler shadow-none border-0"
                     type="button"
                     data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -70,12 +71,12 @@ export function NavBar({setNavbarInUsed}) {
                     onBlur={topLeftNavBarOnBlurHandler}
                     >
                         <FontAwesomeIcon icon={isExpended? faXmark: faBars}/>
-                    </button>
+                    </button> */}
 
                     {/* <!-- Collapsible wrapper --> */}
-                    <div class={"collapse navbar-collapse " + (isExpended? "show": "")} id="navbarSupportedContent">
+                    {/* <div class={"collapse navbar-collapse " + (isExpended? "show": "")} id="navbarSupportedContent"> */}
                         {/* <!-- Left links --> */}
-                        <ul class="nav navbar-nav me-auto mb-2 mb-lg-0 text-start">
+                        {/* <ul class="nav navbar-nav me-auto mb-2 mb-lg-0 text-start">
                             <li class="nav-item mx-3">
                                 <a class="nav-link" style={{cursor: "pointer"}}
                                 data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
@@ -100,41 +101,45 @@ export function NavBar({setNavbarInUsed}) {
                                 onClick={() => navbarItemOnClickHandler("#ExperienceAnchor")}
                                 >Experience</a>
                             </li>
-                        </ul>
-                    </div>
+                        </ul> */}
+                    {/* </div> */}
 
+                    <div class="dropdown ms-3">
+                        <a
+                        class="text-reset me-3 dropdown-toggle hidden-arrow border-0"
+                        href="#"
+                        id="navbarDropdownMenuLink"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        onClick={docsOnClickHandler}
+                        onBlur={docsOnBlurHandler}
+                        >
+                        Docs
+                        {/* <span class="badge rounded-pill badge-notification bg-danger">1</span> */}
+                        </a>
+                            <ul className={'dropdown-menu ' + ((isDocsExpended)? 'show': '')}
+                            aria-labelledby="navbarDropdownMenuLink">
+                                <li>
+                                    <a class="dropdown-item" href={resume} target="_blank">Resume</a>
+                                </li>
+                                <li><hr class="dropdown-divider"/></li>
+                                <h6 class="dropdown-header">Certificates:</h6>
+                                <li>
+                                    <a class="dropdown-item" href={awsSaaC03Pdf} target="_blank"><small>AWS Certified Solutions Architect - Associate</small></a>
+                                </li>
+                                <h6 class="dropdown-header">Supervisor's Reference Letter from:</h6>
+                                <li>
+                                    <a class="dropdown-item" href={PCLReferenceLetter} target="_blank"><small>PrimeCredit Limited</small></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href={HKEReferenceLetter} target="_blank"Z><small>The Hongkong Electric Co., Ltd</small></a>
+                                </li>
+                            </ul>
+                    </div>
                     <div class="d-flex align-items-center">
 
                         <a class="text-reset me-3" href="#"><i class="fas fa-shopping-cart"></i></a>
-                        <div class="dropdown">
-                            <a
-                            class="text-reset me-3 dropdown-toggle hidden-arrow"
-                            href="#"
-                            id="navbarDropdownMenuLink"
-                            role="button"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                            onClick={docsOnClickHandler}
-                            onBlur={docsOnBlurHandler}
-                            >
-                            Docs
-                            {/* <span class="badge rounded-pill badge-notification bg-danger">1</span> */}
-                            </a>
-                                <ul className={'dropdown-menu '+((isExpended)? 'dropdown-menu-start ':'dropdown-menu-end ') + ((isDocsExpended)? 'show': '')}
-                                aria-labelledby="navbarDropdownMenuLink">
-                                    <li>
-                                        <a class="dropdown-item" href={resume} target="_blank">Resume</a>
-                                    </li>
-                                    <li><hr class="dropdown-divider"/></li>
-                                    <h6 class="dropdown-header">Supervisor's Reference Letter <br/>from:</h6>
-                                    <li>
-                                        <a class="dropdown-item" href={PCLReferenceLetter} target="_blank"><small>PrimeCredit Limited</small></a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href={HKEReferenceLetter} target="_blank"Z><small>The Hongkong Electric Co., Ltd</small></a>
-                                    </li>
-                                </ul>
-                        </div>
                         <a
                             class="btn"
                             href="#"
