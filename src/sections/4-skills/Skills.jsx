@@ -146,7 +146,7 @@ export function Skills() {
             </div>
             <div class="skills-outer-container mt-4">
                 <div class="row skills in no-gutters">
-                    <div>
+                    <div className='p-0 w-100 m-0'>
                         <div class="container px-4">
                             <div id="skillsSection" class="row">
                                 <div class="graduationImage px-3 col-12 col-md-6">

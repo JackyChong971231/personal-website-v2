@@ -73,36 +73,6 @@ export function NavBar({setNavbarInUsed}) {
                         <FontAwesomeIcon icon={isExpended? faXmark: faBars}/>
                     </button> */}
 
-                    {/* <!-- Collapsible wrapper --> */}
-                    {/* <div class={"collapse navbar-collapse " + (isExpended? "show": "")} id="navbarSupportedContent"> */}
-                        {/* <!-- Left links --> */}
-                        {/* <ul class="nav navbar-nav me-auto mb-2 mb-lg-0 text-start">
-                            <li class="nav-item mx-3">
-                                <a class="nav-link" style={{cursor: "pointer"}}
-                                data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
-                                onClick={() => navbarItemOnClickHandler("#ReturnToTopAnchor")}
-                                >About</a>
-                            </li>
-                            <li class="nav-item mx-3">
-                                <a class="nav-link" style={{cursor: "pointer"}}
-                                data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
-                                onClick={() => navbarItemOnClickHandler("#ProjectsAnchor")}
-                                >Projects</a>
-                            </li>
-                            <li class="nav-item mx-3">
-                                <a class="nav-link" style={{cursor: "pointer"}}
-                                data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
-                                onClick={() => navbarItemOnClickHandler("#SkillsAnchor")}
-                                >Skills</a>
-                            </li>
-                            <li class="nav-item mx-3">
-                                <a class="nav-link" style={{cursor: "pointer"}}
-                                data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
-                                onClick={() => navbarItemOnClickHandler("#ExperienceAnchor")}
-                                >Experience</a>
-                            </li>
-                        </ul> */}
-                    {/* </div> */}
 
                     <div class="dropdown ms-3">
                         <a
@@ -136,6 +106,36 @@ export function NavBar({setNavbarInUsed}) {
                                     <a class="dropdown-item" href={HKEReferenceLetter} target="_blank"Z><small>The Hongkong Electric Co., Ltd</small></a>
                                 </li>
                             </ul>
+                    </div>
+                    {/* <!-- Collapsible wrapper --> */}
+                    <div class={"collapse navbar-collapse " + (isExpended? "show": "")} id="navbarSupportedContent">
+                        {/* <!-- Left links --> */}
+                        {/* <ul class="nav navbar-nav me-auto mb-2 mb-lg-0 text-start">
+                            <li class="nav-item mx-3">
+                                <a class="nav-link" style={{cursor: "pointer"}}
+                                data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
+                                onClick={() => navbarItemOnClickHandler("#ReturnToTopAnchor")}
+                                >About</a>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <a class="nav-link" style={{cursor: "pointer"}}
+                                data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
+                                onClick={() => navbarItemOnClickHandler("#ProjectsAnchor")}
+                                >Projects</a>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <a class="nav-link" style={{cursor: "pointer"}}
+                                data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
+                                onClick={() => navbarItemOnClickHandler("#SkillsAnchor")}
+                                >Skills</a>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <a class="nav-link" style={{cursor: "pointer"}}
+                                data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
+                                onClick={() => navbarItemOnClickHandler("#ExperienceAnchor")}
+                                >Experience</a>
+                            </li>
+                        </ul> */}
                     </div>
                     <div class="d-flex align-items-center">
 
